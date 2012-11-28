@@ -1,0 +1,9 @@
+Preguntas sobre el Paper:
+1 Como hago en las imgenes del Codigo fuente.
+2 Como hago para incluir el ejemplo en el cual se basa la aplicacion de estudio en la que se aplico GWT, por que sino cito sobre ejemplos.
+De reunion 27/11/12:
+	No poner imagenes de Codigo fuente en el paper, se usan dagramas de secuencia o diagramas UML, el tema es que no entran.
+	Establecer bien el ejemplo, lo requerimientos a usar a lo largo del paper.
+	Los casos de usos deben estas mas resumidos.
+	Paper de los patrones utilizados 
+	Cambiar el Codigo Fuente por graficos UML se puede.

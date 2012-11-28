@@ -1,0 +1,92 @@
+TEORIA CON PONCIO:
+Puntos por hacer para la nueva presentacion
+8 PLAN FINANCIERO-ECONOMICO
+8.1 Modelo de Ingresos:
+8.2 Modelo de Egresos:
+8.3 Modelo de Inversión:
+8.4 Amortizaciones y Depreciaciones:
+8.5 Impuestos: Impuesto a las ganancias:
+8.6 Impuestos a los Ingresos Brutos:
+8.7 Remuneraciones y cargas sociales:
+8.8 Presupuesto Financiero:
+8.9 Evaluación de la Inversión:
+8.10 Escenarios de Riesgo:
+8.11 Plan de Contingencia:
+8.12 Plan de Salida:
+
+TFI: puntos de guia: 5 al 8
+
+
+
+DESCRIPCCION
+8 PLAN FINANCIERO-ECONOMICO
+Se determinará el flujo de caja o presupuesto financiero del proyecto
+para el horizonte temporal establecido, para lo cual se desarrollaran los
+presupuestos de Ingresos, Egresos e Inversión. A partir de esta
+información se realizarán los análisis financieros necesarios para conocer la
+rentabilidad del proyecto, que debería recoger, al menos, el Valor Actual
+Neto, la Tasa Interna de Retorno y el Periodo de Recupero de la
+Inversión.
+El plan financiero se completa con el análisis de los riesgos, que consiste
+en establecer un escenario optimista y otros dos pesimistas sobre las
+previsiones iniciales desarrolladas en el estudio financiero, y con la
+determinación de la rentabilidad del proyecto. De ser necesario se planteara
+un plan de contingencia y otro de salida.
+8.1 Modelo de Ingresos:
+Se proyectarán las unidades o cantidades de servicios, a ser vendidas y las
+estrategias de precio a adoptar. Es necesario realizar una “apertura teórica” de
+dichas ventas para estimar los períodos de cobranzas considerando sus plazos de
+atraso habituales que la empresa soporta. Ésta apertura permite determinar los
+montos netos a cobrar. Se debe descartar la utilización de plazos promedios porque
+carece de validez para realizar estimaciones financieras adecuadas. Cuando se habla
+de apertura teórica de las ventas es determinar del total de las ventas, cuánto
+corresponde a pago contado, cuánto a 30 días y cuanto a X días.
+8.2 Modelo de Egresos:
+Se encuentran divididos en costos de producción, costos de comercialización y
+ventas, y costos de administración. A su vez serán divididos en costos fijo y
+variable. Si el proyecto contemplara la contratación de una deuda bancaria, es
+necesario incluir un apartado de egresos por concepto de costos financieros.
+8.3 Modelo de Inversión:
+Se encuentra dividido en Activos fijos (Terreno, Edificios Hardware, Software,
+Redes, Vehículos, Herramientas, Maquinaria, Muebles y Útiles, Otros), Activos
+diferidos (Gastos de Instalación, Estudios Administrativos, Capacitación Personal,
+Constitución Legal, Otros) y Capital de trabajo.
+
+8.4 Amortizaciones y Depreciaciones:
+Para los efectos contables los activos fijos están sujetos a depreciación y los activos
+diferidos a la amortización, la cual afectará el resultado del Plan Financiero por su
+efecto sobre el cálculo de los impuestos. Se recomienda utilizar el método de la
+línea recta.
+8.5 Impuestos: Impuesto a las ganancias:
+Su presupuestación se basará en la efectiva erogación de fondos para dicho
+concepto, ya sea por el saldo determinado de la DDJJ o por los anticipos en período
+presupuestario.
+8.6 Impuestos a los Ingresos Brutos:
+Se calculara sobre las ventas netas y su porcentaje dependerá del tipo de actividad
+del negocio.
+8.7 Remuneraciones y cargas sociales:
+Este es otro de los módulos de información sobre los que se realiza la proyección
+financiera. La información deberá presentarse de acuerdo al presupuesto de ventas
+y producción, ya que ambos deciden la magnitud de las comisiones por ventas y una
+parte de la remuneración de los operarios. Esto incluye la necesidad de tener en
+cuenta la posible incorporación de personal; que la información muestre en forma
+separada las remuneraciones ajenas a los niveles de ventas y producción de aquellas
+que guardan directa relación.
+8.8 Presupuesto Financiero:
+Tomando en cuenta todo lo antes planteado, proyectar el flujo de caja, el cual
+presenta de una manera dinámica, el movimiento de entradas y salidas de efectivo
+del proyecto, en un período de tiempo determinado, y la situación de efectivo al
+final del mismo período. Se deberá calcular la Tasa de Corte del proyecto teniendo
+en cuenta las características del mismo.
+8.9 Evaluación de la Inversión:
+Ratios financieros: Se deben generar las siguientes medidas de rendimiento
+financiero: Punto de Equilibrio, Periodo de Repago de la Inversión, VAN y TIR.
+
+8.10 Escenarios de Riesgo:
+Plantear 3 (tres) escenarios teniendo en cuenta los potenciales riesgos que enfrenta
+el proyecto. Se evaluara a partir de los resultados obtenidos, la fortaleza del
+proyecto.
+8.11 Plan de Contingencia:
+Planteo de un plan para reestructurar financieramente un escenario adverso.
+8.12 Plan de Salida:
+Determinación de un plan de salida para una contingencia insalvable del proyecto.
