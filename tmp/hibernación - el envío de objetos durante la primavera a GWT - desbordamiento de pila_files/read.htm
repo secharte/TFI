@@ -1,0 +1,24 @@
+
+<!-- saved from url=(0182)https://stackauth.com/auth/global/read?request=ountul2L%2BwzfGVDDdxhdsoMmTIkqClWBrPbFGVmJAZZt%2FCXhr2ap1B7wnLRdscErYbBQG6du6pgoiY%2B451GGyg%3D%3D&nonce=1P%2FgTwAAAABlH8dsAJDEFA%3D%3D -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                  <script type="text/javascript">
+                  var data = {"ReadSession":"https://stackauth.com/auth/global/read-session","Request":"ountul2L+wzfGVDDdxhdsoMmTIkqClWBrPbFGVmJAZZt/CXhr2ap1B7wnLRdscErYbBQG6du6pgoiY+451GGyg==","Nonce":"1P/gTwAAAABlH8dsAJDEFA==","Referrer":"http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt","StorageName":"GlobalLogin"};
+
+                  var toMsg = window.parent;
+
+                  var obj = localStorage.getItem(data.StorageName);
+                  if(obj != null) {
+                  var req = new XMLHttpRequest();
+                  req.open('POST', data.ReadSession+'?request='+encodeURIComponent(data.Request)+'&nonce='+encodeURIComponent(data.Nonce)+'&seriesAndToken='+encodeURIComponent(obj), false);
+                  req.send(null);
+                  
+                    if(req.status == 200){
+                      toMsg.postMessage(req.responseText, data.Referrer);
+                    }else{
+                      toMsg.postMessage('No Session', data.Referrer);
+                    }
+                  }else{
+                    toMsg.postMessage('No Local Storage', data.Referrer);
+                  }
+                  </script>
+                  </head><body></body></html>

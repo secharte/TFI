@@ -1,0 +1,67 @@
+Todo lo que está en fondo amarillo es para cambiar la forma de escribirlo
+
+Explicar que es la dependecia del browser o poner una referencia
+
+Decirlo de otra manera haciendo referencia a la familia de opciones para resolverlo.
+
+Con sólo decir que es de código abierto el resto se sobre entiende. Se podría mencionar algún aspecto técnico.
+
+No estás diciendo que significa el caso práctico.
+
+Ahora hacés referencia como que el caso práctico es una app de liqui. Deberías decir un aspecto no algo tan genérico. 
+Y en lugar de caso práctico para la app tenés que usar caso de aplicación, caso de uso, ejemplo práctico.
+Ver como aparece esto en las publicaciones de ejemplos.
+
+
+Esta figura hay que explicarla.
+	-> se explico
+Llamarla: Diagrama conceptual de módulos 
+	-> se adapto.
+
+En la sección de la imagen de la aplicación se debe contar como un caso de uso siguiendo un ejemplo concreto y mostrando los pasos fundamentales. También se tiene que ir 
+explicando los aspectos conceptuales importantes.
+	-> Se agrego un caso de uso correspondiente.
+
+Cuando se muestran los diagramas de clases se deben tener en cuenta lo siguiente:
+
+• se debe hacer una representación conceptual representativa para simplificar.  Luego toda el diagrama completo se puede poner en anexo.
+	-> Se agrego comentarios explicativos en cada diagrama.
+• se deben describir los aspectos fundamentales del diagrama
+	-> Se agrego comentarios explicativos en cada diagrama.
+• en caso que corresponda, hacer referencia con el diagrama conceptual de módulo de la figura 1 y las figuras de las imágenes.? ?Por ejemplo, cuando se hace referencia 
+del diagrama de capa de servicios, debe estar visible donde está la capa de servicio. No se si hace falta otro diagrama conceptual como el de la figura 1 o hacer otro diagrama 
+arquitectónico de capas. Me suena que si se habla de capa, debe haber un diagrama arquitectónico estratificado que hay que describirlo en algún lado.
+	-> se creeo el Diagrama de Arquitectónico de Capas Del Modelo y se referencio cada diagrama con la capa que pertenece.
+• Hacerle una introducción a todos los diagramas.
+	-> Fue reazada en cada diagrama
+
+
+En la sección: GWT MVP Explicación y motivos de su implementación
+	-> se explico
+
+Debería hacer la explicación referenciando cómo con esta tecnología se resuelve el problema o hipótesis de tu trabajo.
+	-> se realizo la hipotesis en base a una comparacion en tiempos de desarrollo contra Struts 2 en la seccion "Comparación entre GWT y Struts 2"
+
+Hay que definir el problema o hipótesis bien clara en una sección. Ver cómo hacerlo en los proyectos de ejemplos.
+	-> se realizo la hipotesis en base a una comparacion en tiempos de desarrollo contra Struts 2 en la seccion "Comparación entre GWT y Struts 2"
+
+Hay que hacer un casos de uso completo en donde se vaya explicando paso por paso como un desarrollador tiene que actuar e ir haciendo referencia a los diseño para indicar lo que se va usando. Acá se pueden usar diagramas de secuencias.
+	-> Se agrego un caso de uso correspondiente.
+
+Con respecto a la parte del código, seguí el mismo criterio de usar ejemplos conceptuales o fragmento de código de una función representativa.
+	-> Se Muestran fragamentos ejemplificadores de codigo con comentarios y explicacion
+
+No hace falta explicar que es Hibertante. Lo ideal es referenciar la parte usada para resolver el problema o hipótesis planteada. 
+	-> Se explica a modo de introduccion, no se profundiza se aplica ejemplo práctico de de mapeo con herencia la resolucion del problema o hipotesis esta descripta en 
+		ña introduccion y la sololucion.
+
+Mirar los ejemplos de presentación de proyectos en este sitio: 
+
+http://190.18.101.22:8080/portal/site/167dd56c-6f2e-4196-8758-4839ba7e8715/page/aecc7dc7-64a7-47ef-9422-15f3aca71b98
+
+Se entra con usuario y clave: invitado
+
+
+Acá hay ejemplos de publicaciones científicas. Mirar las secciones que aplican a las correcciones que te hice:
+
+http://190.18.101.22:8080/portal/site/d0002d6b-80fd-403d-9940-226eacec0ae7/page/d4f7dc5d-9cfe-46c8-957d-a2a369b7cef1

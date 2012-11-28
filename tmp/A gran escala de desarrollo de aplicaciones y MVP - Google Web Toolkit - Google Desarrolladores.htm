@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://developers.google.com/web-toolkit/articles/mvp-architecture -->
+<html lang="en" class="wf-opensans-n4-active wf-active translated-ltr" style="height: 100%; "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded" gapi_processed="true"></script>
+    <meta charset="utf-8">
+    <script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/script_head.js"></script>
+    <link rel="stylesheet" type="text/css" href="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/screen.css">
+    <link rel="shortcut icon" href="https://developers.google.com/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/images/apple-touch-icon.png">
+    <link href="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/css" rel="stylesheet" type="text/css">
+    <script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/jquery.min.js"></script>
+    <script id="jqueryui" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/jquery-ui.min.js" defer="" async=""></script>
+    <script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/jsapi"></script>
+    <script>
+      google.load('visualization', '1', {packages: ['table']});
+    </script><script src="https://www.google.com/uds/?file=visualization&v=1&packages=table" type="text/javascript"></script><script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/format+es,default,table.I.js" type="text/javascript"></script><style>.a-b-c{position:relative;display:-moz-inline-box;display:inline-block}* html .a-b-c,*:first-child+html .a-b-c{display:inline}.a-d-e{margin:2px;border:0;padding:0;font-family:Arial,sans-serif;color:#000;background:#ddd url(//ssl.gstatic.com/editor/button-bg.png) repeat-x top left;text-decoration:none;list-style:none;vertical-align:middle;cursor:default;outline:none}.a-d-e-f-g,.a-d-e-h-g{border-style:solid;border-color:#aaa;vertical-align:top}.a-d-e-f-g{margin:0;border-width:1px 0;padding:0}.a-d-e-h-g{-moz-box-orient:vertical;margin:0 -1px;border-width:0 1px;padding:3px 4px;white-space:nowrap}* html .a-d-e-h-g{left:-1px}* html .a-d-e-i .a-d-e-f-g{left:-1px}* html .a-d-e-i .a-d-e-h-g{right:auto}*:first-child+html .a-d-e-h-g{left:-1px}*:first-child+html .a-d-e-i .a-d-e-h-g{left:1px}::root .a-d-e,::root .a-d-e-f-g{line-height:0}::root .a-d-e-h-g{line-height:normal}.a-d-e-j{background-image:none!important;opacity:.3;-moz-opacity:.3;filter:alpha(opacity=30)}.a-d-e-j .a-d-e-f-g,.a-d-e-j .a-d-e-h-g{color:#333!important;border-color:#999!important}* html .a-d-e-j,*:first-child+html .a-d-e-j{margin:2px 1px!important;padding:0 1px!important}.a-d-e-k .a-d-e-f-g,.a-d-e-k .a-d-e-h-g{border-color:#9cf #69e #69e #7af!important}.a-d-e-l,.a-d-e-m{background-color:#bbb;background-position:bottom left}.a-d-e-n .a-d-e-f-g,.a-d-e-n .a-d-e-h-g{border-color:orange}.a-d-e-o-p,.a-d-e-o-p .a-d-e-f-g,.a-d-e-o-p .a-d-e-h-g{margin-right:0}.a-d-e-o-q,.a-d-e-o-q .a-d-e-f-g{margin-left:0}.a-d-e-o-q .a-d-e-h-g{margin-left:0;border-left:1px solid #fff}.a-d-e-o-q.a-d-e-m .a-d-e-h-g{border-left:1px solid #ddd}* html .a-d-e-o-q .a-d-e-h-g,*:first-child+html .a-d-e-o-q .a-d-e-h-g{left:0}.a-r-e{position:relative;margin:2px;border:1px solid #000;padding:2px 6px;font:normal 13px "Trebuchet MS",Tahoma,Arial,sans-serif;color:#fff;background-color:#8c2425;cursor:pointer;outline:none}.a-r-e-j{border-color:#888;color:#888;background-color:#ccc;cursor:default}.a-r-e-k{border-color:#8c2425;color:#8c2425;background-color:#eaa4a5}.a-r-e-l,.a-r-e-s,.a-r-e-m{border-color:#5b4169;color:#5b4169;background-color:#d1a8ea}.a-r-e-n{border-color:#5b4169}.a-r-e-o-p{margin-right:0}.a-r-e-o-q{margin-left:0;border-left:none}.a-e{color:#036;border-color:#036;background-color:#69c}.a-e-j{border-color:#333;color:#333;background-color:#999}.a-e-k{color:#369;border-color:#369;background-color:#9cf}.a-e-l{color:#69c;border-color:#69c}</style><link href="https://ajax.googleapis.com/ajax/static/modules/gviz/1.0/table/table.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+    <script>
+      google.load('search', '1', {language : 'en'});
+    </script><script src="https://www.google.com/uds/?file=search&v=1&hl=en" type="text/javascript"></script><link href="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/default+en.css" type="text/css" rel="stylesheet"><script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/default+en.I.js" type="text/javascript"></script>
+    
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script>
+  <script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/jquery-ui.min.js"></script>
+  
+  <title>A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+    
+
+  <script type="text/javascript" src="chrome-extension://dlnembnfbcpjnepmfjmngjenhhajpdfd/resources/LocalScript.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"><script type="text/javascript" src="chrome-extension://dlnembnfbcpjnepmfjmngjenhhajpdfd/libraries/DataExchangeScript.js"></script><script type="text/javascript">LCS_336D0C35_8A85_403a_B9D2_65C292C39087_g_DataObject.updateStorage("%7B%22toolbarID%22%3A%22fe2dcf3deade46a8a193221500402671%22%2C%22installer_name%22%3A%22sg_6R8vx8JN1h_active_MB149_MB150_UA-25323614-11_2012-06-09-23-44-03%22%2C%22product_name%22%3A%22Web%20Assistant%22%2C%22product_version%22%3A%222.0.0.442%22%2C%22WSG_upn2%22%3A%226R8vx8JN1h%22%2C%22WSG_status%22%3A%22active%22%2C%22WSG_redirectQueryParam1%22%3A%22MB149%22%2C%22WSG_redirectQueryParam2%22%3A%22MB150%22%2C%22WSG_gtQueryParam%22%3A%22UA-25323614-11%22%2C%22temp_installer_name%22%3A%22sg_6R8vx8JN1h_active_MB149_MB150_UA-25323614-11_2012-06-09-23-44-03%22%2C%22WSG_lastUpdate%22%3A%221339968670234%7C%7C%7C8641339968670235%22%2C%22WSG_whiteList%22%3A%22%7B%5C%22search.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.sweetim.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.imesh.net%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.mywebsearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.mywebsearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.mindspark.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.conduit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.zugo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22www2.mystart.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.mystart.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.bigseekpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bigseekpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bigspeedpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.esnips.com%5C%22%3A%5C%22searchQuery%5C%22%2C%5C%22search.foxtab.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.brothersoft.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22search.softonic.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.dogpile.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.infospace.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.iobit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.iminent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.facemoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.plusnetwork.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.chatvibes.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.blekko.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchnu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchnu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.icq.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.etype.com%5C%22%3A%5C%22query%5C%22%2C%5C%22isearch.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.utorrent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.bittorrent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.bearshare.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bearshare.net%5C%22%3A%5C%22q%5C%22%2C%5C%22searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22int.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.adoresearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchcore.net%5C%22%3A%5C%22q%5C%22%2C%5C%22googosearch.info%5C%22%3A%5C%22terms%5C%22%2C%5C%22bar.searchqu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.speedbit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.toggle.com%5C%22%3A%5C%22q%5C%22%2C%5C%22click.searchnation.net%5C%22%3A%5C%22query%5C%22%2C%5C%22isearch.whitesmoke.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.handycafe.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchassist.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchnation.net%5C%22%3A%5C%22query%5C%22%2C%5C%22video.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchbrowsing.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.anchorfree.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.hotspotshield.com%5C%22%3A%5C%22q%5C%22%2C%5C%22dts.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22uk.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.chatzum.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.phpnuke.org%5C%22%3A%5C%22q%5C%22%2C%5C%22www.i-mysearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartaddressbar.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-guru.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mysearch.sweetim.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchgby.com%5C%22%3A%5C%22%5C%22%2C%5C%22thespecialsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bpath.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.funmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22fr.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22de.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22it.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22es.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.imesh.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.swagbucks.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.yippy.com%5C%22%3A%5C%22query%5C%22%2C%5C%22cludr.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.vmn.net%5C%22%3A%5C%22q%5C%22%2C%5C%22www.gigablast.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.metacrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.webcrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.ixquick.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.excite.com%5C%22%3A%5C%22q%5C%22%2C%5C%22duckduckgo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.lycos.com%5C%22%3A%5C%22q%5C%22%2C%5C%22webfetch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22monstercrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22go.com%5C%22%3A%5C%22p%5C%22%2C%5C%22hotbot.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22home.myplaycity.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.findamo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.gboxapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.iplay.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.speedbit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.sweetim.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.alot.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchplusnetwork.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchqu.net%5C%22%3A%5C%22%5C%22%2C%5C%22us.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.insiteapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22somoto.com%5C%22%3A%5C%22q%5C%22%2C%5C%22blekko.com%5C%22%3A%5C%22%5C%22%2C%5C%22uk.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22fr.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22suggestor.netliker.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.netliker.com%5C%22%3A%5C%22%5C%22%2C%5C%22insta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.fast-search.biz%5C%22%3A%5C%22q%5C%22%7D%7C%7C%7C8641339968672225%22%2C%22WSG_dailyPing%22%3A%22true%7C%7C%7C1340055070356%22%2C%22WSG_installedPing%22%3A%22true%7C%7C%7C8641339296271525%22%7D");</script><style type="text/css">.jlhlebbhengjlhmcjebbkambaekglhkf {top: 0px; left: 0px;min-width: 30px;max-width: 300px;font-size: 13px;font-family: arial, helvetica, sans-serif;opacity: .93;padding:0px;position:absolute;display:block;z-index: 999997;font-style: normal;font-variant: normal;font-weight: normal;}#jlhlebbhengjlhmcjebbkambaekglhkf_up{text-align: center;padding:0px;margin: 0px;}#jlhlebbhengjlhmcjebbkambaekglhkf_cont{background-color: #729FCF;font-family: arial, helvetica, sans-serif-webkit-box-shadow: #729FCF 0px 0px 2px;color: #FFFFFF;padding:7px;-webkit-border-radius: 5px;}#jlhlebbhengjlhmcjebbkambaekglhkf_down{text-align: center;padding:0px;margin: 0px;}</style><script>window["_GOOG_TRANS_EXT_VER"] = "1";</script><script>window["_GOOG_TRANS_EXT_VER"] = "1";</script><script>(function(){(function injection() {
+  var pageLang = 'en';
+  var userLang = 'es';
+  var autoTrans = 'true' == 'true';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(autoTrans);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    elem.onTurnOffLanguageClick = function() {
+      var event = document.createEvent('Event');
+      event.initEvent('te_disable_lang', true, true);
+      document.body.dispatchEvent(event);
+    };
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      var s = document.createElement('script');
+      s.src = 'http://translate.google.com/translate_a/element.js?cb=' +
+              encodeURIComponent(cbId) + '&client=tee&hl=' + userLang;
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script><script src="http://translate.google.com/translate_a/element.js?cb=TECB_1E07F158C6FA4460B352973E9693B329&client=tee&hl=es"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/main_es.js"></script><script type="text/javascript" charset="UTF-8" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/element_main.js"></script></head>
+  <body class="two-column docs" style="position: relative; min-height: 100%; top: 40px; "><div style="" class="skiptranslate"><iframe id=":0.container" class="goog-te-banner-frame skiptranslate" frameborder="0" src="javascript:''" style="visibility:visible"></iframe></div>
+    <div id="sandbar">
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/developers-logo.png" alt="Google">
+  </a>
+
+  <div class="gc-social">
+    
+    <span class="signed-in">
+      <div>
+        <a class="email" href="https://plus.google.com/me"><font><font>secharte@gmail.com </font></font></a>
+        <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/web-toolkit/articles/mvp-architecture&service=ahsid"><font><font>Salir</font></font></a>
+      </div>
+      <img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/silhouette36.png">
+    </span>
+    
+  </div>
+
+  <form class="gc-search" action="https://developers.google.com/search" method="GET">
+    <div class="searchbox">
+      
+      <input type="text" name="q" class="q" id="q" value="" placeholder="Search" autocomplete="off">
+    </div>
+    <button class="button button-blue">
+      <img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/search.png" alt="Buscar">
+    </button>
+  </form>
+
+</header>
+
+
+
+</div>
+    
+    
+
+    <div id="gc-wrapper">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+      <div id="gc-topnav">
+        <div>
+          <ul>
+            
+            <li class=""><a href="https://developers.google.com/"><font><font>Casa</font></font></a></li>
+            
+            <li class="active"><a href="https://developers.google.com/products/"><font><font>Productos</font></font></a></li>
+            
+            <li class=""><a href="https://developers.google.com/events/"><font><font>Eventos</font></font></a></li>
+            
+            <li class=""><a href="https://developers.google.com/showcase/"><font><font>Muestre</font></font></a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+
+      
+      <div id="gc-appbar">
+        
+        <h1>
+          
+
+  <a href="https://developers.google.com/web-toolkit/"><font><font>Google Web Toolkit</font></font></a>
+  <div class="plusone-container">
+    <div id="___plusone_0" style="height: 20px; width: 90px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; "><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin: 0px; border-style: none; height: 20px; width: 90px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="0" vspace="0" width="100%" id="I0_1340054564728" name="I0_1340054564728" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/fastbutton.htm" title="1"></iframe></div>
+  </div>
+
+
+        </h1>
+        
+      </div>
+      
+
+      
+      <div id="gc-main">
+        
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <div class="gc-toc"><ul><li class=""><span class="tlw-title" data-title="Docs:"><font><font>Docs:</font></font></span></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/latest" data-title="Latest Version"><span><font><font>La versión más reciente</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ Los </font></font></a><span class="tlw-title tlw-control-title" data-title="Older Versions"><font><font>Versiones Anteriores</font></font></span><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.3" data-title="2.3"><span><font><font>2.3</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.2" data-title="2.2"><span><font><font>2.2</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.1" data-title="2.1"><span><font><font>2.1</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.0" data-title="2.0"><span><font><font>2.0</font></font></span></a></li></ul></li></ul><hr><ul><li class=""><a href="https://developers.google.com/web-toolkit/download" data-title="Downloads"><span><font><font>Descargas</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/" data-title="GWT Designer" class="tlw-control-title"><span><font><font>Diseñador GWT</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/download-gwtdesigner" data-title="Download"><span><font><font>Descargar</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/quick_start" data-title="Quick Start"><span><font><font>De inicio rápido</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/whatsnew" data-title="What&#39;s New"><span><font><font>¿Qué hay de nuevo</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation" data-title="Installation" class="tlw-control-title"><span><font><font>instalación</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/system" data-title="System Requirements"><span><font><font>Requisitos del sistema</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.7" data-title="Using update site for Eclipse 3.7"><span><font><font>Uso de sitio de actualización para Eclipse 3.7</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.6" data-title="Using update site for Eclipse 3.6"><span><font><font>Uso de sitio de actualización para Eclipse 3.6</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.5" data-title="Using update site for Eclipse 3.5"><span><font><font>Utilizando el sitio de actualización de Eclipse 3.5</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.4" data-title="Using update site for Eclipse 3.4"><span><font><font>Utilizando el sitio de actualización de Eclipse 3.4</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/uninstall" data-title="Uninstall"><span><font><font>Desinstalar</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface" data-title="User Interface" class="tlw-control-title"><span><font><font>interfaz de usuario</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/design_view" data-title="Design View"><span><font><font>Vista Diseño</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/source_view" data-title="Source View"><span><font><font>Ver código fuente</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/structure_view" data-title="Structure View" class="tlw-control-title"><span><font><font>Estructura Vista</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/component_tree" data-title="Component Tree"><span><font><font>Componente Tree</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_pane" data-title="Property Pane" class="tlw-control-title"><span><font><font>Panel de Propiedad</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_pane_context_menu" data-title="Property Pane Context Menu"><span><font><font>Panel de propiedades Menú contextual</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_string" data-title="String Editor"><span><font><font>Editor de cadenas</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_string_array" data-title="String Array Editor"><span><font><font>Editor de cadenas de matriz</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_color" data-title="Color Editor"><span><font><font>Color Editor</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_font" data-title="Font Editor"><span><font><font>Fuente Editor</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_image" data-title="Icon / Image Editor"><span><font><font>Icono / Image Editor</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_point" data-title="Point Editor"><span><font><font>Punto Editor</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_rectangle" data-title="Rectangle Editor"><span><font><font>Rectángulo Editor</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_inset" data-title="Inset Editor"><span><font><font>Editor de Inserción</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_taborder" data-title="Tab Order Editor"><span><font><font>Tab Editor de Orden</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/properties/property_editor_style_name" data-title="Style Name Editor"><span><font><font>Style Editor Nombre</font></font></span></a></li></ul></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/palette" data-title="Palette" class="tlw-control-title"><span><font><font>Paleta</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/palette_context_menu" data-title="Palette Context Menu"><span><font><font>Paleta de menú contextual</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/palette_manager" data-title="Palette Manager"><span><font><font>La paleta de Administrador</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/palettes/gwt_palette" data-title="GWT Designer Palette"><span><font><font>GWT Diseñador de paleta</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/NewComponentsTutorial.pdf" data-title="New Components Tutorial (PDF)"><span><font><font>Nueva componentes Tutorial (PDF)</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/DesignerCustomizationAPI.pdf" data-title="Designer Customization API (PDF)"><span><font><font>Diseñador de personalización de la API (PDF)</font></font></span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/toolbar" data-title="Toolbar"><span><font><font>Barra de herramientas</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/context_menu" data-title="Context Menu"><span><font><font>Menú contextual</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ Los </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features" data-title="Features" class="tlw-control-title"><span><font><font>Características</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/bidirectional" data-title="Bi-directional Code Generation"><span><font><font>Bi-direccional de generación de código</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt_code_generation" data-title="GWT Code Generation"><span><font><font>GWT de generación de código</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/custom_composites" data-title="Custom Panels"><span><font><font>Paneles a la medida</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/factories" data-title="Factories"><span><font><font>Las fábricas</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/visual_inheritance" data-title="Visual Inheritance"><span><font><font>La herencia visual</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/event_handling" data-title="Event Handling"><span><font><font>Manejo de Eventos</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/menu_editing" data-title="Menu Editing"><span><font><font>Menú Edición</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/morphing" data-title="Morphing"><span><font><font>Morphing</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/editing_existing_window" data-title="Editing Existing Windows"><span><font><font>Edición de Windows existentes</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/application_compiling" data-title="Application Compiling"><span><font><font>Compilación de aplicaciones</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/application_launching" data-title="Application Launching"><span><font><font>Inicio de las aplicaciones</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/module_deployment" data-title="Build &amp; Deployment"><span><font><font>Diseña y Despliegue</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/css_support" data-title="CSS Support"><span><font><font>Soporte CSS</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/enhanced_compilation" data-title="Enhanced Compilation"><span><font><font>Compilación de Mayor</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/image_bundles" data-title="Image Bundles"><span><font><font>Paquetes de imagen</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/internationalization" data-title="Internationalization (i18n)"><span><font><font>Internacionalización (i18n)</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/junit_testcase" data-title="JUnit Test Creation"><span><font><font>JUnit Test Creación</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/project" data-title="Projects"><span><font><font>Proyectos</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/refactoring" data-title="Refactoring"><span><font><font>Refactoring</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/remoteservice" data-title="Remote Services"><span><font><font>Servicios remotos</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/gwt-ext" data-title="Using GWT-Ext"><span><font><font>Uso de GWT-Ext</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/gxt" data-title="Using Ext GWT (GXT)"><span><font><font>Usando Ext. GWT (GXT)</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/smartgwt" data-title="Using SmartGWT"><span><font><font>Usando SmartGWT</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ Los </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt" data-title="Panels" class="tlw-control-title"><span><font><font>paneles</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/absolutepanel" data-title="AbsolutePanel"><span><font><font>AbsolutePanel</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/dockpanel" data-title="Dock[Layout]Panel"><span><font><font>Muelle [Diseño] Grupo</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/flextable" data-title="FlexTable"><span><font><font>FlexTable</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/flowpanel" data-title="FlowPanel"><span><font><font>FlowPanel</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/gridpanel" data-title="Grid"><span><font><font>Red</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/layoutpanel" data-title="LayoutPanel"><span><font><font>LayoutPanel</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt" data-title="Wizards" class="tlw-control-title"><span><font><font>Wizards</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/entrypoint" data-title="Java EntryPoint"><span><font><font>Java EntryPoint</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/composite" data-title="Java Composite"><span><font><font>Java Composite</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/dialogbox" data-title="Java DialogBox"><span><font><font>Java DialogBox</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/popuppanel" data-title="Java PopupPanel"><span><font><font>Java PopupPanel</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/uibinder_composite" data-title="UiBinder Composite"><span><font><font>Compuesto UiBinder</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/uibinder_dialogbox" data-title="UiBinder DialogBox"><span><font><font>UiBinder DialogBox</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/uibinder_popuppanel" data-title="UiBinder PopupPanel"><span><font><font>UiBinder PopupPanel</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/module" data-title="GWT Module"><span><font><font>Google Web Toolkit Módulo</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/library" data-title="GWT Library"><span><font><font>GWT Biblioteca</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ Los </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences" data-title="Preferences" class="tlw-control-title"><span><font><font>Preferencias</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/preferences_code_parsing" data-title="Code Parsing"><span><font><font>Código de análisis</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt" data-title="GWT" class="tlw-control-title"><span><font><font>GWT</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_builder" data-title="Builder"><span><font><font>Constructor</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_code_generation" data-title="Code Generation" class="tlw-control-title"><span><font><font>de generación de código</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_event_handlers" data-title="Event Handlers"><span><font><font>Controladores de eventos</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_nls" data-title="NLS"><span><font><font>NLS</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_variables" data-title="Variables"><span><font><font>Variables</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ Los </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_layouts" data-title="Layouts" class="tlw-control-title"><span><font><font>diseños de</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_layouts_absolute" data-title="Absolute"><span><font><font>Absoluto</font></font></span></a></li></ul></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer" data-title="Google-Web Toolkit-Designer" class="tlw-control-title"><span><font><font>de Google Web Toolkit-Designer</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer_absolute_layout" data-title="Absolute Layout"><span><font><font>Disposición absoluta</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer_code_style" data-title="Code Style"><span><font><font>Código de Estilo</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer_event_handlers" data-title="Event Handlers"><span><font><font>Controladores de eventos</font></font></span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/preferences_uitoolkits" data-title="UI Toolkits"><span><font><font>Kits de herramientas de interfaz de usuario</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/preferences_export" data-title="Export/Import"><span><font><font>Exportación / Importación</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ Los </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tutorials" data-title="Tutorials" class="tlw-control-title"><span><font><font>Tutoriales</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tutorials/loginmanager" data-title="GWT Login Manager"><span><font><font>GWT Administrador de acceso</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tutorials/stockwatcher" data-title="GWT Stock Watcher"><span><font><font>GWT archivo Vigía</font></font></span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/support/product_support" data-title="Product Support" class="tlw-control-title"><span><font><font>Soporte de Producto</font></font></span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/error_reporting" data-title="Error Reporting"><span><font><font>Informe de errores</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/support/test_cases" data-title="Reproducible Test Cases"><span><font><font>Los casos de prueba reproducibles</font></font></span></a></li><li class=""><a href="http://groups.google.com/group/google-web-toolkit" data-title="Forum"><span><font><font>Foro</font></font></span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/accessibility" data-title="Accessibility"><span><font><font>Accesibilidad</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tipsandtricks" data-title="Tips &amp; Tricks"><span><font><font>Consejos y Trucos</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/faq" data-title="FAQ"><span><font><font>Preguntas más frecuentes</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tos" data-title="Terms of Service"><span><font><font>Condiciones de uso</font></font></span></a></li></ul></li></ul><hr><ul><li class=""><span class="tlw-title" data-title="Resources:"><font><font>Recursos:</font></font></span></li><li class=""><a href="https://developers.google.com/web-toolkit/articles" data-title="Articles"><span><font><font>Artículos</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/books" data-title="Books"><span><font><font>Libros</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/casestudies" data-title="Case Studies"><span><font><font>Estudios de caso</font></font></span></a></li><li class=""><a class="tlw-control tlw-collapsed"><font><font>▸ </font></font></a><a href="https://developers.google.com/web-toolkit/community" data-title="Community" class="tlw-control-title"><span><font><font>Comunidad</font></font></span></a><ul style="display: none; "><li class=""><a href="http://gwtgallery.appspot.com/" data-title="App Gallery"><span><font><font>Galería de aplicaciones</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/developer_spotlight" data-title="Developer Spotlight"><span><font><font>Developer Spotlight</font></font></span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools" data-title="Tools &amp; Libraries"><span><font><font>Herramientas y Bibliotecas</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/media_gallery" data-title="Presentations"><span><font><font>Presentaciones</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/makinggwtbetter" data-title="Making GWT Better"><span><font><font>Hacer mejor GWT</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/lifeofanissue" data-title="Issue Tracking"><span><font><font>Seguimiento de asuntos</font></font></span></a></li><li class=""><a href="http://googlewebtoolkit.blogspot.com/" data-title="Blog"><span><font><font>Blog</font></font></span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/terms" data-title="Terms of Service"><span><font><font>Condiciones de uso</font></font></span></a></li></ul></div>
+
+
+
+      </div>
+
+      <div id="gc-content">
+        
+        <div>
+          
+  
+  <h1 class="page-title"><font><font>A gran escala de desarrollo de aplicaciones y MVP</font></font></h1>
+  
+  
+
+
+
+<style>
+code, .code {font-size: 9pt; font-family: Courier, Courier New, monospace; color:#007000;}
+.highlight {background-color: #ffc;}
+.strike {text-decoration:line-through; color:red;}
+.header {margin-top: 1.5ex;}
+.details {margin-top: 1ex;}
+</style>
+
+<style>
+
+div.screenshot img {
+  margin: 20px;
+}
+
+.download {
+  border: none;
+}
+.download td {
+  vertical-align: middle;
+  border: none;
+}
+</style>
+
+<i><font><font>Chris Ramsdale, Google Developer Relations </font></font></i>
+<br>
+<i><font><font>Actualizado 03 2010</font></font></i>
+
+<p><b><font><font>Véase también </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture-2"><font><font>la Parte II</font></font></a><font><font> de este artículo.</font></font></b></p>
+
+<p><font><font>La construcción de cualquier aplicación a gran escala tiene sus obstáculos, y las aplicaciones GWT no son una excepción. </font><font>Que varios programadores trabajen simultáneamente en la misma base de código, mientras que el mantenimiento de las características heredadas y la funcionalidad, puede convertirse rápidamente en código desordenado. </font><font>Para ayudar a aclarar las cosas que introducimos los patrones de diseño para crear zonas compartimentadas de responsabilidad dentro de nuestro proyecto.</font></font></p>
+
+<p><font><font class="">Hay varios patrones de diseño para elegir, Presentation-Abstraction-Control, modelo-vista-controlador, modelo-vista-presentador, etc .. </font><font>Y si bien cada modelo tiene sus ventajas, hemos encontrado que un modelo-vista-presentador (MVP) de la arquitectura funciona mejor cuando el desarrollo de aplicaciones GWT por dos razones principales. </font><font class="">En primer lugar el modelo de MVP, al igual que otros patrones de diseño, desarrollo desacopla de una manera que permite a varios desarrolladores trabajar simultáneamente. </font><font class="">En segundo lugar, este modelo nos permite minimizar el uso de </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/junit/client/GWTTestCase.html"><font><font class="">GWTTestCase</font></font></a><font><font class=""> , que se basa en la presencia de un navegador, y, por la mayor parte de nuestro código, escribir ligero (y rápido) las pruebas de JRE (que no requieren de un navegador).</font></font></p>
+
+<p><font><font>En el corazón de este patrón es la separación de la funcionalidad en componentes que lógicamente tienen sentido, pero en el caso de GWT hay un enfoque claro en hacer la </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#view"><font><font>vista</font></font></a><font><font> tan simple como sea posible para minimizar nuestra dependencia de GWTTestCase y reducir el tiempo total pasó las pruebas de funcionamiento.</font></font></p>
+
+<p><font><font class="">Creación de una aplicación basada en MVP puede ser sencillo y fácil una vez que entienda los fundamentos detrás de este modelo de diseño. </font><font>Para ayudar a explicar estos conceptos vamos a utilizar una aplicación de contactos simple como un ejemplo. </font><font class="">Esta aplicación permitirá a los usuarios ver, editar y agregar contactos a una lista de contactos que están almacenados en el servidor.</font></font></p>
+<p><font><font>Para empezar vamos a romper nuestra aplicación hasta en los siguientes componentes:</font></font></p>
+<ul>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#model"><font><font class="">Modelo</font></font></a></li>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#view"><font><font>Ver</font></font></a></li>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font class="">Presentador</font></font></a></li>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#app_controller"><font><font>AppController</font></font></a></li>
+</ul>
+
+<p><font><font>A continuación veremos la forma en que cada uno de estos componentes interactúan excavando en:</font></font></p>
+<ul>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#binding"><font><font>Los presentadores de enlace y puntos de vista</font></font></a></li>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#events"><font><font>Eventos y el bus de eventos</font></font></a></li>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#history"><font><font>Historia y opinión de las transiciones</font></font></a></li>
+  <li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#testing"><font><font>Pruebas</font></font></a></li>
+</ul>
+
+<h2 id="sample"><font><font>Ejemplo de proyecto</font></font></h2>
+
+<p><font><font>El proyecto de ejemplo, hace referencia a lo largo de este tutorial, se puede encontrar en
+ </font></font><a href="http://code.google.com/p/google-web-toolkit/downloads/detail?name=Tutorial-Contacts.zip"><font><font>Tutorial-Contacts.zip</font></font></a><font><font> .</font></font></p>
+
+<h2 id="model"><font><font>Modelo</font></font></h2>
+
+<p><font><font>Un modelo incluye objetos de negocio, y en el caso de nuestra aplicación de contactos que tenemos:</font></font></p>
+<ul>
+  <li><font><font class="">Póngase en contacto con: Una representación de un contacto dentro de la lista de contactos. </font><font class="">Para simplificar, este objeto contiene un nombre, apellido y dirección de correo electrónico. </font><font class="">En una aplicación más compleja, este objeto sería tener más campos.
+  </font></font></li>
+  <li><font><font>ContactDetails: Una versión ligera del contacto que sólo contiene el identificador único y el nombre de pantalla. </font><font>Esta versión "light" del objeto de contacto hará que la recuperación de la lista de contactos más eficiente, ya que habrá menos bits para serializar y el transporte a través del cable. </font><font>En el caso de nuestra aplicación de ejemplo, esta optimización tiene menos impacto de lo que haría en una aplicación más compleja, donde los objetos de contacto tienen campos de un número sustancialmente mayor. </font><font>La primera RPC devolverá una lista de ContactDetails, y hemos añadido un campo de nombre para mostrar de manera que hay una cierta cantidad de datos que se pueden visualizar (en el ContactsView) sin tener que realizar posteriores RPC.</font></font></li>
+</ul>
+
+<h2 id="view"><font><font>Ver</font></font></h2>
+
+<p><font><font>Un punto de vista contiene todos los componentes de interfaz de usuario que componen nuestra aplicación. </font><font>Esto incluye todas las tablas, etiquetas, botones, cuadros de texto, etc .. </font><font class="">Las vistas son responsables de la distribución de los componentes de interfaz de usuario y no tienen noción de la modelo. </font><font>Es decir, un punto de vista no sabe que está mostrando un contacto, simplemente sabe que tiene, por ejemplo, 3 etiquetas, cuadros de texto 3, y 2 botones que se organizan en forma vertical. </font><font>Cambio entre los puntos de vista está vinculado a la
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#history"><font><font>gestión de la historia</font></font></a><font><font> dentro de la
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font>presentación de</font></font></a><font><font> la capa.</font></font></p>
+
+<p><font><font>Las opiniones expresadas en nuestra aplicación de contactos son los siguientes:</font></font></p>
+
+<ul>
+  <li><font><font>ContactsView</font></font></li>
+  <li><font><font>EditContactView</font></font></li>
+</ul>
+
+<p><font><font>El EditContactView se utiliza para añadir nuevos contactos, así como edición de los contactos existentes.</font></font></p>
+
+<h2 id="presenter"><font><font>Presentador</font></font></h2>
+
+<p><font><font>Un presentador contiene toda la lógica de nuestra aplicación de contactos, incluyendo </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#history"><font><font>la gestión de la historia</font></font></a><font><font> , ver la sincronización de transición y datos a través de RPC de vuelta al servidor. </font><font>Como regla general, por cada punto de vista usted querrá un presentador para conducir la vista y manejar </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#events"><font><font>los eventos</font></font></a><font><font> que provienen de los widgets de la interfaz de usuario dentro de la vista.</font></font></p>
+
+<p><font><font>Para nuestro ejemplo tenemos los siguientes ponentes:</font></font></p>
+
+<ul>
+  <li><font><font>Póngase en contacto con Presentador</font></font></li>
+  <li><font><font>EditContactPresenter</font></font></li>
+</ul>
+
+<p><font><font>Al igual que con el punto de vista, el EditContactPresenter añade nuevos contactos, así como ediciones contactos existentes.</font></font></p>
+
+<h2 id="app_controller"><font><font>AppController</font></font></h2>
+
+<p><font><font>Para hacer frente a la lógica que no es específico de ninguna presentadora y en su lugar reside en la capa de aplicación, vamos a introducir el componente AppController. </font><font>Este componente contiene la </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#history"><font><font>gestión de la historia</font></font></a><font><font> y la lógica de transición vista. </font><font>Vista la transición está directamente vinculada a la gestión de la historia y se analiza con mayor detalle más adelante.</font></font></p>
+
+<p><font><font class="">En este punto, la jerarquía general de nuestro proyecto de la muestra debe ser similar al siguiente:
+</font></font></p>
+
+<div class="screenshot">
+  <img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/contacts-project-hierarchy.png" style="width: 335px; height: 544px;" alt="captura de pantalla">
+</div>
+
+<p><font><font>Con nuestra estructura de componentes en su lugar, y antes de saltar a cableado de todo esto, vamos a querer echar un vistazo en el proceso que se inicia todo. </font><font>El flujo general, como se muestra en el siguiente código, es:</font></font></p>
+<ol>
+  <li><font><font>Proceso de arranque de GWT llamadas onModuleLoad ()</font></font></li>
+  <li><font><font class="">onModuleLoad () crea el servicio RPC, bus de eventos, y AppController del</font></font></li>
+  <li><font><font>El AppController se pasa la instancia RootPanel y se hace cargo</font></font></li>
+  <li><font><font>A partir de entonces el AppController está en control de la creación de determinados
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font>presentadores</font></font></a><font><font> y el suministro de un </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#view"><font><font>punto de vista</font></font></a><font><font> 
+de que el presentador va a conducir.</font></font></li>
+</ol>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Contacts</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">EntryPoint</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onModuleLoad</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">ContactsServiceAsync</span><span class="pln"> rpcService </span><span class="pun">=</span><span class="pln"> GWT</span><span class="pun">.</span><span class="pln">create</span><span class="pun">(</span><span class="typ">ContactsService</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">HandlerManager</span><span class="pln"> eventBus </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HandlerManager</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">AppController</span><span class="pln"> appViewer </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AppController</span><span class="pun">(</span><span class="pln">rpcService</span><span class="pun">,</span><span class="pln"> eventBus</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; appViewer</span><span class="pun">.</span><span class="pln">go</span><span class="pun">(</span><span class="typ">RootPanel</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">());</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<h2 id="binding"><font><font class="">Los presentadores de enlace y puntos de vista</font></font></h2>
+
+<p><font><font>Con el fin de obligar a la </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font>presentadora</font></font></a><font><font> y asociados
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#view"><font><font>vista</font></font></a><font><font> juntos vamos a depender de interfaces de pantalla que se definen en el presentador. </font><font>Tomemos por ejemplo el ContactsView:</font></font></p>
+
+<div class="screenshot">
+  <img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/contact-list-view.png" style="width: 224px; height: 165px;" alt="captura de pantalla">
+</div>
+
+
+<p><font><font class="">Este punto de vista tiene 3 aparatos: una tabla y dos botones. </font><font>Para que la aplicación para hacer algo significativo, el </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font>presentador</font></font></a><font><font> se va a necesitar:
+</font></font></p>
+<ul>
+  <li><font><font>Responder a clics en los botones</font></font></li>
+  <li><font><font>Llenar la lista</font></font></li>
+  <li><font><font>Responder a un usuario hacer clic en un contacto en la lista</font></font></li>
+  <li><font><font>Consultar el punto de vista de los contactos seleccionados</font></font></li>
+</ul>
+
+<p><font><font>En el caso de nuestro ContactsPresenter, se define la interfaz de visualización como por ejemplo:</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Presenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Display</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">HasValue</span><span class="pun">&lt;</span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">HasClickHandlers</span><span class="pln"> getAddButton</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">HasClickHandlers</span><span class="pln"> getDeleteButton</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">HasClickHandlers</span><span class="pln"> getList</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">void</span><span class="pln"> setData</span><span class="pun">(</span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> data</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">int</span><span class="pln"> getClickedRow</span><span class="pun">(</span><span class="typ">ClickEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Integer</span><span class="pun">&gt;</span><span class="pln"> getSelectedRows</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">Widget</span><span class="pln"> asWidget</span><span class="pun">();</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font class="">Mientras que el ContactsView implementa la interfaz anterior, utilizando botones y un FlexTable, el ContactsPresenter no es el más sabio. </font><font class="">Además, si queremos ejecutar esta aplicación en un navegador móvil que podría cambiar los puntos de vista sin tener que cambiar ningún código de la aplicación de la circundante. </font><font>Para ser transparentes, con métodos tales como getClickedRow () y getSelectedRows () el presentador está haciendo la suposición de que un punto de vista se va a mostrar los datos en la forma de una lista. </font><font>Dicho esto, es a un nivel suficientemente alto para que un punto de vista es todavía capaz de cambiar la implementación específica de la lista, sin efectos secundarios. </font><font class="">Método SetData () es una forma sencilla de obtener
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#model"><font><font class="">modelos de</font></font></a><font><font class=""> datos en el </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#view"><font><font class="">punto de vista</font></font></a><font><font class=""> sin el juicio y con conocimiento intrínseco de la propia modelo. </font><font>Los datos que se muestran está directamente ligada a la complejidad de nuestro modelo. </font><font>Un modelo más complejo puede llevar a un mayor número de datos que se muestran en una vista. </font><font>La belleza de la utilización de setData () es que los cambios en el modelo se puede hacer sin actualizar el código de la vista.</font></font></p>
+
+<p><font><font class="">Para mostrar cómo funciona esto, veamos el código que se ejecuta al recibir la lista de contactos desde el servidor:</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Presenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> fetchContactDetails</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; rpcService</span><span class="pun">.</span><span class="pln">getContactDetails</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AsyncCallback</span><span class="pun">&lt;</span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;&gt;()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onSuccess</span><span class="pun">(</span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;</span><span class="pln"> result</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; contacts </span><span class="pun">=</span><span class="pln"> result</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;();</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> result</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln"> </span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">contacts</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">i</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="pln">data</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onFailure</span><span class="pun">(</span><span class="typ">Throwable</span><span class="pln"> caught</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Para escuchar los eventos de la interfaz de usuario que tenemos lo siguiente:</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Presenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> bind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; display</span><span class="pun">.</span><span class="pln">getAddButton</span><span class="pun">().</span><span class="pln">addClickHandler</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ClickHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onClick</span><span class="pun">(</span><span class="typ">ClickEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; eventBus</span><span class="pun">.</span><span class="pln">fireEvent</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AddContactEvent</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br><br>&nbsp; &nbsp; display</span><span class="pun">.</span><span class="pln">getDeleteButton</span><span class="pun">().</span><span class="pln">addClickHandler</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ClickHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onClick</span><span class="pun">(</span><span class="typ">ClickEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; deleteSelectedContacts</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br><br>&nbsp; &nbsp; display</span><span class="pun">.</span><span class="pln">getList</span><span class="pun">().</span><span class="pln">addClickHandler</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ClickHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onClick</span><span class="pun">(</span><span class="typ">ClickEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">int</span><span class="pln"> selectedRow </span><span class="pun">=</span><span class="pln"> display</span><span class="pun">.</span><span class="pln">getClickedRow</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">);</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">selectedRow </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> contacts</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">selectedRow</span><span class="pun">).</span><span class="pln">getId</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; eventBus</span><span class="pun">.</span><span class="pln">fireEvent</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactEvent</span><span class="pun">(</span><span class="pln">id</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Para responder a eventos de interfaz de usuario, como por ejemplo el usuario borrar una lista de contactos seleccionados, tenemos lo siguiente:</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Presenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> deleteSelectedContacts</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Integer</span><span class="pun">&gt;</span><span class="pln"> selectedRows </span><span class="pun">=</span><span class="pln"> display</span><span class="pun">.</span><span class="pln">getSelectedRows</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> ids </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;();</span><span class="pln"><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> selectedRows</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln"> </span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; ids</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">contactDetails</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">selectedRows</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)).</span><span class="pln">getId</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; rpcService</span><span class="pun">.</span><span class="pln">deleteContacts</span><span class="pun">(</span><span class="pln">ids</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AsyncCallback</span><span class="pun">&lt;</span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;&gt;()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onSuccess</span><span class="pun">(</span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;</span><span class="pln"> result</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; contactDetails </span><span class="pun">=</span><span class="pln"> result</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;();</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> result</span><span class="pun">.</span><span class="pln">size</span><span class="pun">();</span><span class="pln"> </span><span class="pun">++</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="pln">contactDetails</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">i</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; display</span><span class="pun">.</span><span class="pln">setData</span><span class="pun">(</span><span class="pln">data</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onFailure</span><span class="pun">(</span><span class="typ">Throwable</span><span class="pln"> caught</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p></p><font><font class="">Una vez más, con el fin de cosechar los beneficios del modelo de MVP, el
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font class="">presentador</font></font></a><font><font class=""> debe tener conocimiento de ningún código del widget basado en. </font><font class="">Mientras que envuelve una vista en una interfaz de pantalla que pueden ser objeto de burla y nuestras pruebas JRE nunca llaman </font></font><code><font><font class="">asWidget ()</font></font></code><font><font class=""> , todo es grande. </font><font>Así es como usted puede tener su pastel y comérselo también: reducir al mínimo los lazos GWT para permitir que un no-GWTTestCase para ser útil, pero todavía tienen la capacidad para golpear una instancia de pantalla en un panel.</font></font><p></p>
+
+<h2 id="events"><font><font>Eventos y el bus de eventos</font></font></h2>
+
+<p><font><font class="">Una vez que tenga </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#presenter"><font><font class="">los presentadores</font></font></a><font><font class=""> que se hunden los eventos que se originan por los artilugios de </font></font><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture#view"><font><font class="">puntos de vista</font></font></a><font><font class=""> , tendrá que tomar alguna acción sobre estos eventos. </font><font>Para ello, tendrá que contar con un bus de eventos que se construye en la parte superior de la GWT </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/shared/HandlerManager.html"><font><font>HandlerManager</font></font></a><font><font> . </font><font>El bus de eventos es un mecanismo para una serie de eventos) que pasan y b) registrarse para recibir información de algún subconjunto de estos eventos.</font></font></p>
+
+<p><font><font>Es importante tener en cuenta que no todos los eventos deben ser colocados en el bus de eventos. </font><font>A ciegas el dumping de todos los eventos posibles dentro de su aplicación en el bus de eventos puede llevar a aplicaciones parlanchines que enredarse en el manejo de eventos. </font><font>Por no hablar, usted se encontrará por escrito una buena cantidad de código repetitivo para definir, fuente, lavadero, y actuar sobre estos eventos.</font></font></p>
+
+<p id="guidelines"><font><font>Aplicación de actos a nivel son realmente los únicos eventos que desea que se pasa alrededor del bus de eventos. </font><font class="">La aplicación no está interesado en eventos como "el usuario hace clic en enter" o "un RPC está a punto de hacerse". </font><font class="goog-text-highlight">En su lugar (al menos en nuestra aplicación de ejemplo), se pasa en torno a acontecimientos tales como un contacto en proceso de actualización, el usuario de cambiar a la vista de edición, o RPC uno que elimina un usuario ha devuelto desde el servidor.</font></font></p>
+
+<p><font><font>A continuación se muestra una lista de los eventos que hemos definido.</font></font></p>
+
+<ul>
+  <li><font><font>AddContactEvent</font></font></li>
+  <li><font><font>Evento Contacto eliminados</font></font></li>
+  <li><font><font>ContactUpdatedEvent</font></font></li>
+  <li><font><font>EditContactCancelledEvent</font></font></li>
+  <li><font><font>EditContactEvent</font></font></li>
+</ul>
+
+<p><font><font>Cada uno de estos eventos se extenderá GwtEvent y anulación de despacho () y getAssociatedType (). </font><font>Método de envío () toma un parámetro único de tipo EventHandler, y para nuestra aplicación hemos definido las interfaces de controlador para cada uno de nuestros eventos.</font></font></p>
+
+<ul>
+  <li><font><font>AddContactEventHandler</font></font></li>
+  <li><font><font>Póngase en contacto con EventHandler eliminados</font></font></li>
+  <li><font><font>ContactUpdatedEventHandler</font></font></li>
+  <li><font><font>EditContactCancelledEventHandler</font></font></li>
+  <li><font><font>EditContactEventHandler</font></font></li>
+</ul>
+
+<p><font><font>Para demostrar cómo encajan estas piezas, veamos lo que ocurre cuando un usuario decide editar un contacto. </font><font>En primer lugar vamos a necesitar el AppController para inscribirse en el EditContactEvent. </font><font>Para ello, hacemos un llamamiento </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/shared/HandlerManager.html#addHandler(com.google.gwt.event.shared.GwtEvent.Type,%20H)"><font><font>HandlerManager.addHandler ()</font></font></a><font><font> 
+y pase el </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/shared/GwtEvent.Type.html"><font><font>GwtEvent.Type</font></font></a><font><font> 
+así como el controlador que se debe llamar cuando se activa el evento. </font><font>El código siguiente muestra cómo el AppController registra para recibir EditContactEvents.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppController</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ValueChangeHandler</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; eventBus</span><span class="pun">.</span><span class="pln">addHandler</span><span class="pun">(</span><span class="typ">EditContactEvent</span><span class="pun">.</span><span class="pln">TYPE</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactEventHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onEditContact</span><span class="pun">(</span><span class="typ">EditContactEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; doEditContact</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">getId</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Aquí el AppController tiene una instancia de la </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/shared/HandlerManager.html"><font><font>HandlerManager</font></font></a><font><font> , llamado eventBus, y se está registrando una nueva EditContactEventHandler. </font><font>Este controlador se agarra el id del contacto que desea editar, y pasar a la doEditContact () método cada vez que un evento de EditContactEvent.getAssociatedType () se dispara. </font><font>Varios componentes se pueden escuchar por un solo evento, por lo que cuando se dispara un evento con el </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/shared/HandlerManager.html#fireEvent(com.google.gwt.event.shared.GwtEvent)"><font><font>HandlerManager.fireEvent ()</font></font></a><font><font> , el HandlerManager busca cualquier componente que se ha añadido un controlador para event.getAssociatedType (). </font><font>Para cada componente que tiene un controlador, el HandlerManager llama event.dispatch () con la interfaz de EventHandler de ese componente.</font></font></p>
+
+<p><font><font>Para ver cómo se dispara un evento, vamos a echar un vistazo al código que las fuentes de la EditContactEvent. </font><font>Como se mencionó anteriormente, nos hemos añadido como un controlador, haga clic en la lista de ListContactView. </font><font>Ahora, cuando un usuario hace clic en la lista de contactos, vamos a notificar al resto de la aplicación mediante una llamada al HandlerManager.fireEvent () con un EditContactEvent () de clase que se inicia con la identificación de los contactos que desea editar.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; display</span><span class="pun">.</span><span class="pln">getList</span><span class="pun">().</span><span class="pln">addClickHandler</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ClickHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onClick</span><span class="pun">(</span><span class="typ">ClickEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">int</span><span class="pln"> selectedRow </span><span class="pun">=</span><span class="pln"> display</span><span class="pun">.</span><span class="pln">getClickedRow</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">selectedRow </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> contactDetails</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">selectedRow</span><span class="pun">).</span><span class="pln">getId</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; eventBus</span><span class="pun">.</span><span class="pln">fireEvent</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactEvent</span><span class="pun">(</span><span class="pln">id</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Ver la transición es un flujo de eventos proactiva, donde el origen de eventos permite que el resto de las aplicaciones saber: "Oye una transición vista está a punto de llevarse a cabo, así que si tienes algún trabajo de limpieza de última minuto que hacer, te sugiero que lo hagas ahora ". </font><font>Con RPC es un poco diferente. </font><font>El evento se activa cuando la RPC devuelve en lugar de antes de la RPC se hace. </font><font>La razón es que la aplicación es realmente sólo se preocupan cuando un estado ha cambiado (los valores de contacto ha cambiado, póngase en contacto borrado, etc ..), que es el caso después de que la RPC ha regresado.
+</font></font></p>
+
+<p><font><font>A continuación se muestra un ejemplo del caso de que se dispararon con éxito la actualización de un contacto.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">EditContactPresenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> doSave</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; contact</span><span class="pun">.</span><span class="pln">setFirstName</span><span class="pun">(</span><span class="pln">display</span><span class="pun">.</span><span class="pln">getFirstName</span><span class="pun">().</span><span class="pln">getValue</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; contact</span><span class="pun">.</span><span class="pln">setLastName</span><span class="pun">(</span><span class="pln">display</span><span class="pun">.</span><span class="pln">getLastName</span><span class="pun">().</span><span class="pln">getValue</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; contact</span><span class="pun">.</span><span class="pln">setEmailAddress</span><span class="pun">(</span><span class="pln">display</span><span class="pun">.</span><span class="pln">getEmailAddress</span><span class="pun">().</span><span class="pln">getValue</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; rpcService</span><span class="pun">.</span><span class="pln">updateContact</span><span class="pun">(</span><span class="pln">contact</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AsyncCallback</span><span class="pun">&lt;</span><span class="typ">Contact</span><span class="pun">&gt;()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onSuccess</span><span class="pun">(</span><span class="typ">Contact</span><span class="pln"> result</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; eventBus</span><span class="pun">.</span><span class="pln">fireEvent</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactUpdatedEvent</span><span class="pun">(</span><span class="pln">result</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onFailure</span><span class="pun">(</span><span class="typ">Throwable</span><span class="pln"> caught</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="pun">...</span><span class="pln"> <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<h2 id="history"><font><font>Historia y opinión de las transiciones</font></font></h2>
+
+<p><font><font>Una de las partes más esenciales para cualquier aplicación web es la manipulación de
+ </font></font><a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideCodingBasics#DevGuideHistory"><font><font>la historia</font></font></a><font><font> 
+los acontecimientos. </font><font>Los acontecimientos de la historia son cadenas simbólicas que representan un nuevo estado dentro de su aplicación. </font><font>Piense en ellos como "marcadores" de dónde usted está en la aplicación. </font><font>Tomemos, por ejemplo, un usuario que navega en la "Lista de Contactos" para el "Agregar contacto" punto de vista y luego haciendo clic en el botón "Atrás". </font><font>La acción resultante debe aterrizar de vuelta al usuario en la "Lista de contactos" punto de vista, y para ello se impulsaría el estado inicial (la "Lista de contactos" punto de vista) en la pila de la historia seguida por una invasión de la "Agregar contacto" punto de vista. </font><font>Así, cuando se haga clic en el botón Atrás del "Agregar contacto" token se extrae de la pila y el token de la historia actual será la "Lista de contactos" punto de vista.
+
+</font></font></p><p><font><font>Ahora que tenemos el flujo de recta, tenemos que decidir dónde colocar el código. </font><font>Teniendo en cuenta que la historia no es específico de un punto de vista particular, tiene sentido para añadirlo a la clase AppController.</font></font></p>
+
+<p><font><font>Para empezar, tendremos que cuentan con el implemento AppController </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/logical/shared/ValueChangeHandler.html"><font><font>ValueChangeHandler</font></font></a><font><font> 
+y declarar su propia </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/event/logical/shared/ValueChangeHandler.html#onValueChange(com.google.gwt.event.logical.shared.ValueChangeEvent)"><font><font>onValueChange ()</font></font></a><font><font> 
+método. </font><font>La interfaz y los parámetros son de tipo String ya que los acontecimientos de la historia son simplemente las fichas que se inserta en la pila.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppController</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ValueChangeHandler</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onValueChange</span><span class="pun">(</span><span class="typ">ValueChangeEvent</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> token </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">getValue</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>A continuación hay que registrarse para recibir eventos de la historia, muy parecido a lo registrado para los próximos eventos fuera de la EventBus.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppController</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ValueChangeHandler</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> bind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">History</span><span class="pun">.</span><span class="pln">addValueChangeHandler</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>En el ejemplo anterior, donde el usuario se desplaza de la "Lista de Contactos" para el "Agregar contacto" punto de vista, hemos mencionado el establecimiento de un estado inicial. </font><font>Esto es importante porque no sólo nos da un punto de partida, pero también es el trozo de código que compruebe si un testigo de la historia actual (por ejemplo, si un usuario marcado un estado específico dentro de su aplicación) y la ruta al usuario de la adecuada ver. </font><font>El método de AppController de go (), que se llama después de todo ha sido cableado, es donde vamos a añadir esta lógica.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppController</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ValueChangeHandler</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> go</span><span class="pun">(</span><span class="kwd">final</span><span class="pln"> </span><span class="typ">HasWidgets</span><span class="pln"> container</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">container </span><span class="pun">=</span><span class="pln"> container</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="str">""</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="typ">History</span><span class="pun">.</span><span class="pln">getToken</span><span class="pun">()))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="typ">History</span><span class="pun">.</span><span class="pln">newItem</span><span class="pun">(</span><span class="str">"list"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="typ">History</span><span class="pun">.</span><span class="pln">fireCurrentHistoryState</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Con la instalación de cañerías anterior en su lugar, tenemos que hacer algo significativo en el método de onValueChange () que se llama cuando el usuario hace clic en el "Volver" o el botón "Adelante". </font><font>Uso de la getValue () del evento, vamos a decidir qué ver para mostrar a continuación.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppController</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ValueChangeHandler</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onValueChange</span><span class="pun">(</span><span class="typ">ValueChangeEvent</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">String</span><span class="pln"> token </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">getValue</span><span class="pun">();</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">token </span><span class="pun">!=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="typ">Presenter</span><span class="pln"> presenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">token</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"list"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; presenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pun">(</span><span class="pln">rpcService</span><span class="pun">,</span><span class="pln"> eventBus</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactView</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">token</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"add"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; presenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactPresenter</span><span class="pun">(</span><span class="pln">rpcService</span><span class="pun">,</span><span class="pln"> eventBus</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactView</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">token</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"edit"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; presenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactPresenter</span><span class="pun">(</span><span class="pln">rpcService</span><span class="pun">,</span><span class="pln"> eventBus</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">EditContactView</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">presenter </span><span class="pun">!=</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; presenter</span><span class="pun">.</span><span class="pln">go</span><span class="pun">(</span><span class="pln">container</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Ahora, cuando el usuario hace clic en el botón Atrás de la "Agregar contacto" punto de vista, el mecanismo de GWT historia llamará a la onValueChange () con el símbolo de la historia anterior. </font><font>En nuestro ejemplo, la vista anterior fue la "Lista de contactos" punto de vista y el símbolo de la historia anterior (que fue creado en el método de la marcha ()) es "lista".</font></font></p>
+
+<p><font><font>Gestión de eventos de la historia de esta manera no se limita sólo a "Volver" y la manipulación "Adelante", que puede utilizarse para todas las transiciones de vista. </font><font>Volviendo al método de la AppController de go (), te darás cuenta de lo que llamamos fireCurrentHistoryState () si el símbolo de la historia actual no es nulo. </font><font>Por lo tanto si el usuario especifica http://myapp.com/contacts.html # añade, el símbolo de la historia inicial será "añadir" y fireCurrentHistoryState (), a su vez llamar a la onValueChange () con este símbolo. </font><font>Esto no es específico de sólo la creación de la vista inicial con la aplicación; otras interacciones de los usuarios que se traducen en una transición de vista puede llamar History.newItem (), que impulsará una ficha nueva historia en la pila, que a su vez, provocaría una llamada a onValueChange ().</font></font></p>
+
+<p><font><font>A continuación se muestra un ejemplo de cómo se puede conectar el ContactsPresenter a la "Agregar contacto" botón, desencadena el evento asociado al recibir el clic, y la transición a la opción "Agregar contacto" vista como un resultado.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Presenter</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> bind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; display</span><span class="pun">.</span><span class="pln">getAddButton</span><span class="pun">().</span><span class="pln">addClickHandler</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ClickHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onClick</span><span class="pun">(</span><span class="typ">ClickEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; eventBus</span><span class="pun">.</span><span class="pln">fireEvent</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AddContactEvent</span><span class="pun">());</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">AppController</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">ValueChangeHandler</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> bind</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">...</span><span class="pln"><br>&nbsp; &nbsp; eventBus</span><span class="pun">.</span><span class="pln">addHandler</span><span class="pun">(</span><span class="typ">AddContactEvent</span><span class="pun">.</span><span class="pln">TYPE</span><span class="pun">,</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">AddContactEventHandler</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onAddContact</span><span class="pun">(</span><span class="typ">AddContactEvent</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; doAddNewContact</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">});</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> doAddNewContact</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">History</span><span class="pun">.</span><span class="pln">newItem</span><span class="pun">(</span><span class="str">"add"</span><span class="pun">);</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Desde la lógica de la transición vista ya está integrado en el método onValueChange (), lo que proporciona una forma centralizada y reutilizable de navegar dentro de la aplicación.</font></font></p>
+
+<h2 id="testing"><font><font>Pruebas</font></font></h2>
+
+<p><font><font>El modelo de MVP elimina la dificultad de las pruebas unitarias de una aplicación GWT. </font><font>Eso no quiere decir que no se puede escribir pruebas de unidad sin necesidad de utilizar el modelo de MVP. </font><font>De hecho se puede, pero que a menudo veces más lento que la media de la JRE basado en JUnit. </font><font>¿Por qué? </font><font>Bueno, en resumen, las aplicaciones que no utilizan el modelo de MVP se requieren los casos de prueba que los componentes de las pruebas que se basan en un presente DOM siendo, un motor de Javascript, etc .. </font><font>Esencialmente, estos casos de prueba que ejecutar en un navegador.</font></font></p>
+
+<p><font><font>GWT </font></font><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/2.0/com/google/gwt/junit/client/GWTTestCase.html"><font><font>GWTTestCase</font></font></a><font><font> 
+hace esto posible, ya que pondrá en marcha una "cabeza" del navegador para ejecutar cada una de las pruebas. </font><font>El lanzamiento del navegador, junto con la ejecución real del caso de prueba es por qué estas pruebas suelen tardar más que las pruebas estándar del JRE. </font><font>Dentro del modelo de MVP, nos esforzamos por hacer un punto de vista, el componente que abarca la mayor parte de nuestro código que se basa en el motor de DOM y Javascript, tan pequeño y tan simple como sea posible. </font><font>Menos código, menos pruebas que significa menos tiempo que se tarda en ejecutar realmente las pruebas. </font><font>Si la mayor parte del código en su aplicación se enmarca dentro de un presentador, y que el presentador se basa estrictamente en los componentes basados ​​en JRE, puede crear la mayoría de los casos de prueba como las pruebas de eficiencia, la vainilla JUnit.
+
+</font></font></p><p><font><font>Para demostrar las ventajas de utilizar el modelo de MVP para conducir JRE basados ​​en las pruebas unitarias, en lugar de las basadas en GWTTestCase, hemos agregado las siguientes pruebas a nuestra aplicación de contactos.</font></font></p>
+
+<div class="screenshot">
+  <img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/contacts-project-hierarchy-testing.png" style="width: 340px; height: 104px;" alt="captura de pantalla">
+</div>
+
+<p><font><font>Cada ejemplo está configurado para probar agregando una lista de ContactDetails, ordenar los ContactDetails, y luego de verificar que la lista ordenada es la correcta. </font><font>Echando un vistazo a la ExampleJRETest, tenemos el siguiente código.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExampleJRETest</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">TestCase</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> contactsPresenter</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ContactsServiceAsync</span><span class="pln"> mockRpcService</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">HandlerManager</span><span class="pln"> eventBus</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pun">.</span><span class="typ">Display</span><span class="pln"> mockDisplay</span><span class="pun">;</span><span class="pln"><br>&nbsp; <br>&nbsp; </span><span class="kwd">protected</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> setUp</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; mockRpcService </span><span class="pun">=</span><span class="pln"> createStrictMock</span><span class="pun">(</span><span class="typ">ContactsServiceAsync</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; eventBus </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HandlerManager</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; mockDisplay </span><span class="pun">=</span><span class="pln"> createStrictMock</span><span class="pun">(</span><span class="typ">ContactsPresenter</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; contactsPresenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pun">(</span><span class="pln">mockRpcService</span><span class="pun">,</span><span class="pln"> eventBus</span><span class="pun">,</span><span class="pln"> mockDisplay</span><span class="pun">);</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp;<br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> testContactSort</span><span class="pun">(){</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;</span><span class="pln"> contactDetails </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;();</span><span class="pln"><br>&nbsp; &nbsp; contactDetails</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactDetails</span><span class="pun">(</span><span class="str">"0"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"c_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; contactDetails</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactDetails</span><span class="pun">(</span><span class="str">"1"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"b_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; contactDetails</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactDetails</span><span class="pun">(</span><span class="str">"2"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"a_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; contactsPresenter</span><span class="pun">.</span><span class="pln">setContactDetails</span><span class="pun">(</span><span class="pln">contactDetails</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; contactsPresenter</span><span class="pun">.</span><span class="pln">sortContactDetails</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; assertTrue</span><span class="pun">(</span><span class="pln">contactsPresenter</span><span class="pun">.</span><span class="pln">getContactDetail</span><span class="pun">(</span><span class="lit">0</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"a_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; assertTrue</span><span class="pun">(</span><span class="pln">contactsPresenter</span><span class="pun">.</span><span class="pln">getContactDetail</span><span class="pun">(</span><span class="lit">1</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"b_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; assertTrue</span><span class="pun">(</span><span class="pln">contactsPresenter</span><span class="pun">.</span><span class="pln">getContactDetail</span><span class="pun">(</span><span class="lit">2</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"c_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Debido a que hemos estructurado el punto de vista detrás de una interfaz de pantalla, somos capaces de burlarse de él hacia fuera (usando EasyMock en este ejemplo), elimina la necesidad de acceso a los recursos del navegador (DOM, el motor de Javascript, etc ..), y evitar tener que basar nuestras pruebas en GWTTestCase.</font></font></p>
+
+<p><font><font>Entonces creamos la misma prueba con GWTTestCase.</font></font></p>
+
+<pre class="prettyprint"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExampleGWTTest</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">GWTTestCase</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pln"> contactsPresenter</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ContactsServiceAsync</span><span class="pln"> rpcService</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">HandlerManager</span><span class="pln"> eventBus</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pun">.</span><span class="typ">Display</span><span class="pln"> display</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> getModuleName</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> </span><span class="str">"com.google.gwt.sample.contacts.Contacts"</span><span class="pun">;</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> gwtSetUp</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; rpcService </span><span class="pun">=</span><span class="pln"> GWT</span><span class="pun">.</span><span class="pln">create</span><span class="pun">(</span><span class="typ">ContactsService</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; eventBus </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HandlerManager</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; display </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactsView</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; contactsPresenter </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactsPresenter</span><span class="pun">(</span><span class="pln">rpcService</span><span class="pun">,</span><span class="pln"> eventBus</span><span class="pun">,</span><span class="pln"> display</span><span class="pun">);</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> testContactSort</span><span class="pun">(){</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;</span><span class="pln"> contactDetails </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">ContactDetails</span><span class="pun">&gt;();</span><span class="pln"><br>&nbsp; &nbsp; contactDetails</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactDetails</span><span class="pun">(</span><span class="str">"0"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"c_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; contactDetails</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactDetails</span><span class="pun">(</span><span class="str">"1"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"b_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; contactDetails</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ContactDetails</span><span class="pun">(</span><span class="str">"2"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"a_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; contactsPresenter</span><span class="pun">.</span><span class="pln">setContactDetails</span><span class="pun">(</span><span class="pln">contactDetails</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; contactsPresenter</span><span class="pun">.</span><span class="pln">sortContactDetails</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; assertTrue</span><span class="pun">(</span><span class="pln">contactsPresenter</span><span class="pun">.</span><span class="pln">getContactDetail</span><span class="pun">(</span><span class="lit">0</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"a_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; assertTrue</span><span class="pun">(</span><span class="pln">contactsPresenter</span><span class="pun">.</span><span class="pln">getContactDetail</span><span class="pun">(</span><span class="lit">1</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"b_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; &nbsp; assertTrue</span><span class="pun">(</span><span class="pln">contactsPresenter</span><span class="pun">.</span><span class="pln">getContactDetail</span><span class="pun">(</span><span class="lit">2</span><span class="pun">).</span><span class="pln">getDisplayName</span><span class="pun">().</span><span class="pln">equals</span><span class="pun">(</span><span class="str">"c_contact"</span><span class="pun">));</span><span class="pln"><br>&nbsp; </span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span></pre>
+
+<p><font><font>Teniendo en cuenta que nuestra aplicación ha sido diseñado utilizando el modelo de MVP, en forma realista, no tiene sentido para estructurar las pruebas como ésta. </font><font>Pero eso no es el punto. </font><font>El punto es que se ExampleGWTTest </font></font><b><font><font>15.23 segundos</font></font></b><font><font> para correr, mientras que el ExampleJRETest ligero y ocupa </font></font><b><font><font>0,01 segundos</font></font></b><font><font> . </font><font>Si usted puede llegar a separar la lógica de la aplicación basada en widgets código, las pruebas unitarias, será mucho más eficiente. </font><font>Imagina estas cifras se aplican en todos los ámbitos a los cientos de pruebas automatizadas que se ejecutan en cada generación.</font></font></p>
+
+<p><font><font>Para obtener más información sobre las pruebas y el modelo de MVP, pago y envío del artículo,
+ </font></font><a href="https://developers.google.com/web-toolkit/articles/testing_methodologies_using_gwt"><font><font>Métodos de prueba a través de Google Web Toolkit</font></font></a><font><font> .
+</font></font></p>
+
+<h2 id="follow-up"><font><font>Temas de seguimiento</font></font></h2>
+
+<p><font><font> La arquitectura de MVP es expansiva, en futuros artículos nos fijamos para discutir los siguientes conceptos:</font></font></p>
+<ul>
+<li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture-2"><font><font>IU Binder y MVP</font></font></a></li>
+<li><a href="https://developers.google.com/web-toolkit/articles/mvp-architecture-2"><font><font>Código de división de una aplicación basada en MVP</font></font></a></li>
+<li><font><font>Uso de Ginebra para reducir el código y facilitar las pruebas</font></font></li>
+</ul>
+
+
+  <div id="notice" style="text-align: center; border: 1em 0em 1em 0em"><font><font>
+  Con excepción de lo </font></font><a href="http://code.google.com/policies.html#restrictions"><font><font>señalado</font></font></a><font><font> , el contenido de esta página está licenciado bajo la </font></font><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><font><font>licencia Creative Commons Attribution 3.0</font></font></a><font><font> .
+</font></font><!-- <rdf:RDF xmlns="http://web.resource.org/cc/" 
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Work rdf:about="">
+    <license rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+  </Work>
+  <License rdf:about="http://creativecommons.org/licenses/by/3.0/">
+    <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+    <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+    <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+    <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+    <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+  </License>
+</rdf:RDF> -->
+</div>
+
+
+        </div>
+        
+
+
+      </div>
+
+      </div>
+      
+
+      
+      <footer id="gc-footer">
+
+<div id="gc-copyright">
+  <a href="https://developers.google.com/">
+    <img id="developers-logo-footer" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/developers-logo-footer.png" alt="Google logo de Desarrolladores" style="vertical-align: center; float: left">
+  </a>
+  <ul>
+    <li><a href="http://www.google.com/"><font><font>Google</font></font></a></li>
+    <li><a href="https://developers.google.com/readme/terms"><font><font>Condiciones de uso</font></font></a></li>
+    <li><a href="http://www.google.com/intl/en/privacy/"><font><font>Política de Privacidad</font></font></a></li>
+    <li><a href="https://developers.google.com/jobs"><font><font>Ofertas de empleo</font></font></a></li>
+  </ul>
+</div>
+<div id="gc-language">
+  <ul>
+    <li>
+      <form id="setlang" action="https://developers.google.com/i18n/setlang/" method="post">
+        <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="5ac3ee6e55e33a38b02619e8d68d2f1b"></div>
+        <select id="footer_language" name="language" style="display: none; ">
+          
+          
+          <option value="ar"><font><font>
+            Árabe
+          </font></font></option>
+          
+          <option value="bg"><font><font>
+            Búlgaro
+          </font></font></option>
+          
+          <option value="ca">
+            català
+          </option>
+          
+          <option value="zh-cn"><font><font>
+            Chino simplificado
+          </font></font></option>
+          
+          <option value="zh-tw"><font><font>
+            Chino tradicional
+          </font></font></option>
+          
+          <option value="hr"><font><font>
+            Croata
+          </font></font></option>
+          
+          <option value="cs"><font><font>
+            Checo
+          </font></font></option>
+          
+          <option value="da"><font><font>
+            Danés
+          </font></font></option>
+          
+          <option value="nl"><font><font>
+            Holandés
+          </font></font></option>
+          
+          <option value="en" selected="selected"><font><font>
+            Inglés
+          </font></font></option>
+          
+          <option value="fa"><font><font>
+            Persa
+          </font></font></option>
+          
+          <option value="fi"><font><font>
+            Finlandés
+          </font></font></option>
+          
+          <option value="fr"><font><font>
+            Francés
+          </font></font></option>
+          
+          <option value="de"><font><font>
+            Alemán
+          </font></font></option>
+          
+          <option value="el"><font><font>
+            Griego
+          </font></font></option>
+          
+          <option value="he"><font><font>
+            Hebreo
+          </font></font></option>
+          
+          <option value="hi"><font><font>
+            Hindi
+          </font></font></option>
+          
+          <option value="hu"><font><font>
+            Húngaro
+          </font></font></option>
+          
+          <option value="id"><font><font>
+            Bahasa de Indonesia
+          </font></font></option>
+          
+          <option value="it">
+            italiano
+          </option>
+          
+          <option value="ja"><font><font>
+            Japonés
+          </font></font></option>
+          
+          <option value="ko"><font><font>
+            Coreano
+          </font></font></option>
+          
+          <option value="lv"><font><font>
+            Letón
+          </font></font></option>
+          
+          <option value="lt"><font><font>
+            Lituano
+          </font></font></option>
+          
+          <option value="nb"><font><font>
+            Noruego (Bokmål)
+          </font></font></option>
+          
+          <option value="nn"><font><font>
+            Noruego (nynorsk)
+          </font></font></option>
+          
+          <option value="pl"><font><font>
+            Polaco
+          </font></font></option>
+          
+          <option value="pt-br"><font><font>
+            Portugués de Brasil
+          </font></font></option>
+          
+          <option value="pt"><font><font>
+            Portugués
+          </font></font></option>
+          
+          <option value="ro"><font><font>
+            Rumano
+          </font></font></option>
+          
+          <option value="ru"><font><font>
+            Ruso
+          </font></font></option>
+          
+          <option value="sr"><font><font>
+            Serbio
+          </font></font></option>
+          
+          <option value="sk"><font><font>
+            Eslovaco
+          </font></font></option>
+          
+          <option value="sl"><font><font>
+            Slovenščina
+          </font></font></option>
+          
+          <option value="es">
+            español
+          </option>
+          
+          <option value="sv"><font><font>
+            Sueco
+          </font></font></option>
+          
+          <option value="th"><font><font>
+            Tailandés
+          </font></font></option>
+          
+          <option value="tr"><font><font>
+            Turco
+          </font></font></option>
+          
+          <option value="uk"><font><font>
+            Ucranio
+          </font></font></option>
+          
+          <option value="vi"><font><font>
+            Vietnamita
+          </font></font></option>
+          
+        </select><span class="kd-button kd-menubutton kd-select"><div style="display: inline-block; "><div class="label" style="float: left; "><font><font>
+            Inglés
+          </font></font></div><div class="kd-disclosureindicator"></div></div></span>
+      </form>
+    </li>
+  </ul>
+  
+</div>
+</footer>
+      
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1><font><font>Se requiere autenticación</font></font></h1>
+      
+      <div><font><font>
+        Usted debe registrarse con </font></font><a href="http://www.google.com/+"><font><font>Google y</font></font></a><font><font> para hacer eso.
+      </font></font></div>
+      <button><font><font>Registrarse</font></font></button>
+      <button><font><font>Cancelar</font></font></button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1><font><font>La firma que in ..</font></font></h1>
+      <div><font><font>
+        
+        Google Desarrolladores necesita su permiso para hacer eso.
+      </font></font></div>
+      
+      <button><font><font>Inténtelo de nuevo</font></font></button>
+      
+      <button><font><font>Cancelar</font></font></button>
+    </div>
+    <script src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($);
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+      
+    </script>
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/conversion.js">
+    </script><img height="1" width="1" border="0" src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/saved_resource">
+    <noscript>
+      &lt;div style="display:inline;"&gt;
+        &lt;img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+      &lt;/div&gt;
+    </noscript>
+    
+
+
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    // Render any carousels on the page
+    $('.carousel').carousel();
+    // Render any feed widgets on the page
+    
+    $('.feed').rss();
+    // Render any OSS widgets on the page.
+    $('.oss').oss();
+    });
+</script>
+
+<script type="text/javascript" defer="">
+// Add the handlers once the document has loaded.
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+  
+
+<div id="LCS_336D0C35_8A85_403a_B9D2_65C292C39087_communicationDiv"></div><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: visible; display: block; left: 496px; top: 6066px; "><div style="padding: 8px;"><div><div class="logo"><img src="./A gran escala de desarrollo de aplicaciones y MVP - Google Web Toolkit - Google Desarrolladores_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Instead (at least in our example app), we pass around events such as a contact being updated, the user switching to the edit view, or an RPC that deleted a user has successfully returned from the server.</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0; "></div></div><ul style="position: absolute; left: 1443px; top: 11874px; display: none; " class="kd-menulist"><li class="kd-menulistitem" style=""><font><font>
+            Árabe
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Búlgaro
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            català
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Chino simplificado
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Chino tradicional
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Croata
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Checo
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Danés
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Holandés
+          </font></font></li><li class="kd-menulistitem selected"><font><font>
+            Inglés
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Persa
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Finlandés
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Francés
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Alemán
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Griego
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Hebreo
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Hindi
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Húngaro
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Bahasa de Indonesia
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            italiano
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Japonés
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Coreano
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Letón
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Lituano
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Noruego (Bokmål)
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Noruego (nynorsk)
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Polaco
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Portugués de Brasil
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Portugués
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Rumano
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Ruso
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Serbio
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Eslovaco
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Slovenščina
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            español
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Sueco
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Tailandés
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Turco
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Ucranio
+          </font></font></li><li class="kd-menulistitem"><font><font>
+            Vietnamita
+          </font></font></li></ul><iframe frameborder="0" class="goog-te-menu-frame skiptranslate" style="visibility: visible; box-sizing: content-box; width: 519px; height: 274px; display: none; "></iframe><iframe frameborder="0" class="goog-te-menu-frame skiptranslate" style="visibility: visible; box-sizing: content-box; width: 237px; height: 108px; display: none; "></iframe></body></html>

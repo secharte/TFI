@@ -1,0 +1,60 @@
+
+Smart gwt
+
+Para llevar el proyecto carpetas:
+c:\eclipses\galileo-gwt\
+c:\seba\gwt-util\
+c:\ProgSeba\ws\
+
+
+Ejemplos a usar:
+Modality: Muestra un pop up 
+http://www.smartclient.com/smartgwt/showcase/#
+
+Plug Ins utilizados:
+	Google Web Toolkit
+	GWT Designer
+	Schema export (ant con hibernate)
+	FileSync (Sincronizacion de archivos para deployar)
+FrameWorks y herramientas utilizados:
+	Tomcat 6.0 como server de aplicaciones.
+	Hibernate 3
+	GWT
+	SmartGWT
+	MySQL 5
+	2 proyectos separados por capas /bssyj-war y /bssyj-data(aqui esta la logica de la aplicacion)
+	J2EE 1.6
+	Google Web Toolkit 1.4.62
+	JRE 1.6
+	Common Collection 3.1
+Arquitectura utilizada(Patrones)
+	GWT MVP (http://code.google.com/intl/es-ES/webtoolkit/articles/mvp-architecture.html)
+	DAO (http://java.sun.com/blueprints/corej2eepatterns/Patterns/DataAccessObject.html)
+	Singleton (http://es.wikipedia.org/wiki/Singleton)
+	DTO Dozer (http://dozer.sourceforge.net/documentation/gettingstarted.html)
+	
+Base de datos:
+	MY SQL 5.0 instalado con Xampp apache
+	URL Base:
+	Usuario: sa
+	Clave:
+	
+	
+	
+Secuencia Para Obtener Datos de la DB y llevarla a la vista pasando por las N capas:
+Entidad Ejemplo: Empleado, Metodo: getAll()
+<LADO DEL SERVIDOR>
+1) EmpleadoDaoImpl Crear getAllEmpleados() si es generico Crear en GenericHBMDAO<T> y llamar al metodo getAll(Class)
+2) EmpleadoService Crear getAllEmpleados() llamar al metodo del DAO 
+3) BssyjService y BssyjServiceImpl de poryecto WAR Del lado del SERVER es necesario en este punto transformar 
+	la entidad a DTO EmpleadoDTO debido a que solo se pueden pasar objetos simples al lado del
+	CLIENTE(Vista)
+4) Crear la separacion Entre el CLiente Y el Servidor (I)BssyjServiceAsync Comportamiento Propio de GWT
+	ej: void getAllEmpleados(AsyncCallback< List<EmpleadoDTO> > callback); con esto genera el evento
+	que luego se utilizara del lado del Cliente
+<LADO DEL CLIENTE>
+5) EmpleadoPresenter crear metodo e invocar el rpcService con para que lo pueda usar la vista (I)BssyjServiceAsyn ej:
+	protected synchronized void getAllEmpleados() {
+		rpcService.getAllEmpleados(new AsyncCallback<List<EmpleadoDTO>>() {...}}
+	Para que lo pueda ver la Vista se creea la (I) public interface DisplayListEmpleado {...}
+6) Armado de la Vista JS y HTML con Java Usando SmartGWT 

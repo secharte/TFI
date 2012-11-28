@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://developers.google.com/web-toolkit/articles/using_gwt_with_hibernate?hl=ru-RU -->
+<html lang="en" class="wf-opensans-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/plusone.js" gapi_processed="true"></script>
+    <meta charset="utf-8">
+    <script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/script_head.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/screen.css">
+    <link rel="shortcut icon" href="https://developers.google.com/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://developers.google.com/images/apple-touch-icon.png">
+    <link href="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/css" rel="stylesheet" type="text/css">
+    <script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/jquery.min.js"></script>
+    <script id="jqueryui" src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/jquery-ui.min.js" defer="" async=""></script>
+    <script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/jsapi"></script>
+    <script>
+      google.load('visualization', '1', {packages: ['table']});
+    </script><script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/saved_resource" type="text/javascript"></script><script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/format+es,default,table.I.js" type="text/javascript"></script><style>.a-b-c{position:relative;display:-moz-inline-box;display:inline-block}* html .a-b-c,*:first-child+html .a-b-c{display:inline}.a-d-e{margin:2px;border:0;padding:0;font-family:Arial,sans-serif;color:#000;background:#ddd url(//ssl.gstatic.com/editor/button-bg.png) repeat-x top left;text-decoration:none;list-style:none;vertical-align:middle;cursor:default;outline:none}.a-d-e-f-g,.a-d-e-h-g{border-style:solid;border-color:#aaa;vertical-align:top}.a-d-e-f-g{margin:0;border-width:1px 0;padding:0}.a-d-e-h-g{-moz-box-orient:vertical;margin:0 -1px;border-width:0 1px;padding:3px 4px;white-space:nowrap}* html .a-d-e-h-g{left:-1px}* html .a-d-e-i .a-d-e-f-g{left:-1px}* html .a-d-e-i .a-d-e-h-g{right:auto}*:first-child+html .a-d-e-h-g{left:-1px}*:first-child+html .a-d-e-i .a-d-e-h-g{left:1px}::root .a-d-e,::root .a-d-e-f-g{line-height:0}::root .a-d-e-h-g{line-height:normal}.a-d-e-j{background-image:none!important;opacity:.3;-moz-opacity:.3;filter:alpha(opacity=30)}.a-d-e-j .a-d-e-f-g,.a-d-e-j .a-d-e-h-g{color:#333!important;border-color:#999!important}* html .a-d-e-j,*:first-child+html .a-d-e-j{margin:2px 1px!important;padding:0 1px!important}.a-d-e-k .a-d-e-f-g,.a-d-e-k .a-d-e-h-g{border-color:#9cf #69e #69e #7af!important}.a-d-e-l,.a-d-e-m{background-color:#bbb;background-position:bottom left}.a-d-e-n .a-d-e-f-g,.a-d-e-n .a-d-e-h-g{border-color:orange}.a-d-e-o-p,.a-d-e-o-p .a-d-e-f-g,.a-d-e-o-p .a-d-e-h-g{margin-right:0}.a-d-e-o-q,.a-d-e-o-q .a-d-e-f-g{margin-left:0}.a-d-e-o-q .a-d-e-h-g{margin-left:0;border-left:1px solid #fff}.a-d-e-o-q.a-d-e-m .a-d-e-h-g{border-left:1px solid #ddd}* html .a-d-e-o-q .a-d-e-h-g,*:first-child+html .a-d-e-o-q .a-d-e-h-g{left:0}.a-r-e{position:relative;margin:2px;border:1px solid #000;padding:2px 6px;font:normal 13px "Trebuchet MS",Tahoma,Arial,sans-serif;color:#fff;background-color:#8c2425;cursor:pointer;outline:none}.a-r-e-j{border-color:#888;color:#888;background-color:#ccc;cursor:default}.a-r-e-k{border-color:#8c2425;color:#8c2425;background-color:#eaa4a5}.a-r-e-l,.a-r-e-s,.a-r-e-m{border-color:#5b4169;color:#5b4169;background-color:#d1a8ea}.a-r-e-n{border-color:#5b4169}.a-r-e-o-p{margin-right:0}.a-r-e-o-q{margin-left:0;border-left:none}.a-e{color:#036;border-color:#036;background-color:#69c}.a-e-j{border-color:#333;color:#333;background-color:#999}.a-e-k{color:#369;border-color:#369;background-color:#9cf}.a-e-l{color:#69c;border-color:#69c}</style><link href="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/table.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+    
+    <script>
+      google.load('search', '1', {language : 'en'});
+    </script><script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/saved_resource(1)" type="text/javascript"></script><link href="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/default+en.css" type="text/css" rel="stylesheet"><script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/default+en.I.js" type="text/javascript"></script>
+    
+
+    
+  <script type="text/javascript">
+    var contentTimer = new window.jstiming.Timer();
+
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'ru';
+  </script>
+  <script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/jquery-ui.min.js"></script>
+  
+  <title>Using GWT with Hibernate - Google Web Toolkit — Google Developers</title>
+  
+  
+  
+    
+    
+    
+  
+
+
+    
+    
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"><script src="chrome-extension://jmfkcklnlgedgbglfkkgedjfmejoahla/content/flyover.js"></script></head>
+  <body class="two-column docs">
+    <div id="sandbar">
+
+
+
+
+<header id="gc-googlebar">
+
+  <a id="gc-logo" href="https://developers.google.com/">
+    <img src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/developers-logo.png" alt="Google">
+  </a>
+
+  <div class="gc-social">
+    
+    <span class="signed-in">
+      <div>
+        <a class="email" href="https://plus.google.com/me">secharte@gmail.com</a>
+        <a href="https://www.google.com/accounts/Logout?continue=https://developers.google.com/web-toolkit/articles/using_gwt_with_hibernate&service=ahsid">Sign out</a>
+      </div>
+      <img src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/silhouette36.png">
+    </span>
+    
+  </div>
+
+  <form class="gc-search" action="https://developers.google.com/search" method="GET">
+    <div class="searchbox">
+      
+      <input type="text" name="q" class="q" id="q" value="" placeholder="Search" autocomplete="off">
+    </div>
+    <button class="button button-blue">
+      <img src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/search.png" alt="Search">
+    </button>
+  </form>
+
+</header>
+
+
+
+</div>
+    
+    
+    <div class="kd-butterbar shown">
+      <span>Эта страница была перемещена на сайт Google Developers. Добро пожаловать! <a href="https://developers.google.com/readme?hl=ru-RU">Подробнее...</a> <a href="https://developers.google.com/web-toolkit/articles/using_gwt_with_hibernate?hl=ru-RU#" class="kd-butterbar-dismiss">Закрыть</a></span>
+    </div>
+    
+
+    <div id="gc-wrapper">
+      
+      <input id="gc-analytics" type="hidden" value="UA-24532603-1">
+      
+
+      
+      <div id="gc-topnav">
+        <div>
+          <ul>
+            
+            <li class=""><a href="https://developers.google.com/?hl=ru-RU">Начало</a></li>
+            
+            <li class="active"><a href="https://developers.google.com/products/?hl=ru-RU">Products</a></li>
+            
+            <li class=""><a href="https://developers.google.com/events/?hl=ru-RU">Мероприятия</a></li>
+            
+            <li class=""><a href="https://developers.google.com/showcase/?hl=ru-RU">Галерея</a></li>
+            
+            <li class=""><a href="https://developers.google.com/live/?hl=ru-RU">Live</a></li>
+            
+            <li class=""><a href="https://developers.google.com/groups/?hl=ru-RU">Группы</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+      
+
+      
+      <div id="gc-appbar">
+        
+        <h1>
+          
+
+  <a href="https://developers.google.com/web-toolkit/?hl=ru-RU">Google Web Toolkit</a>
+  <div class="plusone-container">
+    <div id="___plusone_0" style="height: 20px; width: 90px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; "><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin: 0px; border-style: none; height: 20px; width: 90px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="0" vspace="0" width="100%" id="I0_1340146204385" name="I0_1340146204385" src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/fastbutton.htm" title="+1"></iframe></div>
+  </div>
+
+
+        </h1>
+        
+      </div>
+      
+
+      
+      <div id="gc-main">
+        
+      <div id="gc-sidebar">
+        
+
+  
+
+
+
+  <div class="gc-toc"><ul><li class=""><span class="tlw-title" data-title="Docs:">Docs:</span></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/latest?hl=ru-RU" data-title="Latest Version"><span>Latest Version</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><span class="tlw-title tlw-control-title" data-title="Older Versions">Older Versions</span><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.3?hl=ru-RU" data-title="2.3"><span>2.3</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.2?hl=ru-RU" data-title="2.2"><span>2.2</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.1?hl=ru-RU" data-title="2.1"><span>2.1</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/doc/2.0?hl=ru-RU" data-title="2.0"><span>2.0</span></a></li></ul></li></ul><hr><ul><li class=""><a href="https://developers.google.com/web-toolkit/download?hl=ru-RU" data-title="Downloads"><span>Downloads</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/?hl=ru-RU" data-title="GWT Designer" class="tlw-control-title"><span>GWT Designer</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/download-gwtdesigner?hl=ru-RU" data-title="Download"><span>Download</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/quick_start?hl=ru-RU" data-title="Quick Start"><span>Quick Start</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/whatsnew?hl=ru-RU" data-title="What&#39;s New"><span>What's New</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation?hl=ru-RU" data-title="Installation" class="tlw-control-title"><span>Installation</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/system?hl=ru-RU" data-title="System Requirements"><span>System Requirements</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.7?hl=ru-RU" data-title="Using update site for Eclipse 3.7"><span>Using update site for Eclipse 3.7</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.6?hl=ru-RU" data-title="Using update site for Eclipse 3.6"><span>Using update site for Eclipse 3.6</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.5?hl=ru-RU" data-title="Using update site for Eclipse 3.5"><span>Using update site for Eclipse 3.5</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/updatesite_3.4?hl=ru-RU" data-title="Using update site for Eclipse 3.4"><span>Using update site for Eclipse 3.4</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/installation/uninstall?hl=ru-RU" data-title="Uninstall"><span>Uninstall</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface?hl=ru-RU" data-title="User Interface" class="tlw-control-title"><span>User Interface</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/design_view?hl=ru-RU" data-title="Design View"><span>Design View</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/source_view?hl=ru-RU" data-title="Source View"><span>Source View</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/structure_view?hl=ru-RU" data-title="Structure View" class="tlw-control-title"><span>Structure View</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/component_tree?hl=ru-RU" data-title="Component Tree"><span>Component Tree</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_pane?hl=ru-RU" data-title="Property Pane" class="tlw-control-title"><span>Property Pane</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_pane_context_menu?hl=ru-RU" data-title="Property Pane Context Menu"><span>Property Pane Context Menu</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_string?hl=ru-RU" data-title="String Editor"><span>String Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_string_array?hl=ru-RU" data-title="String Array Editor"><span>String Array Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_color?hl=ru-RU" data-title="Color Editor"><span>Color Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_font?hl=ru-RU" data-title="Font Editor"><span>Font Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_image?hl=ru-RU" data-title="Icon / Image Editor"><span>Icon / Image Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_point?hl=ru-RU" data-title="Point Editor"><span>Point Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_rectangle?hl=ru-RU" data-title="Rectangle Editor"><span>Rectangle Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_inset?hl=ru-RU" data-title="Inset Editor"><span>Inset Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/property_editor_taborder?hl=ru-RU" data-title="Tab Order Editor"><span>Tab Order Editor</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/properties/property_editor_style_name?hl=ru-RU" data-title="Style Name Editor"><span>Style Name Editor</span></a></li></ul></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/palette?hl=ru-RU" data-title="Palette" class="tlw-control-title"><span>Palette</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/palette_context_menu?hl=ru-RU" data-title="Palette Context Menu"><span>Palette Context Menu</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/palette_manager?hl=ru-RU" data-title="Palette Manager"><span>Palette Manager</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/palettes/gwt_palette?hl=ru-RU" data-title="GWT Designer Palette"><span>GWT Designer Palette</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/NewComponentsTutorial.pdf?hl=ru-RU" data-title="New Components Tutorial (PDF)"><span>New Components Tutorial (PDF)</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/DesignerCustomizationAPI.pdf?hl=ru-RU" data-title="Designer Customization API (PDF)"><span>Designer Customization API (PDF)</span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/toolbar?hl=ru-RU" data-title="Toolbar"><span>Toolbar</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/userinterface/context_menu?hl=ru-RU" data-title="Context Menu"><span>Context Menu</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features?hl=ru-RU" data-title="Features" class="tlw-control-title"><span>Features</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/bidirectional?hl=ru-RU" data-title="Bi-directional Code Generation"><span>Bi-directional Code Generation</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt_code_generation?hl=ru-RU" data-title="GWT Code Generation"><span>GWT Code Generation</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/custom_composites?hl=ru-RU" data-title="Custom Panels"><span>Custom Panels</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/factories?hl=ru-RU" data-title="Factories"><span>Factories</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/visual_inheritance?hl=ru-RU" data-title="Visual Inheritance"><span>Visual Inheritance</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/event_handling?hl=ru-RU" data-title="Event Handling"><span>Event Handling</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/menu_editing?hl=ru-RU" data-title="Menu Editing"><span>Menu Editing</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/morphing?hl=ru-RU" data-title="Morphing"><span>Morphing</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/editing_existing_window?hl=ru-RU" data-title="Editing Existing Windows"><span>Editing Existing Windows</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/application_compiling?hl=ru-RU" data-title="Application Compiling"><span>Application Compiling</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/application_launching?hl=ru-RU" data-title="Application Launching"><span>Application Launching</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/module_deployment?hl=ru-RU" data-title="Build &amp; Deployment"><span>Build &amp; Deployment</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/css_support?hl=ru-RU" data-title="CSS Support"><span>CSS Support</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/enhanced_compilation?hl=ru-RU" data-title="Enhanced Compilation"><span>Enhanced Compilation</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/image_bundles?hl=ru-RU" data-title="Image Bundles"><span>Image Bundles</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/internationalization?hl=ru-RU" data-title="Internationalization (i18n)"><span>Internationalization (i18n)</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/junit_testcase?hl=ru-RU" data-title="JUnit Test Creation"><span>JUnit Test Creation</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/project?hl=ru-RU" data-title="Projects"><span>Projects</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/refactoring?hl=ru-RU" data-title="Refactoring"><span>Refactoring</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/remoteservice?hl=ru-RU" data-title="Remote Services"><span>Remote Services</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/gwt-ext?hl=ru-RU" data-title="Using GWT-Ext"><span>Using GWT-Ext</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/gxt?hl=ru-RU" data-title="Using Ext GWT (GXT)"><span>Using Ext GWT (GXT)</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/features/gwt/smartgwt?hl=ru-RU" data-title="Using SmartGWT"><span>Using SmartGWT</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt?hl=ru-RU" data-title="Panels" class="tlw-control-title"><span>Panels</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/absolutepanel?hl=ru-RU" data-title="AbsolutePanel"><span>AbsolutePanel</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/dockpanel?hl=ru-RU" data-title="Dock[Layout]Panel"><span>Dock[Layout]Panel</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/flextable?hl=ru-RU" data-title="FlexTable"><span>FlexTable</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/flowpanel?hl=ru-RU" data-title="FlowPanel"><span>FlowPanel</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/gridpanel?hl=ru-RU" data-title="Grid"><span>Grid</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/layoutmanagers/gwt/layoutpanel?hl=ru-RU" data-title="LayoutPanel"><span>LayoutPanel</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt?hl=ru-RU" data-title="Wizards" class="tlw-control-title"><span>Wizards</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/entrypoint?hl=ru-RU" data-title="Java EntryPoint"><span>Java EntryPoint</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/composite?hl=ru-RU" data-title="Java Composite"><span>Java Composite</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/dialogbox?hl=ru-RU" data-title="Java DialogBox"><span>Java DialogBox</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/popuppanel?hl=ru-RU" data-title="Java PopupPanel"><span>Java PopupPanel</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/uibinder_composite?hl=ru-RU" data-title="UiBinder Composite"><span>UiBinder Composite</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/uibinder_dialogbox?hl=ru-RU" data-title="UiBinder DialogBox"><span>UiBinder DialogBox</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/uibinder_popuppanel?hl=ru-RU" data-title="UiBinder PopupPanel"><span>UiBinder PopupPanel</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/module?hl=ru-RU" data-title="GWT Module"><span>GWT Module</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/wizards/gwt/library?hl=ru-RU" data-title="GWT Library"><span>GWT Library</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences?hl=ru-RU" data-title="Preferences" class="tlw-control-title"><span>Preferences</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/preferences_code_parsing?hl=ru-RU" data-title="Code Parsing"><span>Code Parsing</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt?hl=ru-RU" data-title="GWT" class="tlw-control-title"><span>GWT</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_builder?hl=ru-RU" data-title="Builder"><span>Builder</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_code_generation?hl=ru-RU" data-title="Code Generation" class="tlw-control-title"><span>Code Generation</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_event_handlers?hl=ru-RU" data-title="Event Handlers"><span>Event Handlers</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_nls?hl=ru-RU" data-title="NLS"><span>NLS</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_variables?hl=ru-RU" data-title="Variables"><span>Variables</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_layouts?hl=ru-RU" data-title="Layouts" class="tlw-control-title"><span>Layouts</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_layouts_absolute?hl=ru-RU" data-title="Absolute"><span>Absolute</span></a></li></ul></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer?hl=ru-RU" data-title="Google-Web Toolkit-Designer" class="tlw-control-title"><span>Google-Web Toolkit-Designer</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer_absolute_layout?hl=ru-RU" data-title="Absolute Layout"><span>Absolute Layout</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer_code_style?hl=ru-RU" data-title="Code Style"><span>Code Style</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/gwt/preferences_gpe_designer_event_handlers?hl=ru-RU" data-title="Event Handlers"><span>Event Handlers</span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/preferences_uitoolkits?hl=ru-RU" data-title="UI Toolkits"><span>UI Toolkits</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/preferences/preferences_export?hl=ru-RU" data-title="Export/Import"><span>Export/Import</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tutorials?hl=ru-RU" data-title="Tutorials" class="tlw-control-title"><span>Tutorials</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tutorials/loginmanager?hl=ru-RU" data-title="GWT Login Manager"><span>GWT Login Manager</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tutorials/stockwatcher?hl=ru-RU" data-title="GWT Stock Watcher"><span>GWT Stock Watcher</span></a></li></ul></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/support/product_support?hl=ru-RU" data-title="Product Support" class="tlw-control-title"><span>Product Support</span></a><ul style="display: none; "><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/error_reporting?hl=ru-RU" data-title="Error Reporting"><span>Error Reporting</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/support/test_cases?hl=ru-RU" data-title="Reproducible Test Cases"><span>Reproducible Test Cases</span></a></li><li class=""><a href="http://groups.google.com/group/google-web-toolkit" data-title="Forum"><span>Forum</span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/accessibility?hl=ru-RU" data-title="Accessibility"><span>Accessibility</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tipsandtricks?hl=ru-RU" data-title="Tips &amp; Tricks"><span>Tips &amp; Tricks</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/faq?hl=ru-RU" data-title="FAQ"><span>FAQ</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/tools/gwtdesigner/tos?hl=ru-RU" data-title="Terms of Service"><span>Terms of Service</span></a></li></ul></li></ul><hr><ul><li class=""><span class="tlw-title" data-title="Resources:">Resources:</span></li><li class=""><a href="https://developers.google.com/web-toolkit/articles?hl=ru-RU" data-title="Articles"><span>Articles</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/books?hl=ru-RU" data-title="Books"><span>Books</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/casestudies?hl=ru-RU" data-title="Case Studies"><span>Case Studies</span></a></li><li class=""><a class="tlw-control tlw-collapsed">▸</a><a href="https://developers.google.com/web-toolkit/community?hl=ru-RU" data-title="Community" class="tlw-control-title"><span>Community</span></a><ul style="display: none; "><li class=""><a href="http://gwtgallery.appspot.com/" data-title="App Gallery"><span>App Gallery</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/developer_spotlight?hl=ru-RU" data-title="Developer Spotlight"><span>Developer Spotlight</span></a></li></ul></li><li class=""><a href="https://developers.google.com/web-toolkit/tools?hl=ru-RU" data-title="Tools &amp; Libraries"><span>Tools &amp; Libraries</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/media_gallery?hl=ru-RU" data-title="Presentations"><span>Presentations</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/makinggwtbetter?hl=ru-RU" data-title="Making GWT Better"><span>Making GWT Better</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/lifeofanissue?hl=ru-RU" data-title="Issue Tracking"><span>Issue Tracking</span></a></li><li class=""><a href="http://googlewebtoolkit.blogspot.com/" data-title="Blog"><span>Blog</span></a></li><li class=""><a href="https://developers.google.com/web-toolkit/terms?hl=ru-RU" data-title="Terms of Service"><span>Terms of Service</span></a></li></ul></div>
+
+
+
+      </div>
+
+      <div id="gc-content">
+        
+        <div>
+          
+  
+  <h1 class="page-title">Using GWT with Hibernate</h1>
+  
+  
+
+
+
+<style>
+
+div.screenshot img {
+margin: 20px;
+}
+</style>
+
+<p><i>Sumit Chandel, Google Developer Relations
+<br>
+July 2009
+<br>
+(with thanks to Bruno Marchesson for his contributions to this article)</i>
+</p>
+<br>
+<p>Many developers have asked how to use <a href="http://code.google.com/webtoolkit">GWT</a> and <a href="https://www.hibernate.org/">Hibernate</a> together. Although you can find numerous discussions about this topic on the <a href="http://groups.google.com/group/Google-Web-Toolkit">GWT Developer Forum</a>, we thought it would be beneficial to sum up some of the most popular strategies, and highlight their advantages and shortcomings in the context of GWT application development.</p>
+
+<p>Before we get into integration strategies, let's get familiar with the basics.</p>
+
+<h2 id="TheBasics">The Basics</h2>
+
+<p>For the purposes of this article, we're going to assume that the reader is already familiar with Hibernate configuration and usage on the server-side. If you'd like to know more about Hibernate and how it works, the <a href="http://docs.jboss.org/hibernate/stable/core/reference/en/html/tutorial.html">getting started tutorial</a> posted on the Hibernate homepage is strongly recommended.</p>
+
+<p>Also, to get up and running with persistence for our Hibernate objects, we'll be using <a href="http://hsqldb.org/">HSQLDB</a> which provides an in-memory Hibernate SQL database. You can download this <a href="http://sourceforge.net/project/showfiles.php?group_id=23316">here</a>. Again, we won't talk too much about how HSQLDB works, but we will cover just enough to get it running for the examples we'll see here.</p>
+
+<p>Let's start out with a simple example. Suppose we're developing an online music record store. An obvious domain object in such a application would be a <code>Record</code> object that we would want to persist on the server-side and display on the client-side. We would also want users to be able to create accounts and add music records to their profiles online. It would also make sense for us to create an <code>Account</code> object that we'll want to persist. So let's create these two classes.</p>
+
+<p><b>Record.java</b></p>
+
+<pre class="code">public class Record implements Serializable {
+  private Long id;
+  private String title;
+  private int year;
+  private double price;
+
+  public Record() {
+  }
+
+  public Record(Long id) {
+    this.id = id;
+  }
+
+  // Along with corresponding getters + setters.
+}
+</pre>
+
+
+<p><b>Account.java</b></p>
+
+<pre class="code">public class Account implements Serializable {
+  Long id;
+  String name;
+  String password;
+  Set&lt;Record&gt; records;
+
+  public Account() {
+  }
+
+  public Account(Long id) {
+    this.id = id;
+  }
+
+  public void addRecord(Record record) {
+    if (records == null) {
+      records = new HashSet&lt;Record&gt;();
+    }
+    records.add(record);
+  }
+
+  public void removeRecord(Record record) {
+    if (records == null) {
+      return;
+    }
+    records.remove(record);
+  }
+
+  // Along with corresponding getters + setters.
+}
+</pre>
+
+<p>Then we need to create the corresponding Hibernate mapping files for each of these persisted types, like so:</p>
+
+<p><b>Record.hbm.xml</b></p>
+
+<pre class="code">&lt;hibernate-mapping&gt;
+  &lt;class name="com.google.musicstore.domain.Record" table="RECORD"&gt;
+    &lt;id name="id" column="RECORD_ID"&gt;
+      &lt;generator class="native&gt;/&gt;
+    &lt;/id&gt;
+    &lt;property name="title"/&gt;
+    &lt;property name="year"/&gt;
+    &lt;property name="price"/&gt;
+
+  &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</pre>
+
+<p><b>Account.hbm.xml</b></p>
+
+<pre class="code">&lt;hibernate-mapping&gt;
+  &lt;class name="com.google.musicstore.domain.Account" table="ACCOUNT"&gt;
+    &lt;id name="id" column="ACCOUNT_ID"&gt;
+      &lt;generator class="native"/&gt;
+    &lt;/id&gt;
+    &lt;property name="name"/&gt;
+    &lt;property name="password"/&gt;
+
+    &lt;set name="records" table="ACCOUNT_RECORD" lazy="true"&gt;
+      &lt;key column="ACCOUNT_ID"/&gt;
+      &lt;many-to-many column="RECORD_ID" class="com.google.musicstore.domain.Record"/&gt;
+    &lt;/set&gt;
+  &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</pre>
+
+<p>Now that we've created our persistent classes, let's create a bare bones UI that will allow us to enter new accounts and records, as well as the GWT RPC services that will persist them on the server-side. Let's start with the RPC services.</p>
+
+<p>We won't go into the specifics of the role each RPC component plays here, but if you're unfamiliar with the GWT RPC subsystem, check out the <a href="http://code.google.com/webtoolkit/doc/1.6/DevGuideServerCommunication.html#DevGuideRemoteProcedureCalls">GWT RPC docs</a> to get up to speed.</p>
+
+<p>First, we create the client-side service interfaces. If you'd like to avoid the large number of interface methods listed below, consider using the Command pattern, as described <a href="http://www.youtube.com/watch?v=PDuhR18-EdM">here</a>:</p>
+
+<p><b>MusicStoreService.java</b></p>
+
+<pre class="code">@RemoteServiceRelativePath("musicservice")
+public interface MusicStoreService extends RemoteService {
+  public List&lt;Account&gt; getAccounts();
+
+  public List&lt;Record&gt; getRecords();
+
+  public Long saveAccount(Account account);
+
+  public Long saveRecord(Record record);
+
+  public void saveRecordToAccount(Account account, Record record);
+}
+</pre>
+
+<p><b>MusicStoreServiceAsync.java</b></p>
+
+<pre class="code">public interface MusicStoreServiceAsync {
+  public void getAccounts(AsyncCallback&lt;List&lt;Account&gt;&gt; callback);
+
+  public void getRecords(AsyncCallback&lt;List&lt;Record&gt;&gt; callback);
+
+  public void saveAccount(Account accountDTO, AsyncCallback&lt;Long&gt; callback);
+
+  public void saveRecord(Record record, AsyncCallback&lt;Long&gt; callback);
+
+  public void saveRecordToAccount(Account accountDTO, Record recordDTO,
+AsyncCallback&lt;Void&gt; callback);
+}
+</pre>
+
+<p>Finally, we create the service implementation class on the server-side.</p>
+
+<p><b>MusicStoreServiceImpl.java</b></p>
+
+<pre class="code">public class MusicStoreServiceImpl extends RemoteServiceServlet implements
+MusicStoreService {
+
+  @Override
+  public List&lt;Account&gt; getAccounts() {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    List&lt;Account&gt; accounts = new ArrayList&lt;Account&gt;(session.createQuery("from Account").list());
+    session.getTransaction().commit();
+    return accounts;
+  }
+
+  @Override
+  public List&lt;Record&gt; getRecords() {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    List&lt;Record&gt; records = new ArrayList&lt;Record&gt;(session.createQuery("from Record").list());
+    session.getTransaction().commit();
+    return records;
+  }
+
+  @Override
+  public Long saveAccount(Account account) {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    session.save(account);
+    session.getTransaction().commit();
+    return account.getId();
+  }
+
+  @Override
+  public Long saveRecord(Record record) {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    session.save(record);
+    session.getTransaction().commit();
+    return record.getId();
+  }
+
+  @Override
+  public void saveRecordToAccount(Account account, Record record) {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    account = (Account) session.load(Account.class, account.getId());
+    record = (Record) session.load(Record.class, record.getId());
+    account.addRecord(record);
+    session.save(account);
+    session.getTransaction().commit();
+  }
+}
+</pre>
+
+<p>You may have noticed some <code>HibernateUtil</code> calls in the <code>MusicStoreServiceImpl</code>  method implementations in the code snippet above. This is actually a custom class that was created as a helper utility to retrieve and use the Hibernate session factory, exactly as is done in the <a href="http://docs.jboss.org/hibernate/stable/core/reference/en/html/tutorial.html">Hibernate tutorial</a> mentioned earlier. For convenience, here is the <code>HibernateUtil</code> code pasted below so you can follow along. If you want to learn more details about what the <code>HibernateUtil</code> class is doing, I strongly advise checking out the tutorial for a full explanation.</p>
+
+<pre class="code">public class HibernateUtil {
+
+  private static final SessionFactory sessionFactory;
+
+  static {
+    try {
+      // Create the SessionFactory from hibernate.cfg.xml
+      sessionFactory = new Configuration().configure().buildSessionFactory();
+    } catch (Throwable ex) {
+      // Make sure you log the exception, as it might be swallowed
+      System.err.println("Initial SessionFactory creation failed." + ex);
+      throw new ExceptionInInitializerError(ex);
+    }
+  }
+
+  public static SessionFactory getSessionFactory() {
+    return sessionFactory;
+  }
+}
+</pre>
+
+<p>Finally, our server-side GWT RPC services are ready to <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> our Hibernate objects (actually, we skipped the Delete functionality).  Now we just need an interface to actually make the RPC calls. I've created a sample application with a UI that will allow us to add records, add accounts, add records to accounts and of course view all existing accounts and their associated records. The sample code is not representative of best practices, just a quick and dirty implementation to get us up and running. The sample also includes the server-side RPC and Hibernate code we've worked on up to this point. You can download the sample <a href="http://google-web-toolkit.googlecode.com/files/gwt_hibernate_base.zip">here</a>.</p>
+
+<p>In the example source code, you'll find a <code>build.xml</code> file and a <code>build.properties</code> file in the root directory. After properly configuring the <code>gwt.home</code> and <code>gwt.dev.jar</code> properties for your machine,  you can use <a href="http://ant.apache.org/">Ant</a> to build the project, as well as start up hosted mode to see the UI and our Hibernate instance setup in the embedded Jetty server. Just run the following from command line:</p>
+
+<pre class="code">ant build hosted</pre>
+
+<p>Before doing that, though, we'll need to have our in-memory HSQLDB up and running so we can persist our Hibernate objects. In the example project you downloaded, you should find '<code>data</code>' folder under the project root directory. You'll also find the <code>hsqldb.jar</code> in the <code>lib</code> folder. All we need to do to start up the in-memory HSQLDB is invoke the <code>org.hsqldb.Server</code> class contained in the <code>hsqldb.jar</code> file, while in the '<code>data</code>' directory to host the HSQLDB properties and log output. You can do this by running the following from command line (while in the '<code>data</code>' directory):</p>
+
+<pre class="code">java -cp ../lib/hsqldb.jar org.hsqldb.Server</pre>
+
+<p>Now that we have our persistence layer ready, let's compile and run our application in hosted mode using the ant command above. Once both <code>build</code> and <code>hosted</code> ant tasks have completed, you should see the hosted mode browser startup, with the "Add Accounts / Records" tab displayed. Finally, we can start persisting our records (from the GWT client-side to the Hibernate database, using our Hibernate objects!). Go ahead and try adding an account and a a record to our in-memory Hibernate to get our data set started.</p>
+
+<p>Next, try selecting the "Add Records To Account" panel to add our newly created record to the also newly created account. Chances are, you'll get an error message along the lines of the screenshot below.</p>
+
+<div class="screenshot" align="center" width="80%"><img src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/hosted_hibernate_error.png"></div>
+
+<h3>Why Hibernate objects can't be understood when they reach the browser world</h3>
+
+<p>So what went wrong? Looking at the hosted mode console, you'll notice the warning message "Exception while dispatching incoming RPC call" was logged to the console. Selecting the warning message, the lower pane will display a rather long stack trace.</p>
+
+<p>This is the part to pay attention to:</p>
+
+<pre class="code">Caused by: com.google.gwt.user.client.rpc.SerializationException: Type 'org.hibernate.collection.PersistentSet' was not included in the set of types which can be serialized by this SerializationPolicy or its Class object could not be loaded. For security purposes, this type will not be serialized.
+at com.google.gwt.user.server.rpc.impl.StandardSerializationPolicy.validateSerialize(StandardSerializationPolicy.java:83)
+at com.google.gwt.user.server.rpc.impl.ServerSerializationStreamWriter.serialize(ServerSerializationStreamWriter.java:591)
+</pre>
+
+<p>The key here is the <code>SerializationException</code> that was thrown when we tried to load up and retrieve accounts.</p>
+
+<p>So what exactly went wrong? Well, as you may have read in the <a href="http://code.google.com/webtoolkit/doc/1.6/DevGuideServerCommunication.html#DevGuideRemoteProcedureCalls">GWT RPC docs</a>, a <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/rpc/SerializationException.html"><code>SerializationException</code></a> is thrown whenever a type transferred over RPC is not "serializable". The definition of serializable here means that the GWT RPC mechanism knows how to serialize and deserialize the type from bytecode to JSON and vice-versa. To declare a type as serializable to the GWT compiler, you can either make the type to be transferred over RPC implement the <code>IsSerializable</code> interface, especially created for this purpose, or implement the standard <code>java.io.Serializable</code> interface, provided that its members and methods consist of types that are also serializable.</p>
+
+<p>In the case of the <code>Account</code> and <code>Record</code> Hibernate objects, we are implementing the <code>Serializable</code> interface, so these should work, shouldn't they?. As it turns out, the devil is in the details.</p>
+
+<p>When you take an object and turn it into a Hibernate object, the object is now enhanced to be persistent. That persistence does not come without some type of instrumentation of the object. In the case of Hibernate, the Javassist library actually replaces and rewrites the bytecode for these objects by persistent entities to make the Hibernate magic work. What this means for GWT RPC is that by the time the object is ready to be transferred over the wire, it actually isn't the same object that the compiler thought was going to be transferred, so when trying to deserialize, the GWT RPC mechanism no longer knows what the type is and refuses to deserialize it.</p>
+
+<p>In fact, if you were to look deeper to the earlier call to <code>loadAccounts()</code>, and step into the <code>RPC.invokeAndEncodeResponse()</code> method, you would see that the object we're trying to deserialize has now become an <code>ArrayList</code> of <code>Account</code> types with their <code>java.util.Set</code> of records replaced by the <code>org.hibernate.collection.PersistentSet</code> type.</p>
+
+<p>Similar problems arise with other persistence frameworks, such as JDO or JPA, used on <a href="http://code.google.com/appengine/docs/java/datastore/usingjdo.html">Google App Engine</a>.</p>
+
+<p>A potential solution would be to replace the types once more in the opposite direction before returning through the server-side RPC call. This is doable, and would solve the problem we encountered here, but we wouldn't be out of harm's way just yet. Another great benefit of using Hibernate is the fact that we can lazily load associated objects when needed. For example, on the server-side, I could load an account, change it around, and only load its associated records when a call to <code>account.getRecords()</code> and some action on those records was taken. The special Hibernate instrumentation will take care of actually fetching the records when I make the call, making them available only when really needed.</p>
+
+<p>As you may imagine, this will translate to strange behaviour in the GWT RPC world where these Hibernate objects traveled from the Java server-side to browser land. If a GWT RPC service tries to access associations lazily, you might see something like a <code>LazyInitializationException</code> being thrown.</p>
+
+<h2 id="IntegrationStrategies">Integration Strategies</h2>
+
+<p>Fortunately, there are a number of workarounds that sidestep these issues, as well as provide other benefits inherent to these approaches.</p>
+
+<h3 id="UsingDTOs">Using Data Transfer Objects</h3>
+
+<p>One of the easiest ways to deal with this issue is to introduce a light object to go between the heavy Hibernate object and its data representation that we care about on the client-side. This go-between is typically referred to as a <a href="http://en.wikipedia.org/wiki/Data_Transfer_Object">Data Transfer Object (DTO)</a>.</p>
+
+<p>The DTO is a simple POJO only containing simple data fields that we can access on the client-side to display on the application page. The Hibernate objects can then be constructed from the data in our data transfer objects. The DTOs themselves will only contain the data we want to persist, but none of the lazy loading or persistence logic added by the Hibernate Javassist to their Hibernate counterparts.</p>
+
+<p>Applying this to our example, we get the following two DTOs:</p>
+
+<p><b>AccountDTO.java</b></p>
+
+<pre class="code">package com.google.musicstore.client.dto;
+
+import java.io.Serializable;
+import java.util.Set;
+
+public class AccountDTO implements Serializable {
+  private Long id;
+  private String name;
+  private String password;
+  private Set&lt;RecordDTO&gt; records;
+
+  public AccountDTO() {
+  }
+
+  public AccountDTO(Long id) {
+    this.id = id;
+  }
+
+  public AccountDTO(Long id, String name, String password,
+      Set&lt;RecordDTO&gt; records) {
+    this.id = id;
+    this.name = name;
+    this.password = password;
+    this.records = records;
+  }
+
+  // Along with corresponding getters + setters.
+}
+</pre>
+
+<p><b>RecordDTO.java</b></p>
+
+<pre class="code">package com.google.musicstore.client.dto;
+
+import java.io.Serializable;
+
+public class RecordDTO implements Serializable {
+  private Long id;
+  private String title;
+  private int year;
+  private double price;
+
+  public RecordDTO() {
+  }
+
+  public RecordDTO(Long id) {
+  this.id = id;
+  }
+
+  public RecordDTO(Long id, String title, int year, double price) {
+    this.id = id;
+    this.title = title;
+    this.year = year;
+    this.price = price;
+  }
+
+  // Along with corresponding getters + setters.
+}
+</pre>
+
+<p>Next, let's add constructors that take these new DTOs as arguments to their Hibernate object counterparts:</p>
+
+<p><b>Account.java</b></p>
+
+<pre class"code"="">public Account(AccountDTO accountDTO) {
+  id = accountDTO.getId();
+  name = accountDTO.getName();
+  password = accountDTO.getPassword();
+  Set&lt;RecordDTO&gt; recordDTOs = accountDTO.getRecords();
+  if (recordDTOs != null) {
+    Set&lt;Record&gt; records = new HashSet&lt;Record&gt;(recordDTOs.size());
+    for (RecordDTO recordDTO : recordDTOs) {
+      records.add(new Record(recordDTO));
+    }
+    this.records = records;
+  }
+}
+</pre>
+
+<p><b>Record.java</b></p>
+
+<pre class="code">public Record(RecordDTO record) {
+  id = record.getId();
+  title = record.getTitle();
+  year = record.getYear();
+  price = record.getPrice();
+}
+</pre>
+
+<p>And finally, we need to modify the existing GWT RPC components to take the DTO counterparts as arguments:</p>
+
+<p><b>MusicStoreService.java</b></p>
+
+<pre class="code">@RemoteServiceRelativePath("musicservice")
+public interface MusicStoreService extends RemoteService {
+  public List&lt;AccountDTO&gt; getAccounts();
+
+  public List&lt;RecordDTO&gt; getRecords();
+
+  public Long saveAccount(AccountDTO accountDTO);
+
+  public Long saveRecord(RecordDTO recordDTO);
+
+  public void saveRecordToAccount(AccountDTO accountDTO, RecordDTO recordDTO);
+
+  public List&lt;AccountDTO&gt; getAllAccountRecords();
+}
+</pre>
+
+<p><b>MusicStoreServiceAsync.java</b></p>
+
+<pre class="code">public interface MusicStoreServiceAsync {
+  public void getAccounts(AsyncCallback&lt;List&lt;AccountDTO&gt;&gt; callback);
+
+  public void getRecords(AsyncCallback&lt;List&lt;RecordDTO&gt;&gt; callback);
+
+  public void saveAccount(AccountDTO accountDTO, AsyncCallback&lt;Long&gt; callback);
+
+  public void saveRecord(RecordDTO record, AsyncCallback&lt;Long&gt; callback);
+
+  public void saveRecordToAccount(AccountDTO accountDTO, RecordDTO recordDTO, AsyncCallback&lt;Void&gt; callback);
+
+  public void getAllAccountRecords(AsyncCallback&lt;List&lt;AccountDTO&gt;&gt; callback);
+}
+</pre>
+
+<p>And now we modify the <code>MusicStoreServiceImpl.java</code> class.</p>
+
+<p><b>MusicStoreServiceImpl.java</b></p>
+
+<pre class="code">public class MusicStoreServiceImpl extends RemoteServiceServlet implements
+MusicStoreService {
+
+  @Override
+  public List&lt;AccountDTO&gt; getAccounts() {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    List&lt;Account&gt; accounts = new ArrayList&lt;Account&gt;(session.createQuery("from Account").list());
+    List&lt;AccountDTO&gt; accountDTOs = new ArrayList&lt;AccountDTO&gt;(
+    accounts != null ? accounts.size() : 0);
+    if (accounts != null) {
+      for (Account account : accounts) {
+        accountDTOs.add(createAccountDTO(account));
+      }
+    }
+    session.getTransaction().commit();
+    return accountDTOs;
+  }
+
+  @Override
+  public List&lt;RecordDTO&gt; getRecords() {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    List&lt;Record&gt; records = new ArrayList&lt;Record&gt;(session.createQuery("from Record").list());
+    List&lt;RecordDTO&gt; recordDTOs = new ArrayList&lt;RecordDTO&gt;(records != null ? records.size() : 0);
+    if (records != null) {
+      for (Record record : records) {
+        recordDTOs.add(createRecordDTO(record));
+      }
+    }
+    session.getTransaction().commit();
+    return recordDTOs;
+  }
+
+  @Override
+  public Long saveAccount(AccountDTO accountDTO) {
+    Account account = new Account(accountDTO);
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    session.save(account);
+    session.getTransaction().commit();
+    return account.getId();
+  }
+
+  @Override
+  public Long saveRecord(RecordDTO recordDTO) {
+    Record record = new Record(recordDTO);
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    session.save(record);
+    session.getTransaction().commit();
+    return record.getId();
+  }
+
+  @Override
+  public void saveRecordToAccount(AccountDTO accountDTO, RecordDTO recordDTO) {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    Account account = (Account) session.load(Account.class, accountDTO.getId());
+    Record record = (Record) session.load(Record.class, recordDTO.getId());
+    account.addRecord(record);
+    session.save(account);
+    session.getTransaction().commit();
+  }
+
+  @Override
+  public List&lt;AccountDTO&gt; getAllAccountRecords() {
+    Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    session.beginTransaction();
+    List&lt;Account&gt; accounts = new ArrayList&lt;Account&gt;(session.createQuery("from Account").list());
+    List&lt;AccountDTO&gt; accountDTOs = new ArrayList&lt;AccountDTO&gt;(accounts != null ? accounts.size() : 0);
+    if (accounts != null) {
+      for (Account account : accounts) {
+        accountDTOs.add(createAccountDTO(account));
+      }
+    }
+    session.getTransaction().commit();
+    return accountDTOs;
+  }
+
+  private AccountDTO createAccountDTO(Account account) {
+    Set&lt;Record&gt; records = account.getRecords();
+    Set&lt;RecordDTO&gt; recordDTOs = new HashSet&lt;RecordDTO&gt;(records != null ? records.size() : 0);
+    if (records != null) {
+      for (Record record : records) {
+        recordDTOs.add(createRecordDTO(record));
+      }
+    }
+    return new AccountDTO(account.getId(), account.getName(), account.getPassword(), recordDTOs);
+  }  
+
+  private RecordDTO createRecordDTO(Record record) {
+    return new RecordDTO(record.getId(), record.getTitle(), record.getYear(), record.getPrice());
+  }
+}
+</pre>
+
+<p>And lastly, we need to update the RPC service interface calls from the <code>MusicStore</code> entry point class to use the new DTO parametrized method signatures.</p>
+
+<p>We now have the domain package containing the <code>Account</code> and <code>Record</code> classes where it belongs, isolated to the server-side. We can remove the <code>&lt;source&gt;</code> tag referencing the domain package from the base application module XML file now:</p>
+
+<p><b>MusicStore.gwt.xml</b></p>
+
+<pre class="code">&lt;!-- Remove the line below --&gt;
+&lt;source path="domain"/&gt;
+</pre>
+
+<p>Notice that not much changes here. The only thing we need to do after retrieving the Hibernate objects from the database is copy them into their DTO equivalents, add those DTOs to a list and return them back in the client-side callback. However, there is one thing that we'll need to watch out for, and that's the process by which we copy these objects to our DTOs.</p>
+
+<p>We created the <code>createAccountDTO(Account account)</code> method, which contains the logic that we want to transform the Account Hibernate objects into the data-only DTOs that we're going to return.</p>
+
+<p><b>createAccountDTO(Account account)</b></p>
+
+<pre class="code">private AccountDTO createAccountDTO(Account account) {
+  Set&lt;Record&gt; records = account.getRecords();
+  Set&lt;RecordDTO&gt; recordDTOs = new HashSet&lt;RecordDTO&gt;(records != null ? records.size() : 0);
+  if (records != null) {
+    for (Record record : records) {
+      recordDTOs.add(createRecordDTO(record));
+    }
+  }
+  return new AccountDTO(account.getId(), account.getName(), account.getPassword(), recordDTOs);
+}
+</pre>
+
+<p>You'll also notice that we're making a call to another copy method called <code>createRecordDTO(Record record)</code>. As you might imagine, much like we needed to transform Account objects into their DTO equivalents, we need to do the same directional transformation for the Record object.</p>
+
+<p><b>createRecordDTO(Record record)</b></p>
+
+<pre class="code">private RecordDTO createRecordDTO(Record record) {
+  return new RecordDTO(record.getId(), record.getTitle(), record.getYear(), record.getPrice());
+}
+</pre>
+
+<p>With the DTO solution implemented, try running: <code>ant clean build hosted</code> from command line once more to see the solution in action (all while making sure that the HSQL in-memory DB is still running).</p>
+
+<p>You can download a version of the first sample application with the DTO solution fully implemented <a href="http://google-web-toolkit.googlecode.com/files/gwt_hibernate_dto.zip">here</a>.</p>
+
+<h4>When should you use the DTO approach</h4>
+
+<p>You can see where this is going. The more Hibernate objects we need to transform into DTOs, the more special-cased copy methods we'll need to create to get them transferred over the wire. What's more, because the DTOs that we transfer over the wire won't have the full object graphs loaded as a Hibernate object would, in some situations we need to carefully consider how we're going to copy the Hibernate object to the DTO and how full we want it and its associated objects to be when we send them over the wire, and when we want to leave that to another RPC call. With the DTO approach, all of this has to be handled in code.</p>
+
+<p>There is some good to this approach, though. For one, we now have lightweight data transfer objects that we can send over the wire to the client, leading to leaner payloads. Also, by forcing us to think about copy strategies as we're taking full Hibernate object graphs from the server and optimizing them for what the client needs to see at a given point in time, we reduce the risk of having the browser blowup on an account with a set of five thousand records in it and also make the user experience faster.</p>
+
+<p>The DTOs we created might also double or even triple in use depending on the server-side architecture of our application. For example, something like Java Message Service won't necessarily know how to deal with a Hibernate object passed in as the message. The DTOs can now be used instead to pass in for something much easier to work with in the related JMS components.</p>
+
+<p>All that said, if you have many Hibernate objects that need to be translated, the DTO / copy method creation process can be quite a hassle. Thankfully, there are other strategies that can help with that situation.</p>
+
+<h3 id="UsingDozer">Using Dozer for Hibernate integration</h3>
+
+<p><a href="http://dozer.sourceforge.net/">Dozer</a> is an open source library that can automatically generate DTOs for us by reading and parsing XML files, thereby lightening the load on the developer who would no longer have to create these manually. We can use Dozer to clone our Hibernate entities for us.</p>
+
+<p>First, a little bit of background about how Dozer works. Dozer is based on the Java Bean norm, and uses this to copy data from persistent entities to a new POJO instance.</p>
+
+<p>As mentioned before, Dozer permits us to use XML mappings to tell it which properties to copy to a new DTO instance, as well as which properties to exclude. When Dozer reads these mapping files and copies objects to DTOs, it does so implicitly, meaning that you can expect that any property that hasn't been specifically excluded in the mapping file will be included. This helps keep the Dozer mapping file short and to the point:</p>
+
+<pre class="code">&lt;mappings&gt;
+  &lt;mapping&gt;
+    &lt;class-a&gt;com.google.musicstore.domain.Account&lt;/class-a&gt;
+    &lt;class-b&gt;com.google.musicstore.dto.AccountDTO&lt;/class-a&gt;
+  &lt;/mapping&gt;
+&lt;/mappings&gt;
+</pre>
+
+<p>Now that we know how Dozer mappings work, let's see how they apply to Hibernate objects. The idea is to simply copy all the properties over to our DTOs while removing any properties marked with <code>lazy="true"</code>. Dozer will take care of replacing these originally lazily loaded persistent collections by plain collections, which can be transferred and serialized through RPC.</p>
+
+<pre class="code">&lt;mappings&gt;
+  &lt;mapping&gt;
+    &lt;class-a&gt;com.google.musicstore.domain.Account&lt;/class-a&gt;
+    &lt;class-b&gt;com.google.musicstore.dto.AccountDTO&lt;/class-b&gt;
+    &lt;field-exclude&gt;
+      &lt;a&gt;records&lt;/a&gt;
+      &lt;b&gt;records&lt;/b&gt;
+    &lt;/field-exclude&gt;
+  &lt;/mapping&gt;
+
+  &lt;mapping&gt;
+    &lt;class-a&gt;com.google.musicstore.domain.Record&lt;/class-a&gt;
+    &lt;class-b&gt;com.google.musicstore.dto.RecordDTO&lt;/class-b&gt;
+  &lt;/mapping&gt;
+&lt;/mappings&gt;
+</pre>
+
+<p>One of the nice things about Dozer is that it automatically takes care of copying data between two classes for properties that exist in both classes that have the same field type and name. Since the <code>Account</code> / <code>Record</code> objects and their DTO equivalents both use the same property names, we're already done with our Dozer mappings as configured above. Save this mapping file to <code>dozerBeanMapping.xml</code>, and place it on the project classpath. Now all we need to have our previous DTO solution use Dozer is remove the copy logic we added as it is no longer needed, and use the Dozer mappings to copy our Hibernate data to our DTOs, and send them over the wire.</p>
+
+<p>The method signatures for all three GWT RPC <code>MusicStore</code> service components remain the same. What changes is simply the copy logic from Hibernate object to DTO in the <code>MusicStoreServiceImpl</code> method implementations. Anywhere we would have had <code>createAccountDTO()</code> or <code>createRecordDTO()</code> calls, we will now have:</p>
+
+<pre class="code">DozerBeanMapperSingletonWrapper.getInstance().map(account, AccountDTO.class));
+// or
+DozerBeanMapperSingletonWrapper.getInstance().map(record, RecordDTO.class));
+</pre>
+
+<p>And similarly the other way around when we need to create a Hibernate object from an incoming DTO.</p>
+
+<p>You'll notice this approach forces us to make separate calls to load an Account object's records since we're no longer writing and using our own copy logic. This transitive logic is not necessarily so bad, since the reasons for which we wanted the property to be lazy on the server will probably still be true on the client. When we do want to copy properties with <code>lazy="true"</code> without running into <code>LazyInitializationExceptions</code>, Dozer does allow us to create our own custom converters - classes which dictate how one type is copied to the next. This becomes similar to the DTO approach, except now all our copy logic would be neatly refactored into a purpose-built converter class.</p>
+
+<p>Try the sample application with the Dozer solution by once again running: <code>ant clean build hosted</code> from command line. You can download a version of the first sample application with the Dozer solution fully implemented <a href="http://google-web-toolkit.googlecode.com/files/gwt_hibernate_dozer.zip">here</a>.</p>
+
+<h4>When you should use the Dozer approach</h4>
+
+<p>This approach suffers from some of the same drawbacks as the DTO approach. You will need to create a DTO or some other type of RPC transferrable class that the Dozer mapper can copy Hibernate object data into. You will also need to create a <code>&lt;mapping&gt;</code> entry for every Hibernate object that needs to be copied to a DTO when transferring data through RPC.</p>
+
+<p>Another downside to using Dozer is that for types with data deeply nested in its properties, the DTO lookup and generation could take a while, especially if we're in the process of mapping many of those entities. Custom converters can help here, but they can become cumbersome as the number of objects continues to grow.</p>
+
+<p>However, the Dozer approach adds some nice automation to the generation of DTOs, and saves some time over manually generating them by hand as we saw earlier. We have saved on a lot of copy logic that would have made our code a lot heftier and less cohesive. It also gives us configurable control over which properties get copied, which helps make sure we aren't sending objects bloated with extraneous data back to the client.</p>
+
+<p>Therefore, if your project counts many Hibernate objects that need to be transferred over RPC, and also contains copy logic that is straightforward enough to be captured in Dozer XML mappings, this might be a good approach for you. On the other hand, when the fact that lazily loaded properties force changes in your load strategies all the way up to the client layer - breaking the benefit of layering in the first place, and when the number of objects starts growing drastically, perhaps the Gilead approach, described below, would be the best choice.</p>
+
+<h3 id="UsingGilead">Using Gilead for Hibernate Integration</h3>
+
+<p><a href="http://noon.gilead.free.fr/gilead/index.php?page=gwt">Gilead</a> (formerly known as Hibernate4Gwt) is <a href="http://sourceforge.net/projects/gilead/">an opensource library</a> that proposes another, more transparent solution to exchange objects between Hibernate and GWT.</p>
+
+<h4>How it works</h4>
+
+<p>The first principle to Gilead is the automatic replacement of uninitialized proxies by null and persistent collections by basic collections present in the emulated JRE. These replacements are both done without requiring any specific mappings to be defined. Gilead also stores the information necessary to recreate the Hibernate proxy or persistent collection in either the server-side object or the cloned object, making it possible to recreate these objects without needing to make calls to the database.</p>
+
+<div class="screenshot" align="center" width="80%"><img src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/gilead_diagram.png"></div>
+
+<p>Gilead also provides a dedicated adapter for Hibernate and GWT to make their integration painless.</p>
+
+<p>In the simplest case, integration between GWT and Hibernate can be realized by following these steps:</p>
+
+<ol>
+<li>Make your persistent classes inherit the <code>LightEntity</code> class (class used for stateless mode integration in the Gilead library).</li>
+<li>Making your remote RPC services extend <code><a href="http://gilead.svn.sourceforge.net/viewvc/gilead/gilead/branches/1.2/adapter4gwt/src/net/sf/gilead/gwt/PersistentRemoteService.java?revision=896&view=markup">PersistentRemoteService</a></code> instead of <code><a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/server/rpc/RemoteServiceServlet.html">RemoteServiceServlet</a></code>.</li>
+<li>Configuring your beanManager for your GWT RPC service as shown in the code snippet below (see <a href="http://noon.gilead.free.fr/gilead/index.php?page=documentation">Gilead documentation</a> for more on configuring bean managers):
+
+<pre class="code">public class UserRemoteImpl extends PersistentRemoteService implements UserRemote {
+  ...
+
+  /**
+   * Constructor
+   */
+  public UserRemoteImpl() {
+    HibernateUtil hibernateUtil = new HibernateUtil();    
+    hibernateUtil.setSessionFactory(HibernateUtil.getSessionFactory());
+
+    PersistentBeanManager persistentBeanManager = new PersistentBeanManager();   
+    persistentBeanManager.setPersistenceUtil(hibernateUtil); 
+    persistentBeanManager.setProxyStore(new StatelessProxyStore());
+
+    setBeanManager(persistentBeanManager);
+  }
+}
+</pre></li></ol>
+
+<p>Once this configuration is in place, our Hibernate entities are automatically converted into types that can be transferred over RPC and used in client-side GWT code, without any other coding or mapping needing to be defined on our part.</p>
+
+<p>Applying these three changes to the base MusicStore application would lead to the following:</p>
+
+<p>1) Make your persistent classes inherit <code>LightEntity</code></p>
+
+<p><b>Account.java</b></p>
+
+<pre class="code">import net.sf.gilead.pojo.java5.LightEntity;
+
+public class Account extends LightEntity implements Serializable {
+  // ...
+}
+</pre>
+
+<p><b>Record.java</b></p>
+
+<pre class="code">import net.sf.gilead.pojo.java5.LightEntity;
+
+public class Account extends LightEntity implements Serializable {
+  // ...
+}
+</pre>
+
+
+<p>2) Making your remote RPC service extend <code>PersistentRemoteService</code></p>
+
+<p><b>MusicStoreServiceImpl.java</b></p>
+
+<pre class="code">import net.sf.gilead.gwt.PersistentRemoteService;
+
+public class MusicStoreServiceImpl extends PersistentRemoteService implements MusicStoreService {
+  // ...
+}
+</pre> 
+
+<p>3) Configure your <code>beanManager</code> for your GWT RPC service as shown in the code snippet above</p>
+
+<p><b>MusicStoreServiceImpl.java</b></p>
+
+<pre class="code">import net.sf.gilead.core.PersistentBeanManager;
+import net.sf.gilead.core.hibernate.HibernateUtil;
+import net.sf.gilead.core.store.stateless.StatelessProxyStore;
+import net.sf.gilead.gwt.PersistentRemoteService;
+
+public class MusicStoreServiceImpl extends PersistentRemoteService implements MusicStoreService {
+
+  /**
+   * Constructor
+   */
+  public MusicStoreServiceImpl() {
+    HibernateUtil gileadHibernateUtil = new HibernateUtil();
+    gileadHibernateUtil.setSessionFactory(com.google.musicstore.util.HibernateUtil.getSessionFactory());
+
+    PersistentBeanManager persistentBeanManager = new PersistentBeanManager();
+    persistentBeanManager.setPersistenceUtil(gileadHibernateUtil);
+    persistentBeanManager.setProxyStore(new StatelessProxyStore());
+
+    setBeanManager(persistentBeanManager);
+  }
+}
+</pre>
+
+<p>There is a change to note here, aside from the new constructor that sets up the bean manager. We're now using <code>net.sf.gilead.core.hibernate.HibernateUtil</code> in addition to the <code>HibernateUtil</code> class we defined in the util package. This is required to setup Gilead appropriately.</p>
+
+<p>And that's all there is to it. We're ready to go with the original calls we made from our GWT RPC service interfaces on the client-side referring the <code>Account</code> and <code>Record</code> objects. Try executing the command below to compile the application with the Gilead approach and see it running in hosted mode:</p>
+
+<pre class="code">ant clean build hosted</pre>
+
+<p>Once more, you can download a version of the sample application we've been building with the Gilead solution fully implemented <a href="http://google-web-toolkit.googlecode.com/files/gwt_hibernate_gilead.zip">here</a>.</p>
+
+<h4>Transport annotations</h4>
+
+<p>In order to avoid sending sensitive or heavy data over the network, Gilead also provides an <code>@ServerOnly</code> annotation that will exclude the property annotated in the cloned object. Also, if you don't want values that are changed in the clone on the GWT client-side to be reflected and persisted in the persistent entity, you can add a <code>@ReadOnly</code> annotation to properties as well.</p>
+
+<h4>When you should use Gilead</h4>
+
+<p>The main advantage to Gilead is transparency and developer productivity: once the configuration is in place, everything is taken care of to transfer and use your Hibernate entities as you would expect in the client-side (what we tried to do in our initial attempt to get <code>Account</code> and <code>Record</code> transferred over the RPC wire).</p>
+
+<p>There is also a lot of support available on the <a href="http://sourceforge.net/forum/?group_id=239931">Gilead forum</a>, mainly from the actual author of the library, Bruno Marchesson. Having first been announcement two years ago, <a href="http://noon.gilead.free.fr/gilead/">Gilead</a> has matured and is renowned for its effectiveness for GWT and Hibernate integration.</p>
+
+<p>However, Gilead does come with some disadvantages:</p>
+
+<ul>
+  <li>The initial project configuration is a crucial initial step that is sometimes difficult to get right for newcomers to the library. Much of the forum posts on the Gilead project are in fact related to issues with configuration and setup.</li>
+  <li>The Gilead library works like a black box, much like Hibernate and GWT.</li>
+  <li>The '<code>dynamic proxy</code>' feature is still in beta mode.</li>
+</ul>
+
+<h2 id="Conclusion">Conclusion</h2>
+
+<p>If you're using Hibernate on the server-side, hopefully the integration strategies discussed above will help get your GWT client-side talking to your Hibernate backend. Each of these have their pluses and minuses, which vary especially with respect to the burden on the developer implementing the interoperation. However, the overarching concern across each of these strategies, as well as other facets of web application development, should always be performance for your users. A number of these approaches can sometimes incur considerable runtime overhead. For example, the Dozer and Gilead approach may become taxing to the user experience when there are larger sets of data to serialize, whereas the DTO solution can be designed to be as concise and effective as needed to improve performance.</p>
+
+<p>There are other aspects of Hibernate and GWT integration that might not have been covered in this article. For any further discussions, I strongly encourage you to come visit us on the <a href="http://groups.google.com/group/Google-Web-Toolkit">GWT Developer Forum</a>.</p>
+
+
+  <div id="notice" style="text-align: center; border: 1em 0em 1em 0em">
+  Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+  the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+  Attribution 3.0 License</a>.
+<!-- <rdf:RDF xmlns="http://web.resource.org/cc/" 
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Work rdf:about="">
+    <license rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+  </Work>
+  <License rdf:about="http://creativecommons.org/licenses/by/3.0/">
+    <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+    <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+    <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+    <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+    <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+  </License>
+</rdf:RDF> -->
+</div>
+
+
+        </div>
+        
+<div id="gc-content-footer">
+
+<div id="gc-content-last-updated">Last updated Март 22, 2012.</div>
+</div>
+
+      </div>
+
+      </div>
+      
+
+      
+      <footer id="gc-footer">
+
+<div id="gc-copyright">
+  <a href="https://developers.google.com/">
+    <img id="developers-logo-footer" src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/developers-logo-footer.png" alt="Google Developers logo" style="vertical-align: center; float: left">
+  </a>
+  <ul>
+    <li><a href="http://www.google.com/">Google</a></li>
+    <li><a href="https://developers.google.com/readme/terms">Terms of Service</a></li>
+    <li><a href="http://www.google.com/intl/en/privacy/">Privacy Policy</a></li>
+    <li><a href="https://developers.google.com/jobs">Jobs</a></li>
+  </ul>
+</div>
+<div id="gc-language">
+  <ul>
+    <li>
+      <form id="setlang" action="https://developers.google.com/i18n/setlang/" method="post">
+        <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="199b2ea701a64d3a9c1df3e62ba328e0"></div>
+        <select id="footer_language" name="language" style="display: none; ">
+          
+          
+          <option value="ar">
+            العربيّة
+          </option>
+          
+          <option value="bg">
+            български
+          </option>
+          
+          <option value="ca">
+            català
+          </option>
+          
+          <option value="zh-cn">
+            简体中文
+          </option>
+          
+          <option value="zh-tw">
+            繁體中文
+          </option>
+          
+          <option value="hr">
+            Hrvatski
+          </option>
+          
+          <option value="cs">
+            česky
+          </option>
+          
+          <option value="da">
+            Dansk
+          </option>
+          
+          <option value="nl">
+            Nederlands
+          </option>
+          
+          <option value="en" selected="selected">
+            English
+          </option>
+          
+          <option value="fa">
+            فارسی
+          </option>
+          
+          <option value="fi">
+            suomi
+          </option>
+          
+          <option value="fr">
+            Français
+          </option>
+          
+          <option value="de">
+            Deutsch
+          </option>
+          
+          <option value="el">
+            Ελληνικά
+          </option>
+          
+          <option value="he">
+            עברית
+          </option>
+          
+          <option value="hi">
+            Hindi
+          </option>
+          
+          <option value="hu">
+            Magyar
+          </option>
+          
+          <option value="id">
+            Bahasa Indonesia
+          </option>
+          
+          <option value="it">
+            italiano
+          </option>
+          
+          <option value="ja">
+            日本語
+          </option>
+          
+          <option value="ko">
+            한국어
+          </option>
+          
+          <option value="lv">
+            latviešu
+          </option>
+          
+          <option value="lt">
+            Lithuanian
+          </option>
+          
+          <option value="nb">
+            Norsk (bokmål)
+          </option>
+          
+          <option value="nn">
+            Norsk (nynorsk)
+          </option>
+          
+          <option value="pl">
+            polski
+          </option>
+          
+          <option value="pt-br">
+            Português Brasileiro
+          </option>
+          
+          <option value="pt">
+            Português
+          </option>
+          
+          <option value="ro">
+            Română
+          </option>
+          
+          <option value="ru">
+            Русский
+          </option>
+          
+          <option value="sr">
+            српски
+          </option>
+          
+          <option value="sk">
+            slovenský
+          </option>
+          
+          <option value="sl">
+            Slovenščina
+          </option>
+          
+          <option value="es">
+            español
+          </option>
+          
+          <option value="sv">
+            Svenska
+          </option>
+          
+          <option value="th">
+            Thai
+          </option>
+          
+          <option value="tr">
+            Türkçe
+          </option>
+          
+          <option value="uk">
+            Українська
+          </option>
+          
+          <option value="vi">
+            Vietnamese
+          </option>
+          
+        </select><span class="kd-button kd-menubutton kd-select"><div style="display: inline-block; "><div class="label" style="float: left; ">
+            English
+          </div><div class="kd-disclosureindicator"></div></div></span>
+      </form>
+    </li>
+  </ul>
+  
+</div>
+</footer>
+      
+    </div>
+    <div id="needAuth" class="msgDialogContent">
+      
+      <h1>Authentication required</h1>
+      
+      <div>
+        You need to be signed in with <a href="http://www.google.com/+">Google+</a> to do that.
+      </div>
+      <button>Sign in</button>
+      <button>Отмена</button>
+    </div>
+    <div id="signingIn" class="msgDialogContent">
+      
+      <h1>Signing you in...</h1>
+      <div>
+        
+        Google Developers needs your permission to do that.
+      </div>
+      
+      <button>Повторить попытку</button>
+      
+      <button>Отмена</button>
+    </div>
+    <script src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/script_foot.js"></script>
+    <script>
+      (function($) {
+        devsite.devsite.Init($);
+      })(jQuery);
+
+      
+      devsite.localInit = function() {
+        
+      };
+      
+    </script>
+    <!-- Google Code for PXL - Developers - Codesite - HP - 90d Remarketing List -->
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 992540712;
+      var google_conversion_language = "en";
+      var google_conversion_format = "3";
+      var google_conversion_color = "ffffff";
+      var google_conversion_label = "qio2CKCPwQMQqPCj2QM";
+      var google_conversion_value = 0;
+      /* ]]> */
+    </script>
+    <script type="text/javascript" src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/conversion.js">
+    </script><img height="1" width="1" border="0" src="./Using GWT with Hibernate - Google Web Toolkit — Google Developers_files/saved_resource(2)">
+    <noscript>
+      &lt;div style="display:inline;"&gt;
+        &lt;img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/992540712/?label=qio2CKCPwQMQqPCj2QM&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+      &lt;/div&gt;
+    </noscript>
+    
+
+
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+    // Render any carousels on the page
+    $('.carousel').carousel();
+    // Render any feed widgets on the page
+    
+    $('.feed').rss();
+    // Render any OSS widgets on the page.
+    $('.oss').oss();
+    });
+</script>
+
+<script type="text/javascript" defer="">
+// Add the handlers once the document has loaded.
+$(document).ready(function() {
+    contentTimer.name = 'content';
+    contentTimer.tick('ol');
+    window.jstiming.report(contentTimer);
+
+    // Boilerplate javascript to enable the plusone button
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=devsite_plusoneLoaded';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+});
+</script>
+
+
+
+
+  
+
+<div id="XPLSS_Flyover" style="position: absolute; z-index: 10000; visibility: hidden; left: -2100px; top: -2100px; "></div><div id="XPLSS_Trans" style="position: absolute; z-index: 9999; visibility: hidden; left: -2100px; top: -2100px; "></div><embed type="application/avg-searchshield-plugin" hidden="yes" id="avgss-plugin"><ul style="position: absolute; left: 1123px; top: 16664px; display: none; " class="kd-menulist"><li class="kd-menulistitem" style="">
+            العربيّة
+          </li><li class="kd-menulistitem">
+            български
+          </li><li class="kd-menulistitem">
+            català
+          </li><li class="kd-menulistitem">
+            简体中文
+          </li><li class="kd-menulistitem">
+            繁體中文
+          </li><li class="kd-menulistitem">
+            Hrvatski
+          </li><li class="kd-menulistitem">
+            česky
+          </li><li class="kd-menulistitem">
+            Dansk
+          </li><li class="kd-menulistitem">
+            Nederlands
+          </li><li class="kd-menulistitem selected">
+            English
+          </li><li class="kd-menulistitem">
+            فارسی
+          </li><li class="kd-menulistitem">
+            suomi
+          </li><li class="kd-menulistitem">
+            Français
+          </li><li class="kd-menulistitem">
+            Deutsch
+          </li><li class="kd-menulistitem">
+            Ελληνικά
+          </li><li class="kd-menulistitem">
+            עברית
+          </li><li class="kd-menulistitem">
+            Hindi
+          </li><li class="kd-menulistitem">
+            Magyar
+          </li><li class="kd-menulistitem">
+            Bahasa Indonesia
+          </li><li class="kd-menulistitem">
+            italiano
+          </li><li class="kd-menulistitem">
+            日本語
+          </li><li class="kd-menulistitem">
+            한국어
+          </li><li class="kd-menulistitem">
+            latviešu
+          </li><li class="kd-menulistitem">
+            Lithuanian
+          </li><li class="kd-menulistitem">
+            Norsk (bokmål)
+          </li><li class="kd-menulistitem">
+            Norsk (nynorsk)
+          </li><li class="kd-menulistitem">
+            polski
+          </li><li class="kd-menulistitem">
+            Português Brasileiro
+          </li><li class="kd-menulistitem">
+            Português
+          </li><li class="kd-menulistitem">
+            Română
+          </li><li class="kd-menulistitem">
+            Русский
+          </li><li class="kd-menulistitem">
+            српски
+          </li><li class="kd-menulistitem">
+            slovenský
+          </li><li class="kd-menulistitem">
+            Slovenščina
+          </li><li class="kd-menulistitem">
+            español
+          </li><li class="kd-menulistitem">
+            Svenska
+          </li><li class="kd-menulistitem">
+            Thai
+          </li><li class="kd-menulistitem">
+            Türkçe
+          </li><li class="kd-menulistitem">
+            Українська
+          </li><li class="kd-menulistitem">
+            Vietnamese
+          </li></ul></body></html>

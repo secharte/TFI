@@ -1,0 +1,41 @@
+[02/11/2012 10:03:23] Alejandro Sartorio: te digo lo mismo que te pasé por mail
+[02/11/2012 10:03:45] Alejandro Sartorio: bajate varios papers del estado del arte de lo que hiciste
+[02/11/2012 10:04:24] Alejandro Sartorio: leelos bien y fijate la manera de como están hechos para copiar el estilo de redacción y la forma de presentar las cosas
+[02/11/2012 10:04:48] Alejandro Sartorio: Fijate que cambia mucho el estilo del que vos tenés escrito
+[02/11/2012 10:05:16] Alejandro Sartorio: un paper por lo general tiene entre 10 y 15 citas de otros papers
+[02/11/2012 10:05:43] Alejandro Sartorio: eso es fundamental que vos lo tegas
+[02/11/2012 10:06:26] Alejandro Sartorio: Fijate que en estos detalles que habría que mejorar:
+[02/11/2012 10:06:42] Alejandro Sartorio: 1. no uses adjetivos calificativos para describir las cosas.
+[02/11/2012 10:07:00] Alejandro Sartorio: 2. no uses horariones largas donde digas mas de una idea
+[02/11/2012 10:07:48] Alejandro Sartorio: 3. no nombres al trabajo que hiciste con la palabra "esta investigación". Poné en "este trabajo"
+[02/11/2012 10:08:34] Alejandro Sartorio: 4. tené mucho cuidado con decir estas cosas sin justificarlas bien. Ejemplo:
+[02/11/2012 10:08:59] Alejandro Sartorio: - esto solcuiona todos los problemas que tiene el browse
+[02/11/2012 10:09:14] Alejandro Sartorio: - no hay otra trabajo que resuelva lo que resuelva este
+[02/11/2012 10:09:39] Alejandro Sartorio: - esto hace que funcione mejor tal cosa
+[02/11/2012 10:10:11] Sebastian Echarte: si me voy abasar en la redaccion de los paper que me pasaste
+[02/11/2012 10:10:54] Alejandro Sartorio: 5. No explique  que son las cosas que se puedan refenciar. Por ejemplo: UML, XML,
+[02/11/2012 10:11:47] Alejandro Sartorio: 6. Cuando uses un ejemplo o caso de uso, usá una funcionalidad específica, no lo hagas tan general el requerimiento.
+[02/11/2012 10:13:24] Alejandro Sartorio: 7. Debería estar muy claro cual es tu aporte concreto, esto lo tené que decir bien tecnicamanete sin decir las bondades de tu aporte.
+[02/11/2012 10:14:10] Alejandro Sartorio: Teoricamente, en la introducción contás el problema que vas a atacar y de que manera.
+[02/11/2012 10:14:52] Alejandro Sartorio: luego en otras secciones contas como solucionaste el problema tecnicamente
+[02/11/2012 10:15:28] Alejandro Sartorio: luego en las conclusiones comentás los beneficios de lo que aportaste
+[02/11/2012 10:16:08] Alejandro Sartorio: ---------
+Yo te en las correcciones que te voy a mandar están marcadas todas estas cosas
+[02/11/2012 10:16:20] Alejandro Sartorio: Vos hacé esto por ahora:
+[02/11/2012 10:16:44] Alejandro Sartorio: 1. Buscate unas buenas publicaciones usando este buscador: scholar.google.com
+[02/11/2012 10:17:21] Alejandro Sartorio: 2. Armá las secciones donde contás tu solución y mostar el caso de uso o ejemplo
+[02/11/2012 10:17:47] Alejandro Sartorio: 3. dejá para lo último la intro, la conclusión y el resumen. Eso  lo escribimos juntos
+[02/11/2012 10:19:20] Sebastian Echarte: buenisimo
+[02/11/2012 10:19:51] Sebastian Echarte: gracias! voy haciendo una version con todo esto y el jueves que viene voy para alla
+[02/11/2012 10:20:09] Alejandro Sartorio: perfecto
+[02/11/2012 10:20:16] Alejandro Sartorio: no te mates en querer cerrarlo todo
+[02/11/2012 10:20:28] Alejandro Sartorio: vos poné cosas selta que despues las conectamos
+[02/11/2012 10:20:31] Sebastian Echarte: no se si te mensiono dario, pero estuve dando una charla a los alumnos sobre Java
+[02/11/2012 10:20:44] Alejandro Sartorio: mira que todo esto es otro mundo y no tenes por que saber hacerlo
+[02/11/2012 10:21:09] Alejandro Sartorio: que bueno, me comentaron que ibas a dar esa charla
+[02/11/2012 10:21:34] Alejandro Sartorio: ayer hablé con el dueño de la uai de tu proyecto y le gustó mucho
+[02/11/2012 10:21:53] Alejandro Sartorio: vamos a centrarnos en el paper que a partir de ahí te puedo dar una mano grande
+[02/11/2012 10:23:21] Sebastian Echarte: genial
+[02/11/2012 10:24:14] Sebastian Echarte: yo necesito cerrar el paper asi dario me puede dar el aprobado de TFI, despues me gustaria seguir con el proyecto
+[02/11/2012 10:24:35] Sebastian Echarte: lo tengo que terminar para diciembre si o si por que se me vence la materia
+[02/11/2012 10:25:02] Sebastian Echarte: se puede seguir luego de aprobar TFI?? por que interesa mucho

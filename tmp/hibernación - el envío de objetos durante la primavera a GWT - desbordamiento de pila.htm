@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt -->
+<html class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" async="" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44"></script><script type="text/javascript" async="" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/ga.js"></script><script type="text/javascript" async="" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/quant.js"></script><script>window.serq=[];StackExchange={ready:function(f){serq.push(f)}}</script>
+    
+    
+    <title>hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/all.css">
+    
+    <meta name="relativepagescore" content="105555">
+    <link rel="canonical" href="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila.htm">
+    <link rel="alternate" type="application/atom+xml" title="Pase a la pregunta &#39;el envío de objetos durante la primavera a GWT&#39;" href="http://stackoverflow.com/feeds/question/8965394">
+
+
+
+    
+
+<script async="" type="text/javascript" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/full-anon.js"></script><script async="" type="text/javascript" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/prettify-full.js"></script><link href="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/sidebar.chirp.min.css" type="text/css" rel="stylesheet"><link type="text/css" rel="stylesheet" charset="UTF-8" href="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/main.js"></script><script type="text/javascript" charset="UTF-8" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/element_main.js"></script></head>
+<body class="question-page">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;"><font><font>Cambio de pila</font></font></a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f8965394%2fsending-objects-over-spring-to-gwt"><font><font>iniciar sesión </font></font></a>
+ <span class="lsep"><font><font>| </font></font></span>
+<a href="http://careers.stackoverflow.com/"><font><font>carreras </font></font></a>
+ <span class="lsep"><font><font>| </font></font></span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackoverflow.com/"><font><font>charla </font></font></a>
+ <span class="lsep"><font><font>| </font></font></span>
+<a href="http://meta.stackoverflow.com/"><font><font>meta </font></font></a>
+ <span class="lsep"><font><font>| </font></font></span>
+<a href="http://stackoverflow.com/about"><font><font>acerca </font></font></a>
+ <span class="lsep"><font><font>| </font></font></span>
+<a href="http://stackoverflow.com/faq"><font><font>preguntas frecuentes</font></font></a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="140" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/"><font><font>Stack Overflow</font></font></a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions"><font><font>Preguntas</font></font></a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags"><font><font>Etiquetas</font></font></a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users"><font><font>Usuarios</font></font></a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/badges"><font><font>Emblemas</font></font></a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered"><font><font>Sin respuesta</font></font></a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask"><font><font>Hacer Pregunta</font></font></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            
+            
+
+
+<div itemscope="" itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila.htm" class="question-hyperlink"><font><font>el envío de objetos durante la primavera a GWT</font></font></a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question" data-questionid="8965394">
+
+    <div class="everyonelovesstackoverflow" id="adzerk1"><a href="http://engine.adzerk.net/redirect/0/2565/2444/8277/6f8158b69b1f4cac9090edfc94d23cda/43/1178/4215/634757424210530870/?keywords=hibernate%2cspring%2cgwt" rel="nofollow" target="_blank" title=""><img src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/2565.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+
+<div class="vote">
+    <input type="hidden" value="8965394">
+    <a class="vote-up-off" title="Esta pregunta muestra los esfuerzos de investigación, es útil y clara (haga clic de nuevo para deshacer)"><font><font>up vote </font></font></a>
+    <span class="vote-count-post"><font><font>0 </font></font></span>
+    <a class="vote-down-off" title="Esta pregunta no muestra ningún esfuerzo de investigación, no está claro o no útil (haga clic de nuevo para deshacer)"><font><font>por votar </font></font></a>
+    <a class="star-off" href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt#" title="Esta es una pregunta favorita (haga clic de nuevo para deshacer)"><font><font>favorita</font></font></a>
+    <div class="favoritecount"><b></b></div>   
+ 
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text" itemprop="description">
+        <p><font><font>estos días me obligan con una aplicación que tengo que usar GWT como capa de presentación aprendo tantos que me puedan ayudar a manejar mi proyecto, pero ahora tengo un problema que puedo;. t encontrado una solución de cristal para eso. </font><font>el problema es que cuando trato de enviar un objeto que me recuperado de mysql con hibernación por la capa de presentación o de primavera (GWT) Doy esta excepción:</font></font></p>
+
+<pre class="default prettyprint"><code><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"> </span><span class="str"><font></font></span><span class="pln"><font></font></span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="kwd"><font></font></span><span class="pln"><font><font>tipos que pueden ser serializados </font></font></span><span class="kwd"><font><font>por </font></font></span><span class="pln"> </span><span class="kwd"><font><font>este </font></font></span><span class="pln"> </span><span class="typ"><font><font>SerializationPolicy </font></font></span><span class="pln"> </span><span class="kwd"><font><font>o de </font></font></span><span class="pln"><font><font>la </font></font></span><span class="typ"><font><font>clase </font></font></span><span class="pln"> </span><span class="kwd"><font><font>objeto </font></font></span><span class="pln"><font><font>podría </font></font></span><span class="kwd"><font><font>no </font></font></span><span class="pln"><font><font>ser cargado </font></font></span><span class="pun"><font><font>. </font></font></span><span class="pln"> </span><span class="typ"><font><font>Por </font></font></span><span class="pln"><font><font>motivos de seguridad </font></font></span><span class="pun"><font><font>, </font></font></span><span class="pln"> </span><span class="kwd"><font><font>este </font></font></span><span class="pln"><font><font>tipo de se </font></font></span><span class="kwd"><font><font>no </font></font></span><span class="pln"><font><font>ser</font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><br></span></code></pre>
+
+<p><font><font>Debo mencionar que desea enviar una clase que el nombre del examen y esta clase tiene una lista de la clase que se trate.</font></font></p>
+
+<p><font><font>las tecnologías que integradas en mi proyecto hasta ahora es GWT + primavera + primavera + seguridad + spring4gwt hibernación estaré agradecido realmente de cualquier trozo de ayuda para que me libere de este problema.</font></font></p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/hibernate" class="post-tag" title="muestran las preguntas con la etiqueta &#39;hibernación&#39;" rel="tag"><font><font>hibernación </font></font></a> <a href="http://stackoverflow.com/questions/tagged/spring" class="post-tag" title="muestran las preguntas con la etiqueta &#39;primavera&#39;" rel="tag"><font><font>de primavera </font></font></a> <a href="http://stackoverflow.com/questions/tagged/gwt" class="post-tag" title="" rel="tag"><font><font>gwt</font></font></a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/q/8965394" title="permalink corta a esta pregunta" id="link-post-8965394"><font><font>Enlace </font></font></a><span class="lsep"><font><font>| </font></font></span><a href="http://stackoverflow.com/posts/8965394/edit"><font><font>mejorar esta pregunta</font></font></a></div>
+    </td>
+    <td class="post-signature owner">
+    <div class="user-info"><div class="user-action-time"><font><font>pidió a </font></font><span title="22/01/2012 22:44:50 Z" class="relativetime"><font><font>22 de enero a las 22:44</font></font></span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/827741/sina"><div class=""><img src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/d0a5c5d2593fe674a5310377667032bc" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/827741/sina"><font><font>Sina </font></font></a><br><span class="reputation-score" title="puntuación de reputación" dir="ltr"><font><font>3</font></font></span><span title="Una insignia de bronce"><span class="badge3"></span><span class="badgecount"><font><font>1</font></font></span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8965394" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); "><font><font>
+        realimentación
+    </font></font></div>
+    
+</td>
+</tr>    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2><font><font>2 Respuestas</font></font></h2>
+            <div id="tabs">
+                <a href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt?answertab=active#tab-top" title="Respuestas con la actividad más reciente primero"><font><font>activos </font></font></a>
+<a href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt?answertab=oldest#tab-top" title="Las respuestas en el orden en que fueron proporcionados"><font><font>más antiguos de </font></font></a>
+<a class="youarehere" href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt?answertab=votes#tab-top" title="Respuestas con la puntuación más alta primero"><font><font>los votos</font></font></a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="8967961"></a>
+    <div id="answer-8967961" class="answer" data-answerid="8967961">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="8967961">
+    <a class="vote-up-off" title="Esta respuesta es útil (haga clic de nuevo para deshacer)"><font><font>up vote </font></font></a>
+    <span class="vote-count-post"><font><font>un </font></font></span>
+    <a class="vote-down-off" title="Esta respuesta no es útil (haga clic de nuevo para deshacer)"><font><font>voto por </font></font></a>
+<span class="vote-accepted-on" title="El propietario aceptó esta pregunta como la mejor respuesta 23 de enero a las 12:51"><font><font>aceptada</font></font></span> 
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p><font><font class="">Usted debe utilizar objetos de datos de transferencia, porque DTOs sólo pueden ser transferidos a otro cliente GWT.</font></font></p>
+
+<p><font><font>Debe crear y ExamDto QuestionDto y después de recibir el examen objeto de MySQL que tenía que convertirlo en ExamDto.</font></font></p>
+
+<p><font><font class="">Por el lado de cliente que va a operar sólo DTO. </font><font class="">Si desea guardar el examen a MySQL que es necesario convertir ExamDto de examen.</font></font></p>
+
+<p><font><font>Para convertir a DTOs POJOs y la espalda debe usar </font></font><a href="http://dozer.sourceforge.net/" rel="nofollow"><font><font>Bulldozer</font></font></a><font><font> .</font></font></p>
+
+<p><font><font class="">Para utilizar el bulldozer es necesario asignar DTOs POJOs y con las asignaciones de bulldozer. </font><font>Yo uso </font></font><a href="http://dozer.sourceforge.net/documentation/mappings.html" rel="nofollow"><font><font>las asignaciones personalizadas a través de archivos XML bulldozer</font></font></a><font><font> .</font></font></p>
+
+<p><font><font>El mejor tutorial que describe GWT-Hibernate relación: </font></font><a href="http://code.google.com/intl/ru-RU/webtoolkit/articles/using_gwt_with_hibernate.html" rel="nofollow"><font><font>Uso de GWT con Hibernate</font></font></a> </p>
+
+<p><font><font>Además, creó I'v DozerGenerator convertidor de clase y utilizarla en mis aplicaciones. </font><font>Por ejemplo, tengo 2 RPC - uno es encontrar los usuarios, en segundo lugar - para guardar el usuario.</font></font></p>
+
+<pre class="default prettyprint"><code><span class="pln">&nbsp; &nbsp; </span><span class="kwd"><font><font>pública </font></font></span><span class="pln"> </span><span class="typ"><font><font>UserDto </font></font></span><span class="pln"><font><font>findUserById </font></font></span><span class="pun"><font><font>( </font></font></span><span class="kwd"><font><font>a largo </font></font></span><span class="pln"><font><font>Identificación </font></font></span><span class="pun"><font><font>) </font></font></span><span class="pln"> </span><span class="kwd"><font><font>arroja </font></font></span><span class="pln"> </span><span class="typ"><font><font>IllegalArgumentException </font></font></span><span class="pln"> </span><span class="pun"><font><font>{ </font></font></span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"><font><font>/ / userService.findUserById (long id) devuelve el objeto de usuario y de </font></font></span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"><font><font>/ / lo que necesita para convertirlo en UserDto para transferir al cliente. </font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font><font>retorno </font></font></span><span class="pln"> </span><span class="typ"><font><font>DozerGenerator </font></font></span><span class="pun"><font><font>. </font></font></span><span class="pln"><font><font>appUserEntityToDto </font></font></span><span class="pun"><font><font>( </font></font></span><span class="pln"><font><font>UserService </font></font></span><span class="pun"><font><font>. </font></font></span><span class="pln"><font><font>findUserByID </font></font></span><span class="pun"><font><font>( </font></font></span><span class="pln"><font><font>id </font></font></span><span class="pun"><font><font>)) ; </font></font></span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun"><font><font>} </font></font></span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"><font><font>/ / aquí, convierte a la UserDto</font></font></span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp;</span><span class="pun"><font></font></span><span class="pln"><br></span></code></pre>
+
+<p><font><font>Y aquí su DozerGenerator clase:</font></font></p>
+
+<pre class="default prettyprint"><code><span class="kwd"><font><font>pública </font></font></span><span class="pln"> </span><span class="kwd"><font><font>de clase </font></font></span><span class="pln"> </span><span class="typ"><font><font>DozerGenerator </font></font></span><span class="pln"> </span><span class="pun"><font><font>{ </font></font></span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com"><font><font>/ * El usuario &lt;-&gt; UserDto</font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="kwd"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun"><font></font></span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="kwd"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun"><font></font></span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><br><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun"><font></font></span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"> </span><span class="pun"><font></font></span><span class="pln"><br><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="typ"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd"><font></font></span><span class="pln"><font></font></span><span class="pun"><font></font></span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun"><font></font></span><span class="pln"><br></span><span class="pun"><font></font></span><span class="pln"><br></span></code></pre>
+
+<p><font><font>Además, puedo usar GWT + Spring + Hibernate + JPA en mis aplicaciones sin ningún tipo de bibliotecas especializadas como spring4gwt y Gilead (hibernate4gwt) y funciona bien.</font></font></p>
+
+<p><font><font>También se puede encontrar algo de información acerca de su error aquí </font></font><a href="http://code.google.com/p/google-web-toolkit/issues/detail?id=3296" rel="nofollow"><font><font>Edición 3296</font></font></a></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/8967961" title="permalink corta a esta respuesta" id="link-post-8967961"><font><font>Enlace </font></font></a><span class="lsep"><font><font>| </font></font></span><a href="http://stackoverflow.com/posts/8967961/edit"><font><font>mejorar esta respuesta</font></font></a></div>    </td>
+    <td align="right" class="post-signature">
+<div class="user-info"><div class="user-action-time"><font><font>editado </font></font><a href="http://stackoverflow.com/posts/8967961/revisions" title="mostrar todas las ediciones a esta entrada"><span title="01/23/2012 06:37:22 Z" class="relativetime"><font><font>23 de enero a las 6:37</font></font></span></a></div><div class="user-gravatar32"></div><div class="user-details"><br></div></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time"><font><font>respondió </font></font><span title="01/23/2012 06:32:10 Z" class="relativetime"><font><font>23 de enero a las 6:32</font></font></span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/590582/braginini"><div class=""><img src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/4a71fa65192c7759fe3f7f1524054fcf" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/590582/braginini"><font><font>BraginiNI </font></font></a><br><span class="reputation-score" title="puntuación de reputación" dir="ltr"><font><font>234</font></font></span><span title="1 de plata insignia"><span class="badge2"></span><span class="badgecount"><font><font>1</font></font></span></span><span title="9 placas de bronce"><span class="badge3"></span><span class="badgecount"><font><font>9</font></font></span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8967961" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); "><font><font>
+        realimentación
+    </font></font></div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+    <div class="everyonelovesstackoverflow" id="adzerk3"><a href="http://engine.adzerk.net/redirect/0/5924/2444/8277/7f11e582a3cf45558168a3af2b235c2e/44/1178/8810/634757424210644380/?keywords=hibernate%2cspring%2cgwt" rel="nofollow" target="_blank" title=""><img src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/0a96cc99c1784d6abe3cae6b8c8bf013.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+  
+    <a name="8965422"></a>
+    <div id="answer-8965422" class="answer" data-answerid="8965422">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="8965422">
+    <a class="vote-up-off" title="Esta respuesta es útil (haga clic de nuevo para deshacer)"><font><font>up vote </font></font></a>
+    <span class="vote-count-post"><font><font>0 </font></font></span>
+    <a class="vote-down-off" title="Esta respuesta no es útil (haga clic de nuevo para deshacer)"><font><font>por votar</font></font></a>
+ 
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p><font><font>¿Ha </font></font><code><font><font>join fetch</font></font></code><font><font> ed la lista con el examen, creo que es una colección perezosa que no se inicializa (poblado) sin embargo,</font></font></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/8965422" title="permalink corta a esta respuesta" id="link-post-8965422"><font><font>Enlace </font></font></a><span class="lsep"><font><font>| </font></font></span><a href="http://stackoverflow.com/posts/8965422/edit"><font><font>mejorar esta respuesta</font></font></a></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time"><font><font>respondió </font></font><span title="22/01/2012 22:47:44 Z" class="relativetime"><font><font>22 de enero a las 22:47</font></font></span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/690553/amir-pashazadeh"><div class=""><img src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/1e4b2eb92d9417b384d82ebfea3d67ea" alt="" width="32" height="32"></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/690553/amir-pashazadeh"><font><font>Amir Pashazadeh </font></font></a><br><span class="reputation-score" title="puntuación de reputación" dir="ltr"><font><font>1392</font></font></span><span title="2 insignias de plata"><span class="badge2"></span><span class="badgecount"><font><font>2</font></font></span></span><span title="8 placas de bronce"><span class="badge3"></span><span class="badgecount"><font><font>8</font></font></span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8965422" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-11228608" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy"><font><font>yes.i utiliza GANAS obtención</font></font></span><font><font> -&nbsp; </font></font><a href="http://stackoverflow.com/users/827741/sina" title="3 reputación" class="comment-user owner"><font><font>Sina </font></font></a> <span class="comment-date" dir="ltr"><a class="comment-link" onclick="StackExchange.question.highlightComment(11228608, 8965422)" href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt#comment11228608_8965422"><span title="22/01/2012 22:49:36 Z"><font><font>22 de enero a las 22:49</font></font></span></a></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); "><font><font>
+        realimentación
+    </font></font></div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://stackoverflow.com/questions/8965394/answer/submit" method="post" class="post-form">
+        <h2 class="space"><font><font>Su respuesta</font></font></h2>
+
+
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px; "><span style="background-position: 0px -20px; "></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px; "><span style="background-position: -20px -20px; "></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px; "><span style="background-position: -60px -20px; "></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px; "><span style="background-position: -80px -20px; "></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px; "><span style="background-position: -100px -20px; "></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px; "><span style="background-position: -140px -20px; "></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px; "><span style="background-position: -160px -20px; "></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px; "><span style="background-position: -180px -20px; "></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px; "><span style="background-position: -220px -20px; "></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;"><font><font>guardado en borrador</font></font></div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;"><font><font>proyecto descartado</font></font></div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="e300395b4b6b5cc6e142eb70fef2cc81">
+        <input id="author" name="author" type="text">
+    </div>
+</div>    <div class="form-item">
+        <table>
+        <tbody><tr>
+            <td class="vm open-id-login">
+                <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f8965394%2fsending-objects-over-spring-to-gwt"><font><font>acceder</font></font></a>
+                <script type="text/javascript">
+                    StackExchange.ready(function () {
+                        StackExchange.helpers.onClickDraftSave('#login-link');
+                    });
+                </script>
+            </td>
+            <td class="orcell">
+                <div class="orword"><font><font>o</font></font></div>
+                <div class="orline"></div>
+            </td>
+            <td class="vm">
+                <div>
+                    <label for="display-name"><font><font>Nombre</font></font></label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address"><font><font>E-mail</font></font></label>
+                    <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay"><font><font>requerido, pero nunca se muestra</font></font></span>
+                </div>
+                <div>
+                    <label for="home-page"><font><font>Página de inicio</font></font></label>
+                    <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+           
+        <div class="form-submit cbt">
+            <font><font><input id="submit-button" type="submit" value="Publica su respuesta" tabindex="110"></font></font>
+            <a href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt#" class="discard-answer dno"><font><font>descartar</font></font></a>
+    <p class="privacy-policy-agreement"><font><font>
+        Mediante la publicación de su respuesta, usted está de acuerdo con la 
+         </font></font><a href="http://stackexchange.com/legal/privacy-policy" target="_blank"><font><font>política de privacidad</font></font></a><font><font> y 
+         </font></font><a href="http://stackexchange.com/legal/terms-of-service" target="_blank"><font><font>términos de servicio</font></font></a><font><font> .
+    </font></font></p>
+        </div>
+    </form>
+
+
+
+
+        <h2 class="bottom-notice"><font><font>
+                No es la respuesta que estás buscando? </font><font>Buscar otras preguntas etiquetadas </font></font><a href="http://stackoverflow.com/questions/tagged/hibernate" class="post-tag" title="muestran las preguntas con la etiqueta &#39;hibernación&#39;" rel="tag"><font><font>de hibernación </font></font></a> <a href="http://stackoverflow.com/questions/tagged/spring" class="post-tag" title="muestran las preguntas con la etiqueta &#39;primavera&#39;" rel="tag"><font><font>de primavera </font></font></a> <a href="http://stackoverflow.com/questions/tagged/gwt" class="post-tag" title="muestran las preguntas con la etiqueta &#39;GWT&#39;" rel="tag"><font><font>gwt</font></font></a><font><font>  
+                o </font></font><a href="http://stackoverflow.com/questions/ask"><font><font>pregunte a su propia pregunta</font></font></a><font><font> .
+        </font></font></h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+     <script type="text/javascript">
+        window.showNewUser = true;
+            
+                (function(){
+                    var cs = window.sessionStorage && window.sessionStorage['tNewsletter'];
+                    var m = /:\/\/([^\/]*)/.exec(document.referrer);
+                    var h = {'www.reddit.com':1,'news.ycombinator.com':1};
+                    if(window.sessionStorage && (cs || (m && m.length == 2 && h[m[1]]))){
+                        showNewUser = false;
+                        StackExchange.ready(function(){
+                            StackExchange.newsletterAd.loader(m[1], cs);
+                        });
+                    }
+                    if (window.localStorage && showNewUser){
+                        var c = parseInt(localStorage['nuCounter'],10); 
+                        c = isNaN(c) ? 1 : c+1;
+                        window.localStorage['nuCounter'] = c; 
+                        showNewUser = c < 10;
+                    }
+                })()
+            
+     </script>
+    <div class="module newuser newuser-greeting" id="newuser-box" style="">
+        <h4><font><font>¡Hola Mundo!</font></font></h4>
+        <div>
+            <p><font><font>Esta es una pregunta editado colaborativamente y el sitio de respuesta para </font></font><b><font><font>los programadores profesionales y aficionados</font></font></b><font><font> . </font><font>Es 100% gratuito, no es necesario registrarse.</font></font></p>
+            <p class="ar"><a href="http://stackoverflow.com/about?mnu=1"><font><font>acerca » </font></font></a>&nbsp;&nbsp;&nbsp;<a href="http://stackoverflow.com/faq?mnu=1"><font><font>Preguntas Frecuentes »</font></font></a>
+            </p>
+        </div>
+    </div>
+     <script type="text/javascript">
+        if (showNewUser) {
+            document.getElementById('newuser-box').style.display = '';
+        }
+     </script>
+    <div class="module question-stats">
+        <p class="label-key"><font><font>etiquetado</font></font></p>
+        <div class="tagged"><a href="http://stackoverflow.com/questions/tagged/spring" class="post-tag" title="muestran las preguntas con la etiqueta &#39;primavera&#39;" rel="tag"><font><font>la primavera </font></font></a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x"><font><font>× </font></font></span>&nbsp;<span class="item-multiplier-count"><font><font>16665</font></font></span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/hibernate" class="post-tag" title="muestran las preguntas con la etiqueta &#39;hibernación&#39;" rel="tag"><font><font> hibernación </font></font></a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x"><font><font>× </font></font></span>&nbsp;<span class="item-multiplier-count"><font><font>16236</font></font></span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/gwt" class="post-tag" title="muestran las preguntas con la etiqueta &#39;GWT&#39;" rel="tag"><font><font> gwt </font></font></a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x"><font><font>× </font></font></span>&nbsp;<span class="item-multiplier-count"><font><font>8992</font></font></span></span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key"><font><font>preguntó</font></font></p></td>
+                <td style="padding-left:10px"><p class="label-key" title="22/01/2012 22:44:50 Z"><b><font><font>Hace 4 meses</font></font></b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key"><font><font>visto</font></font></p></td>
+
+                <td style="padding-left:10px"><p class="label-key"><b><font><font>169 veces</font></font></b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key"><font><font>activo</font></font></p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="http://stackoverflow.com/questions/8965394/sending-objects-over-spring-to-gwt?lastactivity" class="lastactivity-link" title="01/23/2012 06:37:22 Z"><font><font>Hace 4 meses</font></font></a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+
+    
+        <script type="text/javascript">
+            var scriptSrc = "http://engine2.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=hibernate,spring,gwt";
+            if (document.referrer) {
+                if (/\?/.test(scriptSrc))
+                    scriptSrc += "&";
+                else
+                    scriptSrc += "?";
+                scriptSrc += "xReferrer=" + document.referrer;
+            }
+            StackExchange.ready(function(){var z = document.createElement("script"); z.type = "text/javascript"; z.async = "true"; z.src = scriptSrc; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);});
+        </script>
+    
+    <div class="everyonelovesstackoverflow" id="adzerk2"><div id="careersadsdoublehigh" style="display:none;"></div></div>
+
+    
+    <div id="hireme"> <a href="http://careers.stackoverflow.com/jobs?a=24" class="top" target="_blank"></a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/20611/senior-programmers-gameloft?a=olQ6rYs" target="_blank" title="Los programadores senior de Gameloft.  Haga clic para obtener más información."><font><font>Los programadores senior </font><span class="company"><font>de Gameloft </font></span><span class="location"><font>New York, NY, Nueva Orleans, LA</font></span></font><br> <span class="company"><font></font></span> <span class="location"><font></font></span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/17527/software-engineering-lead-implementation-pincsolutions?a=kHToUCs" target="_blank" title="Software de Ingeniería de plomo (implementación / integración / Personalización) en PINCSolutions.  Haga clic para obtener más información."><font><font>Software de Ingeniería de plomo (implementación / integración ... </font><span class="company"><font>PINCSolutions </font></span><span class="location"><font>Alameda, CA</font></span></font><br> <span class="company"><font></font></span> <span class="location"><font></font></span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/20781/c-plus-plus-java-developer-great-oss-team-open-microscopy-environment?a=oyfUAJq" target="_blank" title="C + + / Java Developer para Gran Equipo de OSS en el Medio Ambiente Microscopía Abierto de la Universidad de Dundee.  Haga clic para obtener más información."><font><font>C + + / Java Developer para Gran Equipo de OSS </font><span class="company"><font>para el Medio Ambiente Microscopía Open, ... </font></span><span class="location"><font>Dundee, Reino Unido</font></span></font><br> <span class="company"><font></font></span> <span class="location"><font></font></span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/17799/junior-software-engineer-soundmouse?a=l1OJcHe" target="_blank" title="Ingeniero de Software Junior en Soundmouse.  Haga clic para obtener más información."><font><font>Junior Ingeniero de Software </font><span class="company"><font>Soundmouse </font></span><span class="location"><font>Londres, Reino Unido</font></span></font><br> <span class="company"><font></font></span> <span class="location"><font></font></span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/19808/chief-technical-staff-captricity?a=noYTlL2" target="_blank" title="Jefe de Gabinete Técnico de Captricity.  Haga clic para obtener más información."><font><font>Jefe de Personal Técnico </font><span class="company"><font>Captricity </font></span><span class="location"><font>Berkeley, CA</font></span></font><br> <span class="company"><font></font></span> <span class="location"><font></font></span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/21016/software-engineer-php-kabam?a=oPtclO0" target="_blank" title="Ingeniero de Software - PHP en Kabam.  Haga clic para obtener más información."><font><font>Ingeniero de Software - PHP </font><span class="company"><font>Kabam </font></span><span class="location"><font>San Francisco, CA</font></span></font><br> <span class="company"><font></font></span> <span class="location"><font></font></span> </a> </li> </ul> <img alt="" class="impression" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/kHToUCs-oyfUAJq-l1OJcHe-noYTlL2-oPtclO0-olQ6rYs-24" style="display:none"></div>
+
+    
+<div class="module" id="chat-feature">
+
+
+
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="45 usuarios activos en 18 salas de los últimos 60 minutos"><font><font>45 personas conversando</font></font></a></h4>
+
+
+<div class="related" id="ad502-rooms"></div>
+
+<script type="text/javascript">
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: null,tagBased:true
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+
+
+</div>  
+    
+    <div class="module sidebar-related">
+        <h4 id="h-related"><font><font>Relacionado</font></font></h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="http://stackoverflow.com/questions/217775/gwt-spring?rq=1" class="question-hyperlink"><font><font>GWT + Primavera</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/896429/gwt-with-spring-dependency-injection?rq=1" class="question-hyperlink"><font><font>GWT con la inyección de dependencia de la primavera</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/956893/easiest-way-to-add-gwt-to-a-spring-mvc-application?rq=1" class="question-hyperlink"><font><font>La manera más fácil de añadir a una aplicación GWT Spring MVC?</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1378993/attempt-to-create-saveorupdate-event-with-null-entity?rq=1" class="question-hyperlink"><font><font>tratar de crear un evento con una entidad NULL saveOrUpdate</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2273495/gwt-spring-hibernate-data-change-events-and-transactions?rq=1" class="question-hyperlink"><font><font>GWT / Spring / Hibernate eventos de cambio de datos y transacciones</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3165532/gwt-spring-security-client?rq=1" class="question-hyperlink"><font><font>GWT Primavera de seguridad - Cliente</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3247380/a-sample-application-in-gwt-spring-hibernate?rq=1" class="question-hyperlink"><font><font>Un ejemplo de aplicación en GWT + Spring + Hibernate</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4271320/smartgwt-spring-hibernate-and-gilead?rq=1" class="question-hyperlink"><font><font>SmartGWT, Spring, Hibernate y Gilead</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4553558/best-way-to-integrate-gwt-with-existing-spring-services?rq=1" class="question-hyperlink"><font><font>La mejor manera de integrar GWT con los servicios existentes de primavera?</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5073420/integrating-gwt-modules-projects-into-a-spring-application?rq=1" class="question-hyperlink"><font><font>la integración de módulos GWT y proyectos en una aplicación de la primavera</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5758790/gwt-hibernate-spring-serialization-problem?rq=1" class="question-hyperlink"><font><font>GWT hibernación primavera problema de serialización</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6062413/spring-hibernate-lazy-fetching?rq=1" class="question-hyperlink"><font><font>Spring + Hibernate perezosos obtención</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6400062/going-crazy-spring-3-0-x-hibernate-3-6-5-jpa-unable-to-configure-entitymanage?rq=1" class="question-hyperlink"><font><font>Volviendo loco. </font><font>Spring 3.0.x Hibernate 3.6.5 APP - No se puede configurar EntityManagerFactory</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6417180/connect-to-a-spring-and-hibernate-service-using-gwt?rq=1" class="question-hyperlink"><font><font>Conectarse a una primavera y un servicio de hibernación con GWT</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6886177/gwt-with-spring?rq=1" class="question-hyperlink"><font><font>GWT con Spring</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7026222/is-spring-hibernate-the-best-for-web-apps?rq=1" class="question-hyperlink"><font><font>Es Primavera + Hibernate lo mejor para aplicaciones web?</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7511643/gwt-requestfactory-hibernate-unnecessary-call-find-method-in-locator?rq=1" class="question-hyperlink"><font><font>GWT RequestFactory llamado Hibernate innecesaria método de búsqueda en el localizador</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7594099/gwt-spring-hosted-mode-not-working?rq=1" class="question-hyperlink"><font><font>GWT + Primavera modo de anfitrión no está funcionando</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/8636957/gwt-and-spring-security-integration?rq=1" class="question-hyperlink"><font><font>GWT y Spring Security Integración</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/9241950/gwt-spring-security-integration?rq=1" class="question-hyperlink"><font><font>GWT + Primavera Integración de la seguridad</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10032482/best-approach-for-setting-hibernate-spring-project?rq=1" class="question-hyperlink"><font><font>mejor enfoque para el establecimiento de hibernación / primavera del proyecto</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10293439/gwt-rpc-serializationexception-in-a-hibernate-manytoone-relationhip-object?rq=1" class="question-hyperlink"><font><font>GWT rpc.SerializationException en una hibernación ManyToOne relationhip objeto</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10399943/integrating-spring-with-gwt?rq=1" class="question-hyperlink"><font><font>La integración de la primavera con GWT</font></font></a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10717619/spring-gwt-application-rename-module?rq=1" class="question-hyperlink"><font><font>Cambiar el nombre de la aplicación GWT primavera del módulo</font></font></a>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/8965394" title="de alimentación de esta pregunta y sus respuestas"><span class="feed-icon"></span><font><font>cuestión de la alimentación</font></font></a></div>
+</div>
+
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/8965394/ivc/9311" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang"><font><font>defecto</font></font></div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://stackoverflow.com/about"><font><font>acerca</font></font></a><font><font> |
+                 </font></font><a href="http://stackoverflow.com/faq"><font><font>preguntas frecuentes</font></font></a><font><font> |
+                 </font></font><a href="http://blog.stackexchange.com/?blb=1"><font><font>Blog</font></font></a><font><font> |
+                     </font></font><a href="http://chat.stackoverflow.com/"><font><font>Chat en vivo</font></font></a><font><font> |
+                 </font></font><a href="http://data.stackexchange.com/"><font><font>datos</font></font></a><font><font> |
+                 </font></font><a href="http://shop.stackexchange.com/"><font><font>tienda</font></font></a><font><font> |
+                 </font></font><a href="http://stackexchange.com/legal"><font><font>legal</font></font></a><font><font> |
+                 </font></font><a href="http://stackexchange.com/legal/privacy-policy"><font><font>política de privacidad</font></font></a><font><font> |
+                 </font></font><a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0"><font><font>Información publicitaria</font></font></a><font><font> |
+                 </font></font><a onclick="StackExchange.switchMobile(&#39;on&#39;, &#39;/questions/8965394/sending-objects-over-spring-to-gwt&#39;)"><font><font>Móvil</font></font></a><font><font> |
+
+                 </font></font><b><a href="mailto:team@stackoverflow.com"><font><font>Contáctenos</font></font></a></b><font><font> 
+                  | </font></font><b><a href="http://meta.stackoverflow.com/"><font><font>comentarios</font></font></a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://stackoverflow.com/"><font><font>stackoverflow.com </font></font></a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://stackapps.com/"><font><font>api / aplicaciones </font></font></a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://careers.stackoverflow.com/"><font><font>carreras </font></font></a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://serverfault.com/"><font><font>serverfault.com </font></font></a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://superuser.com/"><font><font>superuser.com </font></font></a>&nbsp; 
+                        <span style="color:#969696;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://meta.stackoverflow.com/"><font><font>meta </font></font></a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://area51.stackexchange.com/"><font><font>área 51 </font></font></a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://webapps.stackexchange.com/"><font><font>aplicaciones web </font></font></a>&nbsp; 
+                        <span style="color:#000000;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://gaming.stackexchange.com/"><font><font>juegos </font></font></a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://askubuntu.com/"><font><font>ubuntu </font></font></a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://webmasters.stackexchange.com/"><font><font>webmasters </font></font></a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://cooking.stackexchange.com/"><font><font>cocinar </font></font></a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://gamedev.stackexchange.com/"><font><font>desarrollo de juegos </font></font></a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://math.stackexchange.com/"><font><font>matemáticas </font></font></a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://photo.stackexchange.com/"><font><font>fotografía </font></font></a>&nbsp; 
+                        <span style="color:#037187;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://stats.stackexchange.com/"><font><font>estadísticas </font></font></a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://tex.stackexchange.com/"><font><font>tex </font></font></a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://english.stackexchange.com/"><font><font>Inglés </font></font></a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://cstheory.stackexchange.com/"><font><font>teórico cs </font></font></a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://programmers.stackexchange.com/"><font><font>programadores </font></font></a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://unix.stackexchange.com/"><font><font>unix </font></font></a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://apple.stackexchange.com/"><font><font>manzana </font></font></a>&nbsp;
+                        <span style="color:#939185;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://wordpress.stackexchange.com/"><font><font>wordpress </font></font></a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://physics.stackexchange.com/"><font><font>física </font></font></a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://diy.stackexchange.com/"><font><font>mejoras para el hogar </font></font></a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://gis.stackexchange.com/"><font><font>SIG </font></font></a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://electronics.stackexchange.com/"><font><font>electrónicos </font></font></a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://android.stackexchange.com/"><font><font>Android </font></font></a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://security.stackexchange.com/"><font><font>seguridad </font></font></a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://bicycles.stackexchange.com/"><font><font>bicicletas </font></font></a>&nbsp;
+                        <span style="color:#00adee;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://dba.stackexchange.com/"><font><font>dba </font></font></a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://drupal.stackexchange.com/"><font><font>drupal </font></font></a>&nbsp;
+                        <span style="color:#213951;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://sharepoint.stackexchange.com/"><font><font>SharePoint </font></font></a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://scifi.stackexchange.com/"><font><font>ciencia ficción y fantasía </font></font></a>&nbsp;
+                        <span style="color:#23629F;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://ux.stackexchange.com/"><font><font>la experiencia del usuario </font></font></a>&nbsp;
+                        <span style="color:#faff72;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://skeptics.stackexchange.com/"><font><font>escépticos </font></font></a>&nbsp;
+                        <span style="color:#623121;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://rpg.stackexchange.com/"><font><font>RPG </font></font></a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%"><font><font>■ </font></font></span>&nbsp;<a href="http://judaism.stackexchange.com/"><font><font>judaísmo</font></font></a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev"><font><font>rev 2012.6.19.3024</font></font></div>
+            </div>
+            <div id="copyright"><font><font>
+                sitio de diseño / logotipo © 2012 pila Exchange Inc; contribuciones de los usuarios bajo licencia </font></font><a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><font><font>cc-wiki</font></font></a><font><font> con </font></font><a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license"><font><font>la atribución necesaria</font></font></a>
+            </div>
+            
+
+        </div>
+    <iframe id="global-auth-frame" style="display:none" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/read.htm"></iframe></div>
+    
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|hibernate|spring|gwt|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>    
+    
+    <script type="text/javascript" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/jquery.min.js"></script><script type="text/javascript" src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/stub.js"></script>    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8965394});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '8965394');
+        });
+    </script>    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1340145618,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"newTitleSearchBoxEnabled":false},"user":{"isAnonymous":true,"fkey":"e300395b4b6b5cc6e142eb70fef2cc81","notificationsUnviewedCount":0,"inboxUnviewedCount":-1}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"d1cd9a23171c","js/moderator.js":"8c49fc268737","js/full-anon.js":"8577eab04b42","js/full.js":"e6770c069b64","js/wmd.js":"eb1157179598","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6e412827da99","js/help.js":"fc9fb0517db2","js/tageditor.js":"c1ba807b32aa","js/tageditornew.js":"bd66fabe1c71","js/inline-tag-editing.js":"be882e188985","js/revisions.js":"8c6bcd93b7fe","js/suggested-edits.js":"03fb8d2c4068","js/probes.js":"beb933322ff0"});
+        
+    </script><script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+    });  
+</script><script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/8965394/ivc/9311');});
+</script><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; display: none; left: 294px; top: 950px; "><div style="padding: 8px;"><div><div class="logo"><img src="./hibernación - el envío de objetos durante la primavera a GWT - desbordamiento de pila_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">On client side you'll be operating only DTOs.</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0; "></div></div>
+    
+
+</body></html>
