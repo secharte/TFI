@@ -1,0 +1,283 @@
+1- Agregamos las dependencias faltantes al proyecto:  “tools.jar”
+
+<profile>
+  <id>default-tools.jar</id>
+  <activation>
+	<property>
+	  <name>java.vendor</name>
+	  <value>Sun Microsystems Inc.</value>
+	</property>
+  </activation>
+  <dependencies>
+	<dependency>
+	  <groupId>com.sun</groupId>
+	  <artifactId>tools</artifactId>
+	  <version>1.5.0</version>
+	  <scope>system</scope>
+	  <systemPath>C:/Program Files/Java/jdk1.6.0_07/lib/tools.jar</systemPath>
+	</dependency>
+  </dependencies>
+</profile>
+
+
+
+
+
+2- Agregar la dependencia de Struts 2.
+
+<dependency>
+	<groupId>org.apache.struts</groupId>
+	<artifactId>struts2-core</artifactId>
+	<version>2.3.4.1</version>
+</dependency>
+
+
+
+
+3- Al final el pom debería quedar así:
+
+<Project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.agafix</groupId>
+  <artifactId>tuto_hello</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>tuto_hello Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <!–- tools.jar dependecy -–>
+  <profiles>
+    <profile>
+      <id>default-tools.jar</id>
+      <activation>
+        <property>
+          <name>java.vendor</name>
+          <value>Sun Microsystems Inc.</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.sun</groupId>
+          <artifactId>tools</artifactId>
+          <version>1.5.0</version>
+          <scope>system</scope>
+          <systemPath>C:/Program Files/Java/jdk1.6.0_07/lib/tools.jar</systemPath>
+        </dependency>
+ 	</dependencies>
+    </profile>
+  </profiles>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+        <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-core</artifactId>
+        <version>2.3.4.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>tuto_hello</finalName>
+  </build>
+
+</project>
+
+Cambiar:  <systemPath>${java.home}../../jdk1.6.0_25/lib/tools.jar</systemPath>
+
+
+4- Creamos una nueva acción en el paquete que recién creamos.
+
+package tutorial;
+import com.opensymphony.xwork2.ActionSupport;
+public class HelloAction extends ActionSupport {
+  private static final long serialVersionUID = 1L;
+  public static final String MESSAGE = "La vache quoi !!!";
+  private String message;
+  public String execute()  {
+      setMessage(MESSAGE);
+      return SUCCESS;
+  }
+  public String getMessage() {
+      return message;
+  }
+  public void setMessage(String message) {
+      this.message = message;
+  }
+}
+
+
+
+
+
+5- Modificar el archivo index.jsp
+
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<html>
+  <body>
+    <h2><s:property value="message"/></h2>
+  </body>
+</html>
+
+
+
+
+6- Creamos el archivo struts.xml en “src/main/resources”
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+      "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+        <package name="tutorial" namespace="/" extends="struts-default">
+        <action name="hello" class="tutorial.HelloAction">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+</struts>
+
+
+
+
+7- Agregamos la referencia al archivo struts.xml en el web.xml.
+
+<!DOCTYPE web-app PUBLIC
+"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+  <display-name>A real struts/maven hello world project</display-name>
+  <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>
+
+
+
+
+8- Creamos una clase de test para la acción que creamos anteriormente.
+
+package tutorial;
+import junit.framework.TestCase;
+import com.opensymphony.xwork2.ActionSupport;
+public class HelloActionTest extends TestCase {
+  public void testhelloAction() throws Exception {
+    HelloAction index = new HelloAction();
+    String result = index.execute();
+    assertTrue("Expected a success result!", ActionSupport.SUCCESS.equals(result));
+    assertTrue("Expected the default message!", HelloAction.MESSAGE.equals(index.getMessage()));
+    }
+}
+
+
+
+APLICACION LOGIN:
+
+
+9- A continuación vemos el código del fichero login.jsp:
+
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<html>
+	<head><title>Struts 2 Login Application!</title></head>
+	<body>
+<s:form action="doLogin" method="POST">
+ 	<tr><td colspan="2">Login</td></tr>
+	<tr><td colspan="2">
+     	 	<s:actionerror />
+		<s:fielderror />
+	</td></tr>
+ 	<s:textfield name="username" label="Login name"/>
+	<s:password name="password" label="Password"/>
+	<s:submit value="Login" align="center"/>
+</s:form>
+	</body>
+</html>
+
+
+
+
+
+10- La página loginsuccess.jsp
+
+<html> 
+<head> 
+<title>Login Success</title>  
+</head>
+<body>
+       <p align="center"><fontcolor="#000080"size="5">Login Successful</font></p> 
+ </body> 
+</html> 
+
+
+
+
+
+11- Nuestro Action:
+
+package sample;
+import com.opensymphony.xwork2.ActionSupport;
+import java.util.Date;
+/*** <p> Validate a user login. </p> 
+*/
+public class Login extends ActionSupport {
+public String execute() throws Exception {
+	System.out.println("Validating login");
+	if( !getUsername().equals("Admin") || !getPassword().equals("Admin") ) {
+		addActionError("Invalid user name or password! Please try again!");
+		return ERROR;
+	} else { 
+		return SUCCESS;
+	}
+}
+// ---- Username property ----
+private String username = null; 
+private String password = null;
+
+public String getUsername() {
+	return username;
+} 
+public void setUsername(String value) {
+	username = value;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String value) {
+	password = value;
+} 
+}
+
+
+
+
+
+12- Configuración del action; el código que tenemos que añadir en el struts.xml es el que sigue:
+
+<action name="showLogin">
+	<result>/pages/login.jsp</result>
+</action>
+<action name="doLogin" class="sample.Login">
+	<result name="input">/pages/login.jsp</result>
+	<result name="error">/pages/login.jsp</result>
+    <result>/pages/loginsuccess.jsp</result>
+</action>
+
+
+
+
+
+
+
+
