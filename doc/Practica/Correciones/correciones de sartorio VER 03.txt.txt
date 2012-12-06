@@ -1,0 +1,40 @@
+
+
+De lo que vi hasta ahora te puedo adelantar que están faltando
+referenciar mas publicaciones de las que te estuve mandando. Creo que
+con 4 o 5  estaría. Ponete a buscarlas, compilalas y mandamela que te
+ayudo a verlas.
+
+
+1. Te paso el documento con comentarios y marcaciones.
+
+2. Además te copio unos comentarios que fuí haciendo aparte.
+
+3. Recomendaciones:
+
+3.0 Hacete ver el paper por algún informático para que te diga si
+entiende lo que está contando. Fijate lo que no entiende en la primera
+lectura a ver si hay algo para arreglar.
+
+3.1 Hacete corregir la redacción por un amigo
+
+3.2 Tené presente todas las marcaciones que te fuí haciendo antes
+
+3.3 Pegale varias lectura al paper enfocado en diferentes cosas por
+cada lectura que haces. Por ejemplo:
+
+3.3.1 la coherencia del los ejemplos, que estén combinados
+
+3.3.2 si el texto y la figuras se complementan
+
+3.3.3  si entre las figuras se referencian implícita o explicitamente
+
+
+4. Tareas:
+
+4.1 Leer 5 publicaciones en las que se pueda referenciar en las
+distintas secciones. Pasame las publicaciones y el comentario donde
+referenciarlas
+
+4.2 Escribir requerimientos funcionales puntuales del estilo que
+hablamos la última charla.
