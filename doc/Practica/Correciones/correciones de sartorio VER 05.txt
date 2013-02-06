@@ -1,0 +1,42 @@
+Seba,
+
+
+ Te paso algo puntual para que arregles del paper para cerrar la
+primera etapa. Luego vamos a encarar otra para la publicación.
+
+
+
+Tema 1.
+
+Le falta una vuelta de rosca a cómo quedó contado la aplicación de MVP
+utilizando GWT.  Puntualmente lo que pasa es que estás hablando de
+tres cosas.
+
+1. GWT
+
+2.  Las clases o componentes que usas para la implementación de la aplicación
+
+3. El MVP
+
+Lo que no queda bien es cuando estás contando como hiciste para
+aplicar mvp utilizando el frame gwt y estas nombrando componente gwt
+pero de la propia implementación. Esto no está bien porque no está
+introducido esta última.
+
+Para solucionarlo podes hacer otro diagrama donde aparezcan los
+módulos de la implementación y luego cuando lo nombres hacé referencia
+a este diagrama.
+
+
+
+Tema 2.
+
+Hacete un blog, una wiki, algún archivo de google doc - lo que vos
+quieras - donde estén todas las correcciones que te fuí haciendo
+anotadas en forma de items.
+
+Esto te lo pido porque hay muchas cosas que te fuí marcando que
+todavía no se corrigieron y me cuesta ir a buscar el documento o
+volverte a marcar. Lo mejor es tenerlo visible así lo podemos ir
+viendo y repasando en función de eso.
+
