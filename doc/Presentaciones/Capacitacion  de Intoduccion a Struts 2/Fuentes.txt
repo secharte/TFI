@@ -1,0 +1,29 @@
+Struts 2:
+
+http://juanjofr.com/blog/crear-un-proyecto-para-struts-2-con-m2eclipse/
+
+http://www.youtube.com/watch?v=4WL4-Frlgy4
+
+http://www.decodigo.com/2009/06/1-ejemplo-struts2_17.html
+
+http://www.kamlov.site90.net/?p=613
+
+http://www.roseindia.net/struts/struts2/
+
+http://www.javatutoriales.com/2011/10/struts-2-parte-3-trabajo-con.html
+
+
+(Action Context y demas cosas)
+http://www.javatutoriales.com/2011/12/struts-2-parte-4-scopes-de-objetos-web.html
+
+( Muy completo )
+http://es.scribd.com/doc/52029539/4/Struts-1-vs-Struts-2
+
+
+
+
+Maven:
+
+http://www.adictosaltrabajo.com/tutoriales/tutoriales.php?pagina=maven#mozTocId932431
+http://chuidiang.org/content/integraci%C3%B3n-de-maven-con-eclipse
+

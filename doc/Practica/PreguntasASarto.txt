@@ -7,3 +7,4 @@ De reunion 27/11/12:
 	Los casos de usos deben estas mas resumidos.
 	Paper de los patrones utilizados 
 	Cambiar el Codigo Fuente por graficos UML se puede.
+	Espero que sea todo.
