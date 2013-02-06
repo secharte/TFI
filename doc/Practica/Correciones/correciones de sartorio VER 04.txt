@@ -1,0 +1,70 @@
+
+Seba, te paso unos comentarios que no agregué en el punto 2 de las
+correcciones anteriores, recién ahora me doy cuenta. Es fundamental
+que cambies todas estas cosas.
+
+No pierdas mas tiempo en acomodar la redacción, eso lo dejamos para
+otra etapa. Ahora concentrate en las cuestiones de fondo del trabajo
+que te explico a continuación.
+
+
+Si te resulta cómodo, insertá un comentario con un número que
+identifique que corrección estás haciendo. Así es mas fácil para
+corregir y vos tenés una guía de que cosa vas implementando.
+
+
+- En la Introducción:
+
+Hablar solamente de que vas a hacer una aplicación de tal
+característica usando gwt y aplicando técnicas de ingeniería de soft
+para el diseño  y de la arquitectura y la implementación de las
+funcionalidades.
+
+Tiene que quedar muy claro en la intro que tu aporte es aplicar mvp y
+aplicar patrones para resolver los requerimientos funcionales que vas
+a enumerar a continuación.
+
+- Hay cosas mal redactadas. Algunas las pinté en amarillo, otras las
+vas a nontrar leyendo el documento.
+
+- Hay que poner requerimientos funcionales que se resuelvan en la
+etapa de diseño.
+
+- Lo que está en verde no va.  Tenés que acomodar para que cuando lo
+saques quede bien.
+
+
+- Ojo con esribir de esta manera:
+-- que va a ser lo que
+
+-- de las vistas los que son
+
+- bssyj   poné la primera en mayúscula o no se si se usa usarla toda.
+
+- Fijate que te marqué muchas palabras en amarrillo por hablar en
+primera del plurar.
+
+- Cuando hablas de los patrones:
+Poné esto en dos párrafos sin enumerar y diciendo el porqué lo
+aplicaste para resolver tus requerimiento. No hables del patrón en
+términos genérico.
+
+- Debería quedar mas claro en la redacción cuando estás solucionando
+aspecto de diseño de la aplicación y cuando estás interpretando la
+infraestructura de GWT.
+
+- En la fig 2 y 3 no deberías describir tan literariamente los
+módulos. Por ejemplo, en <presentador> poner Eventos, Transacciones,
+Sincronizador datos
+ 
+- Como la fig 2,3 es de diferente tipo que la fig4 hay que comentar
+que significa una y que significa la otra y a que nivel se está
+habalndo.  Por ejemplo: 2,3 puede ser un esquema conceptual  para
+representar tal cosa xxx
+
+- Hay que hacerle una intro a la parte de la implementación y decir
+que es lo que se a mostra en lineas grales.
+
+- Todo lo que es código no va en figura
+
+- Poner a todos estos componentes en cursiva EmpleadoView
