@@ -1,0 +1,29 @@
+Te paso las correcciones que pude marcar. Me fata seguir pero te lo
+paso para que vayas arreglando estas cosas.
+
+Mejoró mucho.
+
+Sigo viendo que falta un poco mas de integración entre las componentes
+que vos diseñaste e implentaste usando GWT y el frame GWT y el MVP.
+Tiene que quedar bien claro cuando estás hablando de una componentes
+de la implementación cuando la nombras de donde provee.
+
+(**) Lo que me faltó controlar bien es si vas referenciando en los
+ejemplos de código los casos de usos. Debería haber una coherencia
+explícita y remarcada de que el caso de uso, diagrama de secuencia, el
+ejemplo de la implementación y todo lo del diseño están fuertemente
+relacionado. Eso se logra muy bien explicando cuando aparece algo a
+que cosa de los demás refiere.
+
+
+Tené muy, muy ! en cuenta esto último que te digo.
+
+Version del 26/2----
+Te mando un par de correcciones mas para que veas.
+
+Fijate que la sección 5 tiene mucho errores de escritura. Esa sección
+es la que menos corregimos pero aplicale todos los criterios que te te
+fuí marcados.
+
+Supongo que no la leyó nadie porque realmente está complicado
+entenderlo por como está redactado. Ojo con esto.
